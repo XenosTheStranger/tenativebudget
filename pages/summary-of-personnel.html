@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personnel Budget — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content" data-hub="personnel">
+
+<!-- Visually hidden: nav.js's ensureWcBreadcrumb() reads .page-eyebrow/.page-title
+     by class only (not tag), so these exist purely to drive the breadcrumb
+     without duplicating the visible <h1> in wc-hub-head below. -->
+<div class="page-eyebrow" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Financial Plan</div>
+<span class="page-title" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Personnel Budget</span>
+
+<header class="wc-hub-head">
+  <p class="wc-hub-eyebrow">Personnel Budget</p>
+  <h1 class="wc-hub-answer"><span data-hub-stat="fte">&mdash;</span> people work for Walton County.</h1>
+  <p class="wc-hub-sub">Roughly half of them work in public safety. This page answers the common questions about the County workforce &mdash; how many, what they cost, what is changing, and how those decisions get made.</p>
+  <ul class="wc-hub-stats">
+    <li><strong data-hub-stat="fte">&mdash;</strong><span>Authorized full-time equivalents</span></li>
+    <li><strong data-hub-stat="fteChange">&mdash;</strong><span>Change from FY 2026</span></li>
+    <li><strong data-hub-stat="cost">&mdash;</strong><span>Budgeted personnel cost</span></li>
+    <li><strong data-hub-stat="overtime">&mdash;</strong><span>Budgeted overtime</span></li>
+  </ul>
+</header>
+
+<div class="wc-hub-grid">
+
+  <details class="wc-hub-q" id="q-how-many">
+    <summary>
+      <h2>How many people work for the County?</h2>
+      <p class="wc-hub-q-answer"><span data-hub-stat="fte">&mdash;</span> FTE</p>
+      <p class="wc-hub-q-note"><span data-hub-stat="fullTime">&mdash;</span> full-time and <span data-hub-stat="partTime">&mdash;</span> part-time budgeted positions in the departments the Board controls, plus the Constitutional Officers.</p>
+      <span class="wc-hub-more">Full-time, part-time and scope</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <p>A full-time equivalent, or FTE, is a way of counting budgeted work rather than people. Two people each working half the year count as one FTE, and an authorized position that sits vacant still counts. It is a measure of what the budget pays for, not a headcount of who is at a desk today.</p>
+      <div id="wf-composition"></div>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-cost">
+    <summary>
+      <h2>What do they cost?</h2>
+      <p class="wc-hub-q-answer" data-hub-stat="cost">&mdash;</p>
+      <p class="wc-hub-q-note">Salaries and wages, retirement, health insurance, payroll taxes, and workers&rsquo; compensation for every County office.</p>
+      <span class="wc-hub-more">How the cost breaks down</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <p>The total budgeted personnel cost is <strong data-hub-stat="costExact">&mdash;</strong>. Of that, <strong data-hub-stat="lumpSum">&mdash;</strong> is the personnel budgets of the independently elected Constitutional Officers, which they set themselves and submit to the County as a single figure rather than position by position.</p>
+      <p>The <a href="#wc-personnel-cost-section" data-personnel-goto="detail">personnel cost table</a> separates salaries, retirement, health insurance and other benefits for every Board-controlled department, and can be opened down to individual budgeted positions.</p>
+    </div>
+  </details>
+
+  <details class="wc-hub-q is-wide" id="q-what-do-they-do">
+    <summary>
+      <h2>What do they all do?</h2>
+      <p class="wc-hub-q-answer">Half work in public safety</p>
+      <p class="wc-hub-q-note">The budget groups departments by function, so the workforce can be read the same way as the money.</p>
+      <span class="wc-hub-more">Staffing by function</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <div id="wf-function"></div>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-changing">
+    <summary>
+      <h2>What is changing this year?</h2>
+      <p class="wc-hub-q-answer" data-hub-stat="fteChange">&mdash;</p>
+      <p class="wc-hub-q-note">Most of the increase is in beach services. Two departments are set to shrink.</p>
+      <span class="wc-hub-more">Every planned change</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <div id="wf-changes"></div>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-add-a-job">
+    <summary>
+      <h2>How does the County decide to add a job?</h2>
+      <p class="wc-hub-q-answer">A written justification</p>
+      <p class="wc-hub-q-note">Reviewed and approved by County Administration before the position can enter the tentative budget.</p>
+      <span class="wc-hub-more">How the review works</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <p>A department cannot add a position simply by including it in its request. The department must submit a written staffing justification explaining the service need the position addresses, and County Administration reviews and approves it before the position enters the tentative budget. Requests that are not approved never reach the Board.</p>
+      <p>That is why authorized FTE moves by small amounts in most departments: each additional position has been argued for individually rather than applied as an across-the-board allowance.</p>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-market">
+    <summary>
+      <h2>Is County pay competitive?</h2>
+      <p class="wc-hub-q-answer">15.6% below market</p>
+      <p class="wc-hub-q-note">Measured at the midpoint against 20 peer counties and cities in an independent 2023 study.</p>
+      <span class="wc-hub-more">What the study found</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <p>An independent Compensation and Classification Study by Evergreen Solutions, presented to the Board in July 2023, benchmarked 78 County job classifications against 20 peer employers. County pay ranges were 21.8% below the market at the minimum, 15.6% below at the midpoint, and 5.2% below at the maximum.</p>
+      <p>The County responded by adopting revised pay plans built to be competitive at the middle of the market. <a href="#wc-paystudy-title" data-personnel-goto="market">See the full comparison and what it costs to close the gap</a>, or <a href="https://www.mywaltonfl.gov/DocumentCenter/View/45413/Pay-Study-Presentation-for-Walton-07-05-2023" target="_blank" rel="noopener noreferrer">read the study</a>.</p>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-raises">
+    <summary>
+      <h2>Are employees getting a raise?</h2>
+      <p class="wc-hub-q-answer">3% cost of living</p>
+      <p class="wc-hub-q-note">No mid-year or across-the-board adjustment is planned beyond this.</p>
+      <span class="wc-hub-more">Merit increases and timing</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <p>The tentative budget includes a 3% cost-of-living adjustment, and that is the only general increase planned for FY 2027.</p>
+      <p>Separately, a department director may work with Human Resources and County Administration to award a merit increase to an employee whose performance goes above and beyond what the job requires. These are individual awards made under the County&rsquo;s established pay policy, not a scheduled increase applied to a group.</p>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-overtime">
+    <summary>
+      <h2>How much overtime does the County pay?</h2>
+      <p class="wc-hub-q-answer" data-hub-stat="overtime">&mdash;</p>
+      <p class="wc-hub-q-note">Up <span data-hub-stat="overtimeGrowth">&mdash;</span> over the last five years of actuals, and concentrated in Public Works.</p>
+      <span class="wc-hub-more">Eight-year trend</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <div id="wf-overtime"></div>
+    </div>
+  </details>
+
+  <details class="wc-hub-q" id="q-premium">
+    <summary>
+      <h2>Who gets paid extra for weekends and shifts?</h2>
+      <p class="wc-hub-q-answer">Beach and field crews</p>
+      <p class="wc-hub-q-note">Scheduled premium pay, budgeted separately from overtime.</p>
+      <span class="wc-hub-more">Premium pay by department</span>
+    </summary>
+    <div class="wc-hub-q-body">
+      <div id="wf-premium"></div>
+    </div>
+  </details>
+
+</div>
+
+<h2 class="wc-hub-section-title">Authorized staffing, department by department</h2>
+<div id="personnel-summary"></div>
+<div id="personnel-summary-notes"></div>
+
+<section class="wc-workforce-assumptions" id="wc-workforce-assumptions" aria-labelledby="wc-workforce-assumptions-title">
+  <div class="wc-workforce-assumptions-heading">
+    <span>Workforce Planning</span>
+    <h2 id="wc-workforce-assumptions-title">Major personnel cost assumptions</h2>
+    <p>The assumptions below explain how to interpret the FY 2027 personnel-cost table and its optional comparison columns.</p>
+  </div>
+  <div class="wc-workforce-assumptions-grid">
+    <article>
+      <strong>3%</strong>
+      <h3>Cost-of-living adjustment</h3>
+      <p>The tentative Salaries &amp; Wages amounts already include a 3% COLA. The optional COLA column identifies the portion of the displayed salary total attributable to that adjustment; it is not added again.</p>
+    </article>
+    <article>
+      <strong>5.5%</strong>
+      <h3>Health-insurance scenario</h3>
+      <p>The optional 5.5% Health Insurance Scenario column shows the effect of a premium increase for planning context. It is informational only and is not included in the tentative personnel total.</p>
+    </article>
+    <article>
+      <strong>FTE</strong>
+      <h3>Position decisions</h3>
+      <p>Authorized FTE by year and staffing notes for tentative additions, reductions, and transfers appear in the &ldquo;Full detail&rdquo; tab above.</p>
+    </article>
+    <article>
+      <strong>Scope</strong>
+      <h3>Workforce-data limitation</h3>
+      <p>These are budgeted positions and costs, not actual filled headcount. The current budget materials do not report vacancy rates, hiring time, or employee turnover.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-paystudy" id="wc-paystudy" aria-labelledby="wc-paystudy-title">
+  <h2 id="wc-paystudy-title">How County pay compares to the market</h2>
+  <p>Walton County commissioned an independent Compensation and Classification Study from Evergreen Solutions, LLC, presented to the Board on July 5, 2023. It is the reference point the County uses to judge whether its pay is keeping pace with what comparable employers offer, and it is the reason the pay plan looks the way it does today.</p>
+
+  <div class="wc-paystudy-metrics">
+    <div class="wc-paystudy-metric"><strong>20</strong><span>Peer counties and cities surveyed</span></div>
+    <div class="wc-paystudy-metric"><strong>78</strong><span>Job classifications benchmarked</span></div>
+    <div class="wc-paystudy-metric"><strong>930+</strong><span>Market data points collected</span></div>
+    <div class="wc-paystudy-metric"><strong>15.6%</strong><span>Below the market midpoint when the study was completed</span></div>
+  </div>
+
+  <div class="wc-paystudy-grid">
+    <article>
+      <h3>What the study found</h3>
+      <p>Measured against the 50th percentile of the market, County pay ranges sat <strong>21.8% below at the minimum, 15.6% below at the midpoint, and 5.2% below at the maximum</strong>. Most employees were paid in the lower half of their own range: 70.7% fell below the midpoint of the grade they were assigned to.</p>
+      <p>The study also identified salary compression. Roughly 14.5% of employees earned within 20% of their supervisor&rsquo;s salary, and 3.8% earned more than their supervisor.</p>
+    </article>
+    <article>
+      <h3>Who the County was compared against</h3>
+      <p>Peers included the neighbouring and regionally comparable counties of Escambia, Santa Rosa, Okaloosa, Bay, Holmes, Washington, Monroe, Gulf, Putnam, Nassau and Hernando, along with Baldwin County, Alabama.</p>
+      <p>Because the County competes for staff with nearby municipalities as well as other counties, the survey also covered the cities of DeFuniak Springs, Destin, Fort Walton Beach, Panama City, Panama City Beach, Pensacola, Crestview and Niceville.</p>
+    </article>
+    <article>
+      <h3>What the County did about it</h3>
+      <p>The study produced revised non-exempt and exempt pay plans built to be competitive at the 50th percentile, with consistent grade progression and a 65% range spread, and a reduced number of steps in the non-exempt plan.</p>
+      <p>Evergreen costed four ways of moving employees onto the new plans, ranging from <strong>$1.65 million</strong> to bring everyone to the new grade minimum up to <strong>$2.60 million</strong> for full hire-year parity. The blended approach &mdash; hybrid-year placement for non-exempt staff and class-year parity for exempt staff &mdash; was costed at <strong>$2.27 million</strong>, affecting 519 employees at an average adjustment of 8.76%.</p>
+    </article>
+    <article>
+      <h3>How employees were involved</h3>
+      <p>The study was not built from payroll records alone. All employees were surveyed in January 2023 and <strong>211 responded</strong>, and on-site interviews and focus groups were held across departments and management levels.</p>
+      <p>Every classification was scored through a Job Assessment Tool on five factors &mdash; leadership, working conditions, complexity, decision making, and relationships &mdash; with employee input, supervisor review, and separate review by the consultant and Human Resources.</p>
+    </article>
+  </div>
+
+  <p><strong>Keeping the comparison current.</strong> Evergreen recommended that the County run small-scale salary surveys as needed for hard-to-fill classifications and repeat a comprehensive study every three to five years. <span class="wc-review-flag">On that schedule the next comprehensive study falls due between 2026 and 2028, and this budget does not state whether one is planned or funded. Confirm the County&rsquo;s intent and record it here, together with which implementation option the Board adopted and how much of it has been funded to date.</span></p>
+
+  <p><a class="wc-paystudy-link" href="https://www.mywaltonfl.gov/DocumentCenter/View/45413/Pay-Study-Presentation-for-Walton-07-05-2023" target="_blank" rel="noopener noreferrer">Read the full Compensation and Classification Study</a></p>
+</section>
+
+<section id="wc-personnel-cost-section">
+  <h2 class="wc-hub-section-title">Personnel cost, department by department</h2>
+  <p class="wc-personnel-cost-narrative">Budgeted Personnel Services costs by department for the tentative fiscal year, split into Salaries &amp; Wages (regular salaries, other salaries, and overtime), Retirement, Health Insurance, and Other Benefits &amp; Taxes (FICA/Medicare, workers&rsquo; compensation, and unemployment compensation). This is a dollar-cost companion to the FTE position counts shown in the &ldquo;Full detail&rdquo; tab above. It does not include personnel costs for the Clerk of Courts, Property Appraiser, Supervisor of Elections, Tax Collector, or Sheriff&rsquo;s Office &mdash; independently elected Constitutional Officers who set and manage their own personnel budgets.</p>
+  <div id="personnel-cost-summary"></div>
+</section>
+
+<style>
+  .wc-personnel-cost-narrative{
+    max-width:90ch;
+    margin:0 0 22px;
+    color:var(--muted);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14.5px;
+    line-height:1.7;
+  }
+  .wc-workforce-assumptions{
+    margin:30px 0 36px;
+    padding:30px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:var(--light);
+  }
+  .wc-workforce-assumptions-heading span{
+    display:block;
+    margin-bottom:7px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .wc-workforce-assumptions-heading h2{
+    margin:0 0 9px;
+    color:var(--text);
+    font-size:clamp(27px,4vw,39px);
+  }
+  .wc-workforce-assumptions-heading p{
+    max-width:900px;
+    margin:0;
+    color:var(--muted);
+    line-height:1.65;
+  }
+  .wc-workforce-assumptions-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:22px;
+  }
+  .wc-workforce-assumptions-grid article{
+    position:relative;
+    padding:22px 22px 22px 78px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:#ffffff;
+  }
+  .wc-workforce-assumptions-grid article>strong{
+    position:absolute;
+    top:22px;
+    left:20px;
+    display:grid;
+    place-items:center;
+    width:46px;
+    min-height:38px;
+    color:var(--green);
+    font-size:16px;
+    line-height:1;
+  }
+  .wc-workforce-assumptions-grid h3{
+    margin:0 0 7px;
+    color:var(--text);
+    font-size:17px;
+  }
+  .wc-workforce-assumptions-grid p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.62;
+  }
+  :root[data-theme="dark"] .wc-workforce-assumptions-grid article{
+    background:rgba(14,28,22,.92);
+  }
+  @media(max-width:760px){
+    .wc-workforce-assumptions{ padding:22px; }
+    .wc-workforce-assumptions-grid{ grid-template-columns:1fr; }
+  }
+  .wc-personnel-cost-optional-col{
+    display:none;
+  }
+  body.wc-show-personnel-cost-optional-cols .wc-personnel-cost-optional-col{
+    display:table-cell;
+  }
+  /* The "Show COLA, Health Insurance & Increase" toggle sets a body-level
+     class (see renderPersonnelCostSummary in budget-data.js), but the
+     per-department "View Budget Lines" popup reuses this same
+     .wc-personnel-cost-optional-col class on its own Cost by Position
+     table. Without this override, toggling the main page's columns on
+     would also reveal those columns inside the popup, which should always
+     stay hidden regardless of the main table's toggle state. */
+  body.wc-show-personnel-cost-optional-cols .wc-budget-detail-modal .wc-personnel-cost-optional-col{
+    display:none;
+  }
+  #wcPersonnelCostExportAllButton{
+    display:none;
+  }
+  :root[data-theme="dark"] #wcPersonnelCostExportAllButton{
+    display:inline-block;
+  }
+  /* The per-department "View Budget Lines" popup (see the click-guard
+     script below) is dark-mode only. In light mode the department name
+     should just read as plain text -- no pointer cursor, no hover
+     underline, no trailing arrow glyph -- so it doesn't look clickable
+     when it isn't. */
+  :root:not([data-theme="dark"]) #personnel-cost-summary .wc-view-budget-lines-toggle.wc-table-row-link{
+    cursor:default;
+    pointer-events:none;
+  }
+  :root:not([data-theme="dark"]) #personnel-cost-summary .wc-view-budget-lines-toggle.wc-table-row-link:hover{
+    text-decoration:none;
+  }
+  :root:not([data-theme="dark"]) #personnel-cost-summary .wc-view-budget-lines-toggle.wc-table-row-link::after{
+    content:none;
+  }
+  .wc-paystudy{margin:34px 0;padding:30px;border:1px solid var(--border);border-radius:22px;background:var(--light)}
+  .wc-paystudy h2{margin:0 0 8px;color:var(--text);font-size:clamp(24px,3.4vw,34px)}
+  .wc-paystudy>p{max-width:90ch;margin:0 0 18px;color:var(--muted);line-height:1.7}
+  .wc-paystudy-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 20px}
+  .wc-paystudy-metric{padding:18px;border:1px solid var(--border);border-radius:15px;background:var(--surface,#fff);text-align:center}
+  .wc-paystudy-metric strong{display:block;color:var(--green);font-size:26px;line-height:1.1}
+  .wc-paystudy-metric span{display:block;margin-top:6px;color:var(--muted);font-size:12.5px;line-height:1.45}
+  .wc-paystudy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 18px}
+  .wc-paystudy-grid article{padding:22px;border:1px solid var(--border);border-radius:16px;background:var(--surface,#fff)}
+  .wc-paystudy-grid h3{margin:0 0 8px;color:var(--text);font-size:17px}
+  .wc-paystudy-grid p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.65}
+  .wc-paystudy-grid p:last-child{margin-bottom:0}
+  .wc-paystudy-link{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--green);color:#fff;font-weight:900;font-size:13px;text-decoration:none}
+  :root[data-theme="dark"] .wc-paystudy-link{color:#062015}
+  :root[data-theme="dark"] .wc-paystudy-metric,:root[data-theme="dark"] .wc-paystudy-grid article{background:rgba(14,28,22,.92)}
+  @media(max-width:860px){.wc-paystudy-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.wc-paystudy-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.wc-paystudy{padding:22px}}
+</style>
+
+<style>
+  .wc-personnel-experience{margin-top:34px}
+  .wc-personnel-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
+  .wc-personnel-tab{min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+  .wc-personnel-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(0,63,40,.16)}
+  .wc-personnel-tab:focus-visible{outline:3px solid rgba(209,190,120,.65);outline-offset:2px}
+  .wc-personnel-panel{min-height:300px;padding-top:26px}
+  .wc-personnel-panel[hidden]{display:none!important}
+  .wc-personnel-panel-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 18px}
+  .wc-personnel-panel-intro h2{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,3.6vw,38px)}
+  .wc-personnel-panel-intro p{max-width:520px;margin:0;color:var(--muted);line-height:1.6}
+  .wc-personnel-panel .wc-hub-grid{margin:0}
+  .wc-personnel-gap-note{margin:22px 0 0;padding:20px;border-left:5px solid var(--gold);background:var(--light);color:var(--muted);font-size:14px;line-height:1.65;border-radius:0 14px 14px 0}
+  .wc-personnel-gap-note strong{color:var(--text)}
+  @media(max-width:900px){
+    .wc-personnel-tabs{grid-template-columns:repeat(3,1fr)}
+    .wc-personnel-panel-intro{display:block}
+    .wc-personnel-panel-intro p{margin-top:8px}
+  }
+  @media(max-width:620px){
+    .wc-personnel-tabs{grid-template-columns:1fr 1fr}
+  }
+</style>
+
+<script>
+/* Compact, click-through personnel experience. Existing hub cards and data
+   mounts (wf-composition, wf-function, wf-changes, wf-overtime, wf-premium,
+   personnel-summary, personnel-summary-notes) keep their ids and are only
+   relocated into panels -- budget-hub.js and workforce-composition.js still
+   find and populate them normally regardless of load order. */
+(function(){
+  function initPersonnelExperience(){
+    var main=document.querySelector('main#content[data-hub="personnel"]');
+    var grid=main&&main.querySelector('.wc-hub-grid');
+    var sectionTitle=main&&main.querySelector('.wc-hub-section-title');
+    if(!main||!grid||document.querySelector('.wc-personnel-experience')) return;
+
+    var byId=function(id){ return document.getElementById(id); };
+    var groups={
+      overview:{
+        title:'The FY 2027 workforce at a glance',
+        note:'Start with how the workforce is organized by function.',
+        cards:['q-what-do-they-do']
+      },
+      who:{
+        title:'Who works here',
+        note:'Full-time and part-time positions, and how a department gets a new one approved.',
+        cards:['q-how-many','q-add-a-job']
+      },
+      pay:{
+        title:'What they cost',
+        note:'Salaries, benefits, raises, overtime, and premium pay.',
+        cards:['q-cost','q-raises','q-overtime','q-premium']
+      },
+      market:{
+        title:'Market position and year-over-year change',
+        note:'Whether County pay keeps up with peers, and what is changing in FY 2027.',
+        cards:['q-market','q-changing']
+      }
+    };
+
+    var shell=document.createElement('section');
+    shell.className='wc-personnel-experience';
+    shell.innerHTML='<div class="wc-personnel-tabs" role="tablist" aria-label="Explore the personnel budget">'+
+      '<button class="wc-personnel-tab" type="button" role="tab" id="personnel-tab-overview" data-personnel-panel="overview" aria-controls="personnel-panel-overview" aria-selected="true">Overview</button>'+
+      '<button class="wc-personnel-tab" type="button" role="tab" id="personnel-tab-who" data-personnel-panel="who" aria-controls="personnel-panel-who" aria-selected="false">Who works here</button>'+
+      '<button class="wc-personnel-tab" type="button" role="tab" id="personnel-tab-pay" data-personnel-panel="pay" aria-controls="personnel-panel-pay" aria-selected="false">Pay &amp; cost</button>'+
+      '<button class="wc-personnel-tab" type="button" role="tab" id="personnel-tab-market" data-personnel-panel="market" aria-controls="personnel-panel-market" aria-selected="false">Market &amp; changes</button>'+
+      '<button class="wc-personnel-tab" type="button" role="tab" id="personnel-tab-detail" data-personnel-panel="detail" aria-controls="personnel-panel-detail" aria-selected="false">Full detail</button></div>';
+
+    var panelsByKey={};
+    Object.keys(groups).forEach(function(key){
+      var panel=document.createElement('section');
+      panel.className='wc-personnel-panel';
+      panel.id='personnel-panel-'+key;
+      panel.setAttribute('role','tabpanel');
+      panel.setAttribute('aria-labelledby','personnel-tab-'+key);
+      if(key!=='overview') panel.hidden=true;
+      var body=document.createElement('div');
+      body.className='wc-hub-grid';
+      panel.innerHTML='<div class="wc-personnel-panel-intro"><h2>'+groups[key].title+'</h2><p>'+groups[key].note+'</p></div>';
+      groups[key].cards.forEach(function(id){
+        var card=byId(id);
+        if(card) body.appendChild(card);
+      });
+      panel.appendChild(body);
+      shell.appendChild(panel);
+      panelsByKey[key]=panel;
+    });
+
+    var assumptions=byId('wc-workforce-assumptions');
+    if(assumptions) panelsByKey.pay.appendChild(assumptions);
+
+    var paystudy=byId('wc-paystudy');
+    if(paystudy) panelsByKey.market.appendChild(paystudy);
+
+    var gapNote=document.createElement('p');
+    gapNote.className='wc-personnel-gap-note';
+    gapNote.innerHTML='<strong>What this budget does not show:</strong> turnover rates (overall or for hard-to-fill classifications), expected FY 2027 hiring, and current vacancy counts live in Human Resources systems, not the budget file. They are not estimated here rather than guessed at.';
+    panelsByKey.market.appendChild(gapNote);
+
+    var detailPanel=document.createElement('section');
+    detailPanel.className='wc-personnel-panel';
+    detailPanel.id='personnel-panel-detail';
+    detailPanel.setAttribute('role','tabpanel');
+    detailPanel.setAttribute('aria-labelledby','personnel-tab-detail');
+    detailPanel.hidden=true;
+    detailPanel.innerHTML='<div class="wc-personnel-panel-intro"><h2>Every department, position by position</h2><p>Filter by department or fund, then open a department to see individual budgeted positions and cost.</p></div>';
+    if(sectionTitle) sectionTitle.remove();
+    var summaryEl=byId('personnel-summary');
+    var notesEl=byId('personnel-summary-notes');
+    var costSection=byId('wc-personnel-cost-section');
+    if(summaryEl) detailPanel.appendChild(summaryEl);
+    if(notesEl) detailPanel.appendChild(notesEl);
+    if(costSection) detailPanel.appendChild(costSection);
+    shell.appendChild(detailPanel);
+
+    grid.replaceWith(shell);
+
+    function showPanel(key,updateHash){
+      shell.querySelectorAll('.wc-personnel-tab').forEach(function(tab){tab.setAttribute('aria-selected',tab.dataset.personnelPanel===key?'true':'false');});
+      shell.querySelectorAll('.wc-personnel-panel').forEach(function(panel){panel.hidden=panel.id!=='personnel-panel-'+key;});
+      if(updateHash) history.replaceState(null,'','#personnel-'+key);
+    }
+    shell.querySelector('.wc-personnel-tabs').addEventListener('click',function(event){
+      var tab=event.target.closest('.wc-personnel-tab');
+      if(tab) showPanel(tab.dataset.personnelPanel,true);
+    });
+    document.addEventListener('click',function(event){
+      var link=event.target.closest('[data-personnel-goto]');
+      if(!link) return;
+      event.preventDefault();
+      showPanel(link.dataset.personnelGoto,true);
+      var targetId=(link.getAttribute('href')||'').replace('#','');
+      var target=targetId&&document.getElementById(targetId);
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    var hash=location.hash.slice(1);
+    if(/^personnel-(overview|who|pay|market|detail)$/.test(hash)) showPanel(hash.replace('personnel-',''),false);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initPersonnelExperience,{once:true});
+  else initPersonnelExperience();
+})();
+</script>
+<script>
+/* The per-department "View Budget Lines" popup is only available in dark
+   mode -- the department table itself is fine to show in light mode, but
+   drilling into a department's Cost by Position breakdown should stay
+   gated until dark mode ships it for real. Captured (not bubbled) so this
+   runs -- and can stop propagation -- before budget-data.js's own
+   document-level delegated click listener opens the modal. Checked at
+   click time (not just at page load) since the theme toggle doesn't
+   reload the page. */
+(function(){
+  var container = document.getElementById("personnel-cost-summary");
+  if(!container) return;
+  container.addEventListener("click", function(event){
+    var toggle = event.target.closest(".wc-view-budget-lines-toggle.wc-table-row-link");
+    if(!toggle) return;
+    if(document.documentElement.getAttribute("data-theme") !== "dark"){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+})();
+</script>
+</main>
+</div>
+
+<!-- nav.js will inject footer[role="contentinfo"] here -->
+
+<script>
+/* set wcBudgetPages before nav script runs so search is fully populated */
+window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/gfoa-distinguished-budget-presentation-award.html"},
+  {title:"Transmittal Letter",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/transmittal-letter.html"},
+  {title:"Our County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/our-county.html"},
+  {title:"Overview of Walton County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/overview-of-walton-county.html"},
+  {title:"Organizational Structure",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/organizational-structure.html"},
+  {title:"Strategic Initiatives",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/strategic-initiatives.html"},
+  {title:"Budget Overview",section:"Budget Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-overview.html"},
+  {title:"Constitutional Officers & Other Agencies",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/constitutional-officers.html"},
+  {title:"Departments",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/departments.html"},
+  {title:"Budget Process & Calendar",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-process-and-calendar.html"},
+  {title:"Fund Descriptions and Structure",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-descriptions-and-structure.html"},
+  {title:"Department to Fund Relationship",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/department-to-fund-relationship.html"},
+  {title:"Financial Policies",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-policies.html"},
+  {title:"Consolidated Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/consolidated-financial-schedules.html"},
+  {title:"Fund Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-financial-schedules.html"},
+  {title:"Revenue Budget",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-revenues.html"},
+  {title:"Summary of Expenses",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-expenses.html"},
+  {title:"Summary of Interfund Transfers",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-interfund-transfers.html"},
+  {title:"Summary of Personnel",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-personnel.html"},
+  {title:"Summary of Machinery, Vehicles & Equipment",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-machinery-vehicles-and-equipment.html"},
+  {title:"Summary of Property Tax Allocations",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-property-tax-allocations.html"},
+  {title:"Financials",section:"Financials",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financials.html"},
+  {title:"Board of County Commissioners",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/board-of-county-commissioners.html"},
+  {title:"Clerk of Courts & County Comptroller",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/clerk-of-courts-and-county-comptroller.html"},
+  {title:"Property Appraiser",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/property-appraiser.html"},
+  {title:"Sheriff's Office",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/sheriffs-office.html"},
+  {title:"Supervisor of Elections",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/supervisor-of-elections.html"},
+  {title:"Tax Collector",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tax-collector.html"},
+  {title:"Circuit Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/circuit-court.html"},
+  {title:"County Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-court.html"},
+  {title:"Court Technology & Innovations",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/court-technology-and-innovations.html"},
+  {title:"Guardian Ad Litem",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/guardian-ad-litem.html"},
+  {title:"Medical Examiner",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/medical-examiner.html"},
+  {title:"Non-Profit Funding Program",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/non-profit-funding-program.html"},
+  {title:"Public Defender",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-defender.html"},
+  {title:"South Walton Fire & State Control",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/south-walton-fire-and-state-control.html"},
+  {title:"State Attorney",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/state-attorney.html"},
+  {title:"Statutory & Other Agency Funding",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statutory-and-other-agency-funding.html"},
+  {title:"Walton County Health Department",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/walton-county-health-department.html"},
+  {title:"Building Construction and Maintenance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-construction-and-maintenance.html"},
+  {title:"Building Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-department.html"},
+  {title:"Code Compliance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/code-compliance.html"},
+  {title:"County Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-administration.html"},
+  {title:"Eagle Springs Golf and Recreation Center",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-golf-and-recreation-center.html"},
+  {title:"Eagle Springs Grill",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-grill.html"},
+  {title:"Emergency Management",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/emergency-management.html"},
+  {title:"Engineering Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/engineering-department.html"},
+  {title:"Environmental Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/environmental-resources.html"},
+  {title:"Extension Office",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/extension-office.html"},
+  {title:"Geographic Info Systems",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/geographic-info-systems.html"},
+  {title:"Housing & Urban Development",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/housing-and-urban-development.html"},
+  {title:"Human Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/human-resources.html"},
+  {title:"Libraries",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/libraries.html"},
+  {title:"Mosquito Control",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mosquito-control.html"},
+  {title:"Mossy Head Wastewater Treatment Facility",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mossy-head-wastewater-treatment-facility.html"},
+  {title:"Office of Management and Budget",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-management-and-budget.html"},
+  {title:"Office of the County Attorney",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-the-county-attorney.html"},
+  {title:"Planning",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/planning.html"},
+  {title:"Probation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/probation.html"},
+  {title:"Public Works",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-works.html"},
+  {title:"Purchasing",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/purchasing.html"},
+  {title:"Recreation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/recreation.html"},
+  {title:"Soil Conservation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/soil-conservation.html"},
+  {title:"Solid Waste",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/solid-waste.html"},
+  {title:"Tourism Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-administration.html"},
+  {title:"Tourism Beach Operations",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-beach-operations.html"},
+  {title:"Tourism Lifeguard Services and Beach Safety",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-lifeguard-services-and-beach-safety.html"},
+  {title:"Veteran Services",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/veteran-services.html"},
+  {title:"Capital Projects",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-projects.html"},
+  {title:"Capital Improvement Plan Overview",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-improvement-plan.html"},
+  {title:"CIP Project Search",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/search.html"},
+  {title:"Capital Projects Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-capital-projects.html"},
+  {title:"Sheriff Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-sheriff.html"},
+  {title:"Tourist Development Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-tourist-development.html"},
+  {title:"Transportation Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-transportation.html"},
+  {title:"Debt Overview",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/debt-overview.html"},
+  {title:"Financial Forecast",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-forecast.html"},
+  {title:"Glossary, Acronyms, and Frequently Asked Questions",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/glossary-acronyms-and-frequently-asked-questions.html"},
+  {title:"Statistical & Supplemental Information",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statistical-and-supplemental-information.html"}
+];
+</script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/budget-hub.js?v=20260726-hub3"></script>
+<script src="../assets/workforce-composition.js?v=20260726-hub"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>

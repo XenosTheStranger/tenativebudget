@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidewalk Fund Schedule — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+<div class="page-eyebrow">Capital Projects</div>
+<h1 class="page-title">Sidewalk Fund Schedule</h1>
+
+<section class="statement-of-function content-section">
+  <p>The Sidewalk Fund is a component of Walton County's Capital Improvement Plan (CIP), providing dedicated resources for sidewalk capital projects. The fund is supported by assessments paid in lieu of constructing required sidewalks as part of new development, which the County directs toward building sidewalk infrastructure elsewhere in the community.</p>
+  <p>The fund does not yet carry a Board-identified project list &mdash; the schedule below shows the budgeted amount as a placeholder capital project pending Board direction on where the assessments will be spent.</p>
+</section>
+
+<div id="sidewalkFundTables"></div>
+
+<script src="../assets/cip-fund-schedule.js"></script>
+<script src="../assets/placeholder-fund-schedule.js"></script>
+<script>
+  renderPlaceholderFundSchedule({
+    mountId:"sidewalkFundTables",
+    label:"Sidewalk Fund",
+    amount:300000,
+    projectTitle:"Sidewalk Fund Project (Board-Directed, To Be Determined)"
+  });
+</script>
+</main>
+</div>
+
+<script src="../assets/search-data.js"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>

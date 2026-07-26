@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strategic Initiatives — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Introduction and Overview</div>
+<h1 class="page-title">Strategic Initiatives</h1>
+
+<style>
+  /* ---------- Intro: narrative + Mission / Vision / Core Values ---------- */
+  .wc-strategic-intro{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(300px,.95fr);
+    gap:44px;
+    align-items:start;
+    margin:28px 0 52px;
+  }
+  .content-section p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:.95rem;
+    line-height:1.8;
+    text-align:justify;
+    color:var(--text);
+    margin:0 0 16px;
+  }
+  .content-section p:last-child{margin-bottom:0}
+
+  .wc-foundations{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .wc-foundation-card{
+    position:relative;
+    overflow:hidden;
+    background:#fff;
+    border-radius:18px;
+    padding:10px;
+    box-shadow:0 14px 32px rgba(36,52,77,.10), 0 4px 12px rgba(36,52,77,.06);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .wc-foundation-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 42px rgba(36,52,77,.14), 0 8px 18px rgba(36,52,77,.09);
+  }
+  .wc-foundation-card img{display:block;width:100%;height:auto;border-radius:12px}
+  .wc-foundation-card--values{
+    grid-column:1 / -1;
+    max-width:420px;
+    margin-inline:auto;
+    border:3px solid var(--gold);
+    padding:14px;
+  }
+  :root[data-theme="dark"] .wc-foundation-card{background:rgba(14,28,22,.92)}
+
+  @media(max-width:980px){
+    .wc-strategic-intro{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .wc-foundations{grid-template-columns:1fr}
+    .wc-foundation-card--values{max-width:340px}
+  }
+
+  /* ---------- Department alignment ---------- */
+  :root{
+    --si-1:#003f28;
+    --si-2:#097fbb;
+    --si-3:#b35a1e;
+    --si-4:#0f7a72;
+    --si-5:#24344d;
+    --si-6:#7a4b8a;
+    --si-7:#8a6a1f;
+  }
+  .wc-alignment-section{margin:52px 0 42px}
+  .wc-alignment-intro{display:grid;grid-template-columns:minmax(0,.8fr) minmax(300px,1.2fr);gap:32px;align-items:end;margin-bottom:24px}
+  .wc-alignment-intro h2{margin:6px 0 0;color:var(--navy);font-size:clamp(1.55rem,3vw,2.15rem)}
+  .wc-alignment-intro p{margin:0;color:var(--muted);font:400 .95rem/1.7 Arial,Helvetica,sans-serif}
+  .wc-alignment-scope-intro{display:grid;gap:5px;color:var(--text);font-family:Arial,Helvetica,sans-serif}
+  .wc-alignment-scope-intro strong{color:var(--navy);font-size:.92rem;line-height:1.35}
+  .wc-alignment-scope-intro span{color:var(--muted);font-size:.82rem;line-height:1.5}
+
+  .wc-alignment-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .wc-alignment-filters button{border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--navy);padding:9px 14px;font:700 .86rem/1 Arial,Helvetica,sans-serif;cursor:pointer;transition:border-color .15s ease,background .15s ease,color .15s ease}
+  .wc-alignment-filters button:hover,.wc-alignment-filters button:focus-visible{border-color:#003f28;outline:none}
+  .wc-alignment-filters button.is-active{background:#003f28;border-color:#003f28;color:#fff}
+  .wc-alignment-filters button span{display:inline-block;min-width:1.45em;margin-left:4px;padding:3px 5px;border-radius:999px;background:rgba(0,0,0,.08);font-size:.72rem}
+  .wc-alignment-filters button.is-active span{background:rgba(255,255,255,.2)}
+  :root[data-theme="dark"] .wc-alignment-filters button{background:rgba(14,28,22,.92)}
+  /* Per-initiative colors, keyed off the data attributes the renderer already
+     emits -- the filter pill for an initiative, its list-row top border, and
+     its roman-numeral badge all share one color so the three read as the
+     same thing rather than three unrelated pieces of chrome. */
+  .wc-alignment-filters button[data-initiative-filter="I"].is-active{background:var(--si-1);border-color:var(--si-1)}
+  .wc-alignment-filters button[data-initiative-filter="II"].is-active{background:var(--si-2);border-color:var(--si-2)}
+  .wc-alignment-filters button[data-initiative-filter="III"].is-active{background:var(--si-3);border-color:var(--si-3)}
+  .wc-alignment-filters button[data-initiative-filter="IV"].is-active{background:var(--si-4);border-color:var(--si-4)}
+  .wc-alignment-filters button[data-initiative-filter="V"].is-active{background:var(--si-5);border-color:var(--si-5)}
+  .wc-alignment-filters button[data-initiative-filter="VI"].is-active{background:var(--si-6);border-color:var(--si-6)}
+  .wc-alignment-filters button[data-initiative-filter="VII"].is-active{background:var(--si-7);border-color:var(--si-7)}
+  .wc-alignment-initiative[data-initiative="I"]{--wc-initiative-accent:var(--si-1)}
+  .wc-alignment-initiative[data-initiative="II"]{--wc-initiative-accent:var(--si-2)}
+  .wc-alignment-initiative[data-initiative="III"]{--wc-initiative-accent:var(--si-3)}
+  .wc-alignment-initiative[data-initiative="IV"]{--wc-initiative-accent:var(--si-4)}
+  .wc-alignment-initiative[data-initiative="V"]{--wc-initiative-accent:var(--si-5)}
+  .wc-alignment-initiative[data-initiative="VI"]{--wc-initiative-accent:var(--si-6)}
+  .wc-alignment-initiative[data-initiative="VII"]{--wc-initiative-accent:var(--si-7)}
+
+  .wc-alignment-note{margin:0 0 18px;padding:12px 14px;border-left:4px solid var(--gold);background:var(--light);color:var(--muted);font:400 .86rem/1.55 Arial,Helvetica,sans-serif}
+  .wc-initiative-scope{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.34fr);gap:24px;align-items:center;margin:0 0 20px;padding:20px 22px;border:1px solid rgba(0,63,40,.24);border-radius:18px;background:rgba(0,63,40,.06)}
+  .wc-initiative-scope>div>strong{color:var(--navy);font:800 1rem/1.3 Arial,Helvetica,sans-serif}
+  .wc-initiative-scope p{margin:7px 0 0;color:var(--text);font:400 .88rem/1.6 Arial,Helvetica,sans-serif}
+  .wc-initiative-scope-total{display:grid;gap:5px;padding-left:22px;border-left:1px solid rgba(0,63,40,.22)}
+  .wc-initiative-scope-total span{color:var(--muted);font:700 .7rem/1.3 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+  .wc-initiative-scope-total strong{color:#003f28;font:800 clamp(1.55rem,3vw,2.25rem)/1.1 Arial,Helvetica,sans-serif}
+  .wc-initiative-scope-total small{color:var(--muted);font:600 .76rem/1.4 Arial,Helvetica,sans-serif}
+
+  .wc-alignment-groups{display:grid;gap:14px}
+  .wc-alignment-initiative{
+    border:1px solid var(--border);
+    border-top:4px solid var(--wc-initiative-accent,#003f28);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    transition:box-shadow .2s ease;
+  }
+  .wc-alignment-initiative[open]{box-shadow:0 14px 32px rgba(36,52,77,.10)}
+  .wc-alignment-initiative[hidden]{display:none}
+  .wc-alignment-initiative>summary{display:flex;gap:14px;align-items:center;padding:18px 20px;cursor:pointer;list-style:none}
+  .wc-alignment-initiative>summary::-webkit-details-marker{display:none}
+  .wc-alignment-initiative>summary::after{content:"›";margin-left:auto;color:var(--wc-initiative-accent,#003f28);font-size:1.8rem;line-height:1;transform:rotate(90deg);transition:transform .2s ease}
+  .wc-alignment-initiative:not([open])>summary::after{transform:rotate(0)}
+  .wc-alignment-roman{display:grid;place-items:center;flex:0 0 44px;height:44px;border-radius:50%;background:var(--wc-initiative-accent,#003f28);color:#fff;font:800 .9rem/1 Arial,Helvetica,sans-serif}
+  .wc-alignment-summary-copy{display:grid;gap:5px}
+  .wc-alignment-summary-copy strong{color:var(--navy);font:800 1rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-alignment-summary-copy small{color:var(--muted);font:600 .78rem/1.4 Arial,Helvetica,sans-serif}
+  .wc-alignment-initiative-body{display:grid;gap:14px;padding:0 16px 16px}
+
+  .wc-alignment-department{border:1px solid var(--border);border-radius:14px;background:var(--light);overflow:hidden}
+  .wc-alignment-department>summary{display:grid;grid-template-columns:minmax(0,1fr) 245px 78px;gap:20px;align-items:center;padding:14px 16px;cursor:pointer;list-style:none;background:rgba(0,63,40,.06)}
+  .wc-alignment-department>summary::-webkit-details-marker{display:none}
+  .wc-alignment-department>summary::after{content:"View goals";justify-self:end;color:#003f28;font:700 .76rem/1 Arial,Helvetica,sans-serif;white-space:nowrap}
+  .wc-alignment-department[open]>summary::after{content:"Hide goals"}
+  .wc-alignment-department-heading{display:grid;gap:3px;padding:0;background:none;text-align:right}
+  .wc-alignment-department-summary-copy{display:grid;gap:4px}
+  .wc-alignment-department-summary-copy a{color:#003f28;text-decoration-thickness:1px;text-underline-offset:3px}
+  .wc-alignment-department-summary-copy small{color:var(--muted);font:600 .75rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-alignment-department-heading h4{margin:0;font:800 1rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-alignment-department-heading h4 a{color:#003f28;text-decoration-thickness:1px;text-underline-offset:3px}
+  .wc-alignment-department-heading>div{display:grid;gap:3px;text-align:right}
+  .wc-alignment-department-heading span,.wc-alignment-measure-row span{color:var(--muted);font:700 .7rem/1.3 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+  .wc-alignment-department-heading strong{color:var(--navy);font:800 .95rem/1.2 Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums}
+
+  .wc-alignment-goal-group{padding:16px;border-top:1px solid var(--border)}
+  .wc-alignment-goal-heading{margin:0 0 12px;color:var(--navy);font:700 .92rem/1.5 Arial,Helvetica,sans-serif}
+  .wc-alignment-goal-heading span{display:block;margin-bottom:3px;color:var(--muted);font:700 .7rem/1.3 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+  .wc-alignment-measure-rows{display:grid;gap:10px}
+  .wc-alignment-measure-row{display:grid;grid-template-columns:1.15fr 1.15fr minmax(120px,.55fr);gap:18px;padding:12px 14px;border-radius:12px;background:#fff}
+  .wc-alignment-measure-row>div{min-width:0}
+  .wc-alignment-measure-row p{margin:5px 0 0;color:var(--text);font:400 .86rem/1.5 Arial,Helvetica,sans-serif}
+  .wc-alignment-target p{font-weight:700;color:var(--navy)}
+  .wc-alignment-empty{margin:0;padding:8px;color:var(--muted);font:400 .9rem/1.5 Arial,Helvetica,sans-serif}
+
+  :root[data-theme="dark"] .wc-alignment-initiative{background:rgba(14,28,22,.92)}
+  :root[data-theme="dark"] .wc-alignment-department{background:rgba(255,255,255,.04)}
+  :root[data-theme="dark"] .wc-alignment-measure-row{background:rgba(14,28,22,.92)}
+
+  @media(max-width:900px){
+    .wc-alignment-intro{grid-template-columns:1fr;gap:12px}
+    .wc-initiative-scope{grid-template-columns:1fr}
+    .wc-initiative-scope-total{padding:16px 0 0;border-left:0;border-top:1px solid rgba(0,63,40,.22)}
+    .wc-alignment-measure-row{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:620px){
+    .wc-alignment-department>summary{grid-template-columns:1fr;gap:10px;align-items:start}
+    .wc-alignment-department>summary::after{justify-self:start}
+    .wc-alignment-department-heading{text-align:left}
+    .wc-alignment-measure-row{grid-template-columns:1fr}
+    .wc-alignment-initiative>summary{padding:15px}
+    .wc-alignment-roman{flex-basis:38px;height:38px}
+  }
+</style>
+
+<style>
+  .wc-strategy-hero{position:relative;overflow:hidden;margin:26px 0 18px;padding:clamp(26px,4vw,42px);border:1px solid var(--border);border-left:7px solid var(--green);border-radius:16px;background:var(--light);color:var(--text);box-shadow:0 10px 26px rgba(36,52,77,.07)}
+  .wc-strategy-hero-copy{position:relative;z-index:1}
+  .wc-strategy-kicker{display:block;margin-bottom:13px;color:var(--green);font:800 .72rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .wc-strategy-hero h2{max-width:800px;margin:0;color:var(--navy);font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.12;letter-spacing:-.025em}
+  .wc-strategy-hero p{max-width:850px;margin:16px 0 0;color:var(--muted);font:400 .97rem/1.65 Arial,Helvetica,sans-serif}
+  .wc-strategy-process{position:relative;z-index:1;display:grid;gap:9px;margin:0;padding:0;list-style:none}
+  .wc-strategy-process li{display:grid;grid-template-columns:36px 1fr;gap:11px;align-items:center;padding:11px 13px;border:1px solid var(--border);border-radius:10px;background:#fff}
+  .wc-strategy-process b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font:800 .82rem/1 Arial,Helvetica,sans-serif}
+  .wc-strategy-process span{color:var(--navy);font:700 .86rem/1.35 Arial,Helvetica,sans-serif}
+
+  .wc-foundation-disclosure{margin:0 0 32px;border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+  .wc-foundation-disclosure>summary{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:15px 18px;cursor:pointer;list-style:none;color:var(--navy);font:800 .88rem/1.3 Arial,Helvetica,sans-serif}
+  .wc-foundation-disclosure>summary::-webkit-details-marker{display:none}
+  .wc-foundation-disclosure>summary::after{content:"View";color:var(--green);font-size:.72rem}
+  .wc-foundation-disclosure[open]>summary::after{content:"Hide"}
+  .wc-strategy-foundation{display:grid;grid-template-columns:1.15fr .85fr 1fr;gap:12px;margin:0;padding:0 14px 14px}
+  .wc-strategy-statement{position:relative;min-height:0;padding:20px 20px 20px 26px;border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:0 7px 18px rgba(36,52,77,.05)}
+  .wc-strategy-statement::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:6px;border-radius:0 5px 5px 0;background:#d1be78}
+  .wc-strategy-statement--vision::before{background:var(--green)}
+  .wc-strategy-statement span{display:block;color:var(--green);font:800 .7rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .wc-strategy-statement h2{margin:6px 0 8px;color:var(--navy);font-size:1.25rem}
+  .wc-strategy-statement p{margin:0;color:var(--text);font:400 .84rem/1.55 Arial,Helvetica,sans-serif}
+  :root[data-theme="dark"] .wc-strategy-statement{background:rgba(14,28,22,.92)}
+
+  .wc-core-values{display:grid;grid-template-columns:minmax(190px,.32fr) 1fr;gap:22px;align-items:center;margin:0 0 50px;padding:19px 22px;border:1px solid rgba(0,63,40,.2);border-radius:18px;background:var(--light)}
+  .wc-core-values-heading span{display:block;color:var(--green);font:800 .68rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .wc-core-values-heading strong{display:block;margin-top:5px;color:var(--navy);font:800 1rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-core-values-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .wc-core-values-list li{padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--navy);font:700 .78rem/1 Arial,Helvetica,sans-serif}
+  :root[data-theme="dark"] .wc-core-values-list li{background:rgba(14,28,22,.92)}
+
+  .wc-alignment-section{margin-top:0}
+  .wc-alignment-intro{padding-bottom:18px;border-bottom:1px solid var(--border)}
+  .wc-initiative-scope{border:0;border-radius:20px;background:linear-gradient(135deg,rgba(0,63,40,.08),rgba(209,190,120,.13))}
+  .wc-alignment-filters button[data-initiative-filter].is-active{background:var(--green);border-color:var(--green);color:#fff}
+  .wc-alignment-initiative[data-initiative]{--wc-initiative-accent:var(--green)}
+  :root[data-theme="dark"] .wc-strategy-process li{background:rgba(14,28,22,.92)}
+
+  .wc-strategy-values{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0;list-style:none}
+  .wc-strategy-values li{padding:6px 8px;border-radius:999px;background:var(--light);color:var(--navy);font:700 .7rem/1 Arial,Helvetica,sans-serif}
+  .wc-priority-columns,.wc-priority-card{display:grid;grid-template-columns:48px minmax(0,1fr) 92px 70px 150px 72px;gap:14px;align-items:center}
+  .wc-priority-columns{padding:0 16px 7px;color:var(--muted);font:800 .62rem/1.25 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+  .wc-priority-columns span:nth-child(n+3){text-align:right}
+  .wc-priority-grid{display:grid;gap:8px;margin-bottom:16px}
+  .wc-priority-item{display:grid;gap:14px}
+  .wc-priority-item>.wc-alignment-initiative>summary{display:none}
+  .wc-priority-item>.wc-alignment-initiative{margin:0 0 8px;border-top-width:1px;border-radius:0 0 12px 12px;box-shadow:none}
+  .wc-priority-item>.wc-alignment-initiative .wc-alignment-initiative-body{padding-top:16px}
+  .wc-priority-card{position:relative;width:100%;min-height:86px;padding:14px 16px;border:1px solid var(--border);border-left:5px solid var(--green);border-radius:11px;background:#fff;text-align:left;cursor:pointer;box-shadow:0 4px 12px rgba(36,52,77,.04);transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+  .wc-priority-card:hover,.wc-priority-card:focus-visible{transform:translateX(3px);border-color:var(--green);box-shadow:0 8px 18px rgba(36,52,77,.09);outline:none}
+  .wc-priority-card.is-active{border-color:var(--green);background:rgba(0,63,40,.055);box-shadow:0 8px 20px rgba(0,63,40,.1)}
+  .wc-priority-number{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;font:800 .78rem/1 Arial,Helvetica,sans-serif}
+  .wc-priority-card-copy{display:grid;align-content:center;gap:4px}
+  .wc-priority-card-copy strong{color:var(--navy);font:800 .9rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-priority-card-copy small{display:none;color:var(--muted);font:700 .68rem/1.35 Arial,Helvetica,sans-serif}
+  .wc-priority-metric,.wc-priority-budget{text-align:right;font-variant-numeric:tabular-nums}
+  .wc-priority-metric strong{display:block;color:var(--navy);font:800 1rem/1.1 Arial,Helvetica,sans-serif}
+  .wc-priority-metric span{display:none;color:var(--muted);font:700 .62rem/1.2 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+  .wc-priority-budget{color:var(--green);font:800 .94rem/1.2 Arial,Helvetica,sans-serif}
+  .wc-priority-budget span{display:none;color:var(--muted);font:700 .62rem/1.2 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+  .wc-alignment-initiative{scroll-margin-top:92px}
+  .wc-priority-action{justify-self:end;color:var(--green);font:800 .72rem/1.2 Arial,Helvetica,sans-serif;white-space:nowrap}
+  .wc-scope-disclosure{margin:0 0 18px;border:1px solid var(--border);border-radius:14px;background:var(--light);overflow:hidden}
+  .wc-scope-disclosure>summary,.wc-scope-summary-static{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:15px 18px;list-style:none}
+  .wc-scope-disclosure>summary::-webkit-details-marker{display:none}
+  .wc-scope-summary-copy{display:grid;gap:3px}
+  .wc-scope-summary-copy strong{color:var(--navy);font:800 .88rem/1.3 Arial,Helvetica,sans-serif}
+  .wc-scope-summary-copy small{color:var(--muted);font:600 .72rem/1.4 Arial,Helvetica,sans-serif}
+  .wc-scope-summary-total{text-align:right}
+  .wc-scope-summary-total span{display:block;color:var(--muted);font:700 .62rem/1.2 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+  .wc-scope-summary-total strong{display:block;margin-top:3px;color:var(--green);font:800 1.2rem/1.1 Arial,Helvetica,sans-serif}
+  .wc-scope-detail{padding:0 18px 16px;color:var(--text);font:400 .82rem/1.55 Arial,Helvetica,sans-serif}
+  :root[data-theme="dark"] .wc-priority-card{background:rgba(14,28,22,.92)}
+  :root[data-theme="dark"] .wc-foundation-disclosure{background:rgba(14,28,22,.92)}
+
+  .wc-strategy-foundation-panel{margin:26px 0 38px;border:1px solid var(--border);border-top:5px solid var(--green);border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 8px 22px rgba(36,52,77,.06)}
+  .wc-strategy-foundation-main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(310px,.75fr)}
+  .wc-strategy-overview{padding:clamp(28px,4vw,42px);border-right:1px solid var(--border);background:#fff;color:var(--text)}
+  .wc-strategy-overview .wc-strategy-kicker{color:var(--green)}
+  .wc-strategy-overview h2{max-width:640px;margin:0;color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.12;letter-spacing:-.02em}
+  .wc-strategy-overview p{max-width:680px;margin:14px 0 0;color:var(--muted);font:400 .9rem/1.65 Arial,Helvetica,sans-serif}
+  .wc-strategy-statements{display:grid;grid-template-rows:1fr 1fr;background:var(--light)}
+  .wc-foundation-statement{position:relative;display:grid;align-content:center;padding:24px 26px;border-bottom:1px solid var(--border)}
+  .wc-foundation-statement::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:4px;background:var(--gold)}
+  .wc-foundation-statement:last-child::before{background:var(--green)}
+  .wc-foundation-statement:last-child{border-bottom:0}
+  .wc-foundation-statement span{color:var(--green);font:800 .67rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .wc-foundation-statement h2{margin:5px 0 8px;color:var(--navy);font-size:1.35rem}
+  .wc-foundation-statement p{margin:0;color:var(--text);font:400 .83rem/1.55 Arial,Helvetica,sans-serif}
+  .wc-strategy-values-band{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;padding:22px 24px;border-top:1px solid var(--border);background:var(--light)}
+  .wc-strategy-values-title span{display:block;color:var(--green);font:800 .66rem/1.2 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .wc-strategy-values-title strong{display:block;margin-top:4px;color:var(--navy);font:800 1.2rem/1.25 Arial,Helvetica,sans-serif}
+  .wc-strategy-values-band .wc-strategy-values{gap:10px;margin:0}
+  .wc-strategy-values-band .wc-strategy-values li{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid var(--border);background:#fff;font-size:.86rem}
+  .wc-strategy-values-band .wc-strategy-values li::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--green)}
+  :root[data-theme="dark"] .wc-strategy-foundation-panel,:root[data-theme="dark"] .wc-strategy-values-band{background:rgba(14,28,22,.92)}
+  :root[data-theme="dark"] .wc-strategy-overview,:root[data-theme="dark"] .wc-strategy-values-band .wc-strategy-values li{background:rgba(14,28,22,.92)}
+
+  @media(max-width:900px){.wc-strategy-foundation-main{grid-template-columns:1fr}.wc-strategy-overview{border-right:0;border-bottom:1px solid var(--border)}.wc-strategy-statements{grid-template-columns:1fr 1fr;grid-template-rows:auto}.wc-foundation-statement{border-right:1px solid var(--border);border-bottom:0}.wc-foundation-statement:last-child{border-right:0}.wc-strategy-foundation{grid-template-columns:1fr 1fr}.wc-strategy-statement--values{grid-column:1/-1}.wc-core-values{grid-template-columns:1fr}}
+  @media(max-width:780px){.wc-priority-columns{display:none}.wc-priority-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wc-priority-card{grid-template-columns:42px 1fr;gap:10px 12px;align-items:start;min-height:170px}.wc-priority-card-copy small{display:block}.wc-priority-metric{display:none}.wc-priority-budget{grid-column:1/-1;align-self:end;padding-top:10px;border-top:1px solid var(--border);text-align:left}.wc-priority-budget span{display:block;margin-bottom:3px}.wc-priority-action{grid-column:1/-1;justify-self:start}}
+  @media(max-width:680px){.wc-strategy-statements{grid-template-columns:1fr}.wc-foundation-statement{border-right:0;border-bottom:1px solid var(--border)}.wc-strategy-values-band{grid-template-columns:1fr}.wc-strategy-foundation,.wc-priority-grid{grid-template-columns:1fr}.wc-strategy-statement--values{grid-column:auto}.wc-scope-disclosure>summary,.wc-scope-summary-static{grid-template-columns:1fr}.wc-scope-summary-total{text-align:left}}
+</style>
+
+<section class="wc-strategy-foundation-panel" aria-labelledby="strategy-overview-title">
+  <div class="wc-strategy-foundation-main">
+    <div class="wc-strategy-overview">
+      <span class="wc-strategy-kicker">Board priorities translated into measurable work</span>
+      <h2 id="strategy-overview-title">From Board direction to measurable departmental results</h2>
+      <p>The Board of County Commissioners, with input from the County Administrator, Chief Financial Officer, County Attorney, County departments, and the public, establishes Walton County&rsquo;s strategic initiatives. These broad areas of focus inform policy, resource allocation, and Board-department service decisions.</p>
+      <p>Departments align goals to the initiatives by Roman numeral, then establish objectives and performance measures to track effectiveness, efficiency, and progress.</p>
+    </div>
+    <div class="wc-strategy-statements" aria-label="Mission and vision">
+      <article class="wc-foundation-statement">
+        <span>Our foundation</span>
+        <h2>Mission</h2>
+        <p>To efficiently and effectively serve the citizens of Walton County by providing a safe community and a sustainable economy while preserving our quality of life and natural resources.</p>
+      </article>
+      <article class="wc-foundation-statement">
+        <span>Our direction</span>
+        <h2>Vision</h2>
+        <p>To be the premier county in which to live, visit, work, and play.</p>
+      </article>
+    </div>
+  </div>
+  <div class="wc-strategy-values-band" aria-labelledby="core-values-title">
+    <div class="wc-strategy-values-title"><span>How we serve</span><strong id="core-values-title">Core values</strong></div>
+    <ul class="wc-strategy-values">
+      <li>Transparent</li><li>Proactive</li><li>Service oriented</li><li>Integrity</li><li>Professional</li><li>Accountable</li>
+    </ul>
+  </div>
+</section>
+
+<section class="wc-alignment-section" aria-labelledby="department-alignment-title">
+  <div class="wc-alignment-intro">
+    <div>
+      <div class="page-eyebrow">Board priorities</div>
+      <h2 id="department-alignment-title">Board priorities and departmental alignment</h2>
+    </div>
+    <div class="wc-alignment-scope-intro"><strong>Board of County Commissioners priorities</strong><span>Applies only to Board-controlled departments; excludes the Sheriff, Clerk of the Circuit Court and County Comptroller, Tax Collector, Property Appraiser, and Supervisor of Elections.</span></div>
+  </div>
+  <aside class="wc-scope-disclosure" aria-label="Strategic initiative scope">
+    <div class="wc-scope-summary-static">
+      <span class="wc-scope-summary-copy"><strong>Strategic initiative coverage</strong><small id="strategic-controlled-departments">Loading aligned departments&hellip;</small></span>
+      <span class="wc-scope-summary-total"><span>FY 2027 budget represented</span><strong id="strategic-controlled-budget">Loading&hellip;</strong></span>
+    </div>
+  </aside>
+  <div id="strategic-initiative-alignment" aria-live="polite"></div>
+</section>
+
+</main>
+</div>
+
+<!-- nav.js will inject footer[role="contentinfo"] here -->
+
+<script>
+/* set wcBudgetPages before nav script runs so search is fully populated */
+window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/gfoa-distinguished-budget-presentation-award.html"},
+  {title:"Transmittal Letter",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/transmittal-letter.html"},
+  {title:"Our County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/our-county.html"},
+  {title:"Overview of Walton County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/overview-of-walton-county.html"},
+  {title:"Organizational Structure",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/organizational-structure.html"},
+  {title:"Strategic Initiatives",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/strategic-initiatives.html"},
+  {title:"Budget Overview",section:"Budget Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-overview.html"},
+  {title:"Constitutional Officers & Other Agencies",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/constitutional-officers.html"},
+  {title:"Departments",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/departments.html"},
+  {title:"Budget Process & Calendar",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-process-and-calendar.html"},
+  {title:"Fund Descriptions and Structure",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-descriptions-and-structure.html"},
+  {title:"Department to Fund Relationship",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/department-to-fund-relationship.html"},
+  {title:"Financial Policies",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-policies.html"},
+  {title:"Consolidated Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/consolidated-financial-schedules.html"},
+  {title:"Fund Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-financial-schedules.html"},
+  {title:"Revenue Budget",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-revenues.html"},
+  {title:"Summary of Expenses",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-expenses.html"},
+  {title:"Summary of Interfund Transfers",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-interfund-transfers.html"},
+  {title:"Summary of Personnel",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-personnel.html"},
+  {title:"Summary of Machinery, Vehicles & Equipment",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-machinery-vehicles-and-equipment.html"},
+  {title:"Summary of Property Tax Allocations",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-property-tax-allocations.html"},
+  {title:"Financials",section:"Financials",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financials.html"},
+  {title:"Board of County Commissioners",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/board-of-county-commissioners.html"},
+  {title:"Clerk of Courts & County Comptroller",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/clerk-of-courts-and-county-comptroller.html"},
+  {title:"Property Appraiser",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/property-appraiser.html"},
+  {title:"Sheriff's Office",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/sheriffs-office.html"},
+  {title:"Supervisor of Elections",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/supervisor-of-elections.html"},
+  {title:"Tax Collector",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tax-collector.html"},
+  {title:"Circuit Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/circuit-court.html"},
+  {title:"County Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-court.html"},
+  {title:"Court Technology & Innovations",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/court-technology-and-innovations.html"},
+  {title:"Guardian Ad Litem",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/guardian-ad-litem.html"},
+  {title:"Medical Examiner",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/medical-examiner.html"},
+  {title:"Non-Profit Funding Program",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/non-profit-funding-program.html"},
+  {title:"Public Defender",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-defender.html"},
+  {title:"South Walton Fire & State Control",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/south-walton-fire-and-state-control.html"},
+  {title:"State Attorney",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/state-attorney.html"},
+  {title:"Statutory & Other Agency Funding",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statutory-and-other-agency-funding.html"},
+  {title:"Walton County Health Department",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/walton-county-health-department.html"},
+  {title:"Building Construction and Maintenance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-construction-and-maintenance.html"},
+  {title:"Building Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-department.html"},
+  {title:"Code Compliance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/code-compliance.html"},
+  {title:"County Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-administration.html"},
+  {title:"Eagle Springs Golf and Recreation Center",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-golf-and-recreation-center.html"},
+  {title:"Eagle Springs Grill",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-grill.html"},
+  {title:"Emergency Management",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/emergency-management.html"},
+  {title:"Engineering Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/engineering-department.html"},
+  {title:"Environmental Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/environmental-resources.html"},
+  {title:"Extension Office",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/extension-office.html"},
+  {title:"Geographic Info Systems",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/geographic-info-systems.html"},
+  {title:"Housing & Urban Development",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/housing-and-urban-development.html"},
+  {title:"Human Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/human-resources.html"},
+  {title:"Libraries",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/libraries.html"},
+  {title:"Mosquito Control",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mosquito-control.html"},
+  {title:"Mossy Head Wastewater Treatment Facility",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mossy-head-wastewater-treatment-facility.html"},
+  {title:"Office of Management and Budget",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-management-and-budget.html"},
+  {title:"Office of the County Attorney",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-the-county-attorney.html"},
+  {title:"Planning",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/planning.html"},
+  {title:"Probation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/probation.html"},
+  {title:"Public Works",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-works.html"},
+  {title:"Purchasing",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/purchasing.html"},
+  {title:"Recreation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/recreation.html"},
+  {title:"Soil Conservation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/soil-conservation.html"},
+  {title:"Solid Waste",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/solid-waste.html"},
+  {title:"Tourism Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-administration.html"},
+  {title:"Tourism Beach Operations",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-beach-operations.html"},
+  {title:"Tourism Lifeguard Services and Beach Safety",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-lifeguard-services-and-beach-safety.html"},
+  {title:"Veteran Services",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/veteran-services.html"},
+  {title:"Capital Projects",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-projects.html"},
+  {title:"Capital Improvement Plan Overview",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-improvement-plan.html"},
+  {title:"CIP Project Search",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/search.html"},
+  {title:"Capital Projects Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-capital-projects.html"},
+  {title:"Sheriff Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-sheriff.html"},
+  {title:"Tourist Development Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-tourist-development.html"},
+  {title:"Transportation Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-transportation.html"},
+  {title:"Debt Overview",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/debt-overview.html"},
+  {title:"Financial Forecast",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-forecast.html"},
+  {title:"Glossary, Acronyms, and Frequently Asked Questions",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/glossary-acronyms-and-frequently-asked-questions.html"},
+  {title:"Statistical & Supplemental Information",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statistical-and-supplemental-information.html"}
+];
+</script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>

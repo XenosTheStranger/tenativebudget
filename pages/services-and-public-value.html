@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program Budget — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+<style>
+  .wc-value-page{max-width:1500px;margin:0 auto}
+  .wc-value-hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:22px;margin:26px 0 34px;padding:32px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,var(--light),var(--surface,#fff))}
+  .wc-value-hero h2{margin:0 0 12px;color:var(--text);font-size:clamp(28px,4vw,44px)}
+  .wc-value-hero p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+  .wc-value-scope{padding:22px;border-left:4px solid var(--gold,#d7bd68);border-radius:14px;background:var(--surface,#fff)}
+  .wc-value-scope strong{display:block;margin-bottom:8px;color:var(--green);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .wc-value-scope p{font-size:14px}
+  .wc-value-grid{display:grid;gap:16px;margin:0 0 36px}
+  .wc-value-service{overflow:hidden;border:1px solid var(--border);border-radius:20px;background:var(--surface,#fff);box-shadow:0 12px 30px rgba(25,45,35,.06)}
+  .wc-value-service summary{display:grid;grid-template-columns:minmax(230px,1.3fr) repeat(4,minmax(110px,.42fr)) 42px;gap:16px;align-items:center;padding:24px;cursor:pointer;list-style:none}
+  .wc-value-service summary::-webkit-details-marker{display:none}
+  .wc-value-service summary:hover{background:var(--light)}
+  .wc-value-title strong{display:block;color:var(--text);font-size:20px}
+  .wc-value-title span{display:block;margin-top:5px;color:var(--muted);font-size:13px;line-height:1.45}
+  .wc-value-metric span{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .wc-value-metric strong{display:block;margin-top:4px;color:var(--green);font-size:18px}
+  .wc-value-chevron{color:var(--green);font-size:26px;text-align:center;transition:transform .2s ease}
+  .wc-value-service[open] .wc-value-chevron{transform:rotate(180deg)}
+  .wc-value-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.8fr);gap:22px;padding:0 24px 26px;border-top:1px solid var(--border)}
+  .wc-value-body>div{padding-top:24px}
+  .wc-value-body h3{margin:0 0 10px;color:var(--text);font-size:16px}
+  .wc-value-body p{margin:0 0 18px;color:var(--muted);font-size:14px;line-height:1.65}
+  .wc-value-departments,.wc-value-targets,.wc-value-funding{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+  .wc-value-departments a,.wc-value-targets li,.wc-value-funding li{display:flex;justify-content:space-between;gap:16px;padding:11px 13px;border:1px solid var(--border);border-radius:11px;color:var(--text);font-size:13px;text-decoration:none}
+  .wc-value-departments a:hover,.wc-value-departments a:focus-visible{border-color:var(--green);color:var(--green)}
+  .wc-value-departments strong,.wc-value-funding strong{white-space:nowrap}
+  .wc-value-targets li{display:block}
+  .wc-value-targets strong{display:block;margin-bottom:4px;color:var(--green);font-size:13px}
+  .wc-value-targets span{color:var(--muted);line-height:1.5}
+  .wc-value-note{margin:0 0 44px;padding:18px 20px;border:1px solid var(--border);border-radius:15px;background:var(--light);color:var(--muted);font-size:13px;line-height:1.65}
+  .wc-value-metric-trend{font-size:14px!important}
+  .wc-value-trend-up{color:var(--green)}
+  .wc-value-trend-down{color:var(--flag,#b3261e)}
+  .wc-value-trend-paren{color:var(--muted);font-weight:600;font-size:11px}
+  .wc-value-overview-trend{margin-left:8px;font-size:12px;font-weight:800}
+  .wc-value-overview-trend.wc-value-trend-up{color:var(--green)}
+  .wc-value-overview-trend.wc-value-trend-down{color:var(--flag,#b3261e)}
+  .wc-value-cost-type{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+  .wc-value-cost-type li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:9px 12px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:12.5px}
+  .wc-value-cost-type strong{white-space:nowrap}
+  .wc-value-cost-type em{min-width:38px;color:var(--muted);font-style:normal;font-size:11px;text-align:right}
+  .wc-value-subsidy{margin:14px 0 0;padding:14px 15px;border-left:4px solid var(--gold,#d7bd68);border-radius:0 12px 12px 0;background:var(--light);color:var(--text);font-size:13px;line-height:1.6}
+  .wc-value-subsidy-note{display:block;margin-top:6px;color:var(--muted);font-size:11.5px;font-weight:400}
+  .wc-data-loading,.wc-data-error{padding:34px;border:1px solid var(--border);border-radius:18px;text-align:center}
+  :root[data-theme="dark"] .wc-value-hero,:root[data-theme="dark"] .wc-value-scope,:root[data-theme="dark"] .wc-value-service{background:rgba(14,28,22,.94)}
+  :root[data-theme="dark"] .wc-value-subsidy{background:rgba(14,28,22,.7)}
+  @media(max-width:980px){.wc-value-hero,.wc-value-body{grid-template-columns:1fr}.wc-value-service summary{grid-template-columns:minmax(220px,1fr) repeat(2,minmax(110px,.4fr)) 36px}.wc-value-service summary .wc-value-metric:nth-of-type(3),.wc-value-service summary .wc-value-metric:nth-of-type(4){display:none}}
+  @media(max-width:680px){.wc-value-hero{padding:22px}.wc-value-service summary{grid-template-columns:1fr auto;padding:20px}.wc-value-service summary .wc-value-metric{display:none}.wc-value-body{padding:0 18px 22px}.wc-value-departments a,.wc-value-funding li{align-items:flex-start;flex-direction:column;gap:4px}}
+  @media print{nav,footer{display:none!important}.wc-value-service{break-inside:avoid;box-shadow:none}.wc-value-service summary{cursor:default}.wc-value-service:not([open])>.wc-value-body{display:grid}.wc-value-chevron{display:none}}
+  .wc-hub-sub a{color:var(--gold);font-weight:800;text-decoration:underline}
+  .wc-program-experience{margin-top:34px}
+  .wc-program-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
+  .wc-program-tab{min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+  .wc-program-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(0,63,40,.16)}
+  .wc-program-tab:focus-visible{outline:3px solid rgba(209,190,120,.65);outline-offset:2px}
+  .wc-program-panel{min-height:300px;padding-top:26px}
+  .wc-program-panel[hidden]{display:none!important}
+  .wc-program-panel-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 18px}
+  .wc-program-panel-intro h2{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,3.6vw,38px)}
+  .wc-program-panel-intro p{max-width:520px;margin:0;color:var(--muted);line-height:1.6}
+  .wc-program-panel .wc-value-grid{margin:0}
+  .wc-program-panel .wc-value-note{margin:0}
+  .wc-value-overview-list{display:grid;gap:8px}
+  .wc-value-overview-row{display:grid;grid-template-columns:minmax(180px,.9fr) minmax(0,1.6fr) auto;align-items:center;gap:16px;padding:15px 17px;border:1px solid var(--border);border-radius:14px;background:var(--surface,#fff);color:inherit;text-decoration:none}
+  .wc-value-overview-row:hover,.wc-value-overview-row:focus-visible{border-color:var(--green)}
+  .wc-value-overview-name{color:var(--text);font-weight:800;font-size:14.5px}
+  .wc-value-overview-desc{color:var(--muted);font-size:13px;line-height:1.5}
+  .wc-value-overview-amount{color:var(--green);font-weight:900;font-size:17px;white-space:nowrap}
+  :root[data-theme="dark"] .wc-value-overview-row{background:rgba(14,28,22,.92)}
+  @media(max-width:900px){
+    .wc-program-panel-intro{display:block}
+    .wc-program-panel-intro p{margin-top:8px}
+    .wc-value-overview-row{grid-template-columns:1fr;gap:6px}
+    .wc-value-overview-amount{justify-self:start}
+  }
+  @media(max-width:620px){
+    .wc-program-tabs{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<nav id="nav-menu" class="nav-menu"><div class="logo-container"></div></nav>
+<div id="layout"><main id="content" class="wc-value-page">
+
+<!-- Visually hidden: nav.js's ensureWcBreadcrumb() reads .page-eyebrow/.page-title
+     by class only (not tag), so these exist purely to drive the breadcrumb
+     without duplicating the visible <h1> in wc-hub-head below. -->
+<div class="page-eyebrow" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Our County</div>
+<span class="page-title" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Program Budget</span>
+
+<header class="wc-hub-head">
+  <p class="wc-hub-eyebrow">Program Budget</p>
+  <h1 class="wc-hub-answer">FY 2027 programs and services total <span data-program-stat="total">&mdash;</span>.</h1>
+  <p class="wc-hub-sub">Programs group the budgets of the offices and agencies principally responsible for a public-facing area of work &mdash; including Constitutional Officers and other autonomous entities, not only Board departments. See <a href="departments.html">Department Budget</a> for Board departments alone, or <a href="constitutional-officers.html">Constitutional Officers &amp; Other Agencies</a> for their individual pages.</p>
+  <ul class="wc-hub-stats">
+    <li><strong data-program-stat="count">&mdash;</strong><span>Program areas</span></li>
+    <li><strong data-program-stat="agencies">&mdash;</strong><span>Departments and agencies represented</span></li>
+    <li><strong data-program-stat="fte">&mdash;</strong><span>FTE represented</span></li>
+    <li><strong data-program-stat="change">&mdash;</strong><span>YoY budget change</span></li>
+  </ul>
+</header>
+
+<section id="program-overview-section" aria-label="Programs at a glance">
+  <div id="services-public-value-overview" class="wc-value-overview-list" aria-live="polite">
+    <div class="wc-data-loading">Loading service information...</div>
+  </div>
+</section>
+
+<section id="program-all-section" aria-label="Every program">
+  <div class="wc-value-hero" aria-labelledby="wc-value-intro-title">
+    <div>
+      <h2 id="wc-value-intro-title">What the public receives from the tentative budget</h2>
+      <p>Each program combines the tentative budgets of the offices principally responsible for that work. Open a program to see the departments or agencies included, the revenue assigned to them, and the FY 2027 performance targets currently available.</p>
+    </div>
+    <aside class="wc-value-scope">
+      <strong>How to read the costs</strong>
+      <p>Amounts are department-budget context, not an audited cost allocation. Internal transfers are excluded where practicable, and a department or agency is counted in only one program to prevent duplication.</p>
+    </aside>
+  </div>
+
+  <div id="services-public-value" class="wc-value-grid" aria-live="polite">
+    <div class="wc-data-loading">Loading service information...</div>
+  </div>
+</section>
+
+<section id="program-how-section" aria-label="Scope and limitations">
+  <p class="wc-value-note"><strong>Scope and limitations:</strong> These programs communicate major services rather than every account or legal responsibility in the County budget. Constitutional Officers and autonomous entities retain independent operational authority and set their own budgets within statutory limits; grouping their budget alongside Board departments here is for public-facing context only and does not imply Board control over their operations. A department or agency budget may support more than one activity, so the amount shown should not be interpreted as the direct cost of a single performance measure. Revenue classifications reflect the revenue assigned to the included departments and agencies in the tentative budget.</p>
+  <p class="wc-value-note"><strong>What each program now shows:</strong> total FY 2027 budget and year-over-year dollar change, FTE, the same budget split by cost type (personnel, operating, capital, debt service, grants and aid) used elsewhere on this site, revenue assigned to the included departments, and &mdash; where assigned revenue is less than total cost &mdash; the dollar amount and share of cost not covered by that revenue. That subsidy figure compares assigned revenue to total cost for the departments in a program; it is a planning-level comparison, not an audited cost-allocation or indirect-cost study.</p>
+  <p class="wc-value-note"><strong>What this view still does not answer:</strong> it does not distinguish core from non-core services, does not separate fixed from variable cost, does not track cost by activity or program the way a formal cost-accounting system would, does not report expected workload or activity volumes, and does not explain the methodology behind any fee shown elsewhere on the site (benchmark, full cost recovery, or otherwise). Those all require a program-level cost-allocation exercise that has not been performed.</p>
+</section>
+
+<script>
+/* Compact, click-through program experience. Existing render mounts
+   (services-public-value, services-public-value-overview) keep their ids
+   and are only relocated into panels -- services-public-value.js still
+   finds and populates them normally regardless of load order or DOM
+   position. */
+(function(){
+  function initProgramExperience(){
+    var main=document.querySelector('main#content.wc-value-page');
+    var head=main&&main.querySelector('.wc-hub-head');
+    var overviewSection=document.getElementById('program-overview-section');
+    var allSection=document.getElementById('program-all-section');
+    var howSection=document.getElementById('program-how-section');
+    if(!main||!head||!overviewSection||!allSection||!howSection||document.querySelector('.wc-program-experience')) return;
+
+    var shell=document.createElement('section');
+    shell.className='wc-program-experience';
+    shell.innerHTML='<div class="wc-program-tabs" role="tablist" aria-label="Explore the program budget">'+
+      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-overview" data-program-panel="overview" aria-controls="program-panel-overview" aria-selected="true">Overview</button>'+
+      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-all" data-program-panel="all" aria-controls="program-panel-all" aria-selected="false">Every program</button>'+
+      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-how" data-program-panel="how" aria-controls="program-panel-how" aria-selected="false">How to read this</button></div>';
+
+    var panelCopy={
+      overview:['Programs at a glance','Every program area and its FY 2027 budget. Click a row to open its full detail.'],
+      all:['Every program, in full','Departments and agencies included, revenue assigned, and FY 2027 service targets.'],
+      how:['How to read these costs','What this view is, what it is not, and how Constitutional Officers and autonomous entities are treated.']
+    };
+    var panelsByKey={};
+    Object.keys(panelCopy).forEach(function(key){
+      var panel=document.createElement('section');
+      panel.className='wc-program-panel';
+      panel.id='program-panel-'+key;
+      panel.setAttribute('role','tabpanel');
+      panel.setAttribute('aria-labelledby','program-tab-'+key);
+      if(key!=='overview') panel.hidden=true;
+      panel.innerHTML='<div class="wc-program-panel-intro"><h2>'+panelCopy[key][0]+'</h2><p>'+panelCopy[key][1]+'</p></div>';
+      shell.appendChild(panel);
+      panelsByKey[key]=panel;
+    });
+
+    panelsByKey.overview.appendChild(overviewSection);
+    panelsByKey.all.appendChild(allSection);
+    panelsByKey.how.appendChild(howSection);
+
+    head.insertAdjacentElement('afterend',shell);
+
+    function showPanel(key,updateHash){
+      shell.querySelectorAll('.wc-program-tab').forEach(function(tab){tab.setAttribute('aria-selected',tab.dataset.programPanel===key?'true':'false');});
+      shell.querySelectorAll('.wc-program-panel').forEach(function(panel){panel.hidden=panel.id!=='program-panel-'+key;});
+      if(updateHash) history.replaceState(null,'','#program-'+key);
+    }
+    shell.querySelector('.wc-program-tabs').addEventListener('click',function(event){
+      var tab=event.target.closest('.wc-program-tab');
+      if(tab) showPanel(tab.dataset.programPanel,true);
+    });
+    window.wcProgramShowAll=function(){ showPanel('all',true); };
+    var hash=location.hash.slice(1);
+    if(/^program-(overview|all|how)$/.test(hash)) showPanel(hash.replace('program-',''),false);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProgramExperience,{once:true});
+  else initProgramExperience();
+})();
+</script>
+
+</main></div>
+<script src="../assets/search-data.js?v=20260725-revenue-budget"></script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/services-public-value.js?v=20260726-program-budget"></script>
+<script src="../assets/nav.js?v=20260724-gfoa-completion"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Overview — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Budget Overview</div>
+<h1 class="page-title">Budget Overview</h1>
+<p class="page-intro">Explore the tentative budget, county priorities, organizational structure, financial policies, and the process that guides Walton County's annual budget.</p>
+
+<section aria-label="Budget overview directory">
+  <ul class="wc-directory-list" id="hubList"></ul>
+</section>
+
+</main>
+</div>
+
+<script src="../assets/search-data.js"></script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+<script src="../assets/budget-pdf.js?v=20260723-asset-path-cleanup"></script>
+<script>
+  (function(){
+    var pages = [
+      {
+        title:"Table of Contents",
+        href:"table-of-contents.html",
+        label:"Guide",
+        description:"Start here for a complete guide to the budget pages, directories, schedules, departments, capital projects, and financial summaries."
+      },
+      {
+        title:"Transmittal Letter",
+        href:"transmittal-letter.html",
+        label:"Budget Message",
+        description:"The budget message to the Board and residents, including the challenges, opportunities, and decisions behind this proposal."
+      },
+      {
+        title:"GFOA Distinguished Budget Presentation Award",
+        href:"gfoa-distinguished-budget-presentation-award.html",
+        label:"Recognition",
+        description:"Review the award standards and presentation recognition for Walton County's budget document."
+      },
+      {
+        title:"Budget Process & Calendar",
+        href:"budget-process-and-calendar.html",
+        label:"Process",
+        description:"Understand how department requests, review, workshops, public hearings, and adoption fit together, and follow the key dates, TRIM notices, and adoption milestones."
+      },
+      {
+        title:"Revenue Budget",
+        href:"summary-of-revenues.html",
+        label:"Revenue",
+        description:"Understand major revenue sources, who pays them, reliability, restrictions, and how expected revenue compares to nearby counties."
+      },
+      {
+        title:"Expense Budget",
+        href:"summary-of-expenses.html",
+        label:"Expenses",
+        description:"See FY 2027 spending grouped by statutory functional classification, from General Government to Court-Related Cost."
+      },
+      {
+        title:"Department Budget",
+        href:"departments.html",
+        label:"Departments",
+        description:"See the FY 2027 budget, year-over-year change, staffing, and fund for every department under the Board of County Commissioners."
+      },
+      {
+        title:"Personnel Budget",
+        href:"summary-of-personnel.html",
+        label:"Personnel",
+        description:"See staffing, position counts, pay competitiveness, and budgeted personnel cost by department."
+      },
+      {
+        title:"Fund Descriptions and Structure",
+        href:"fund-descriptions-and-structure.html",
+        label:"Fund Structure",
+        description:"Understand the County's fund accounting structure and how resources are organized."
+      },
+      {
+        title:"Department to Fund Relationship",
+        href:"department-to-fund-relationship.html",
+        label:"Funding Map",
+        description:"See which funds support departments, offices, programs, and recurring services."
+      },
+      {
+        title:"Financial Policies",
+        href:"financial-policies.html",
+        label:"Fiscal Policy",
+        description:"Review policies for budgeting, reserves, fund balance, debt, investment, and fiscal stewardship."
+      },
+      {
+        title:"Consolidated Financial Schedules",
+        href:"consolidated-financial-schedules.html",
+        label:"All Funds",
+        description:"Review combined County financial schedules across funds, revenues, expenses, transfers, and balances."
+      },
+      {
+        title:"Fund Financial Schedules",
+        href:"fund-financial-schedules.html",
+        label:"Fund Detail",
+        description:"Explore fund-level financial schedules for major operating, special revenue, and capital funds."
+      },
+      {
+        title:"Summary of Property Tax Allocations",
+        href:"summary-of-property-tax-allocations.html",
+        label:"Property Tax",
+        description:"See the dollar amount each department receives from the countywide property tax."
+      },
+      {
+        title:"Summary of Budget Changes and Adjustments",
+        href:"summary-of-budget-changes-and-adjustments.html",
+        label:"Changes",
+        description:"Compare tentative expenditures to the prior budget by department, showing both increases and decreases."
+      },
+      {
+        title:"Summary of Contractual Services",
+        href:"summary-of-contractual-services.html",
+        label:"Contracts",
+        description:"Review budgeted contractual services and outside-vendor spending by department.",
+        darkModeOnly:true
+      },
+      {
+        title:"Summary of Interfund Transfers",
+        href:"summary-of-interfund-transfers.html",
+        label:"Transfers",
+        description:"Review planned transfers between funds and how resources move to support operations and capital needs."
+      },
+      {
+        title:"Summary of Machinery, Vehicles & Equipment",
+        href:"summary-of-machinery-vehicles-and-equipment.html",
+        label:"Equipment",
+        description:"Review planned machinery, vehicle, and equipment investments included in the budget."
+      },
+      {
+        title:"Debt Overview",
+        href:"debt-overview.html",
+        label:"Debt",
+        description:"Explore outstanding debt, debt service, borrowing strategy, and long-term obligations."
+      },
+      {
+        title:"Financial Forecast",
+        href:"financial-forecast.html",
+        label:"Forecast",
+        description:"Review long-range financial assumptions, revenue outlook, expense projections, and planning considerations."
+      },
+      {
+        title:"Supporting Budget Documentation",
+        href:"supporting-budget-documentation.html",
+        label:"Documents",
+        description:"Open supporting budget requests, certifications, policies, ordinances, fee schedules, and reference workbooks."
+      }
+    ];
+
+    function $(selector){
+      return document.querySelector(selector);
+    }
+
+    function escapeHtml(value){
+      return String(value === undefined || value === null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderHub(){
+      $("#hubList").innerHTML = pages.map(function(page){
+        var liClass = page.darkModeOnly ? ' class="wc-dark-mode-only"' : "";
+        return '<li' + liClass + '><a class="wc-directory-item" href="' + escapeHtml(page.href) + '">' +
+          '<div class="wc-directory-item-main">' +
+            '<span class="wc-directory-item-title">' + escapeHtml(page.title) + '</span>' +
+            '<span class="wc-directory-item-desc">' + escapeHtml(page.description) + '</span>' +
+          '</div>' +
+          '<span class="wc-directory-item-arrow" aria-hidden="true">&rarr;</span>' +
+        '</a></li>';
+      }).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", renderHub);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transmittal Letter — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body class="transmittal-page">
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Introduction and Overview</div>
+<h1 class="page-title">Transmittal Letter</h1>
+
+<style>
+  body.transmittal-page #content{
+    max-width:1240px;
+    padding:44px 32px 78px;
+  }
+
+  .wc-transmittal{
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  .wc-transmittal-hero{
+    margin:0 0 34px;
+  }
+
+  .wc-transmittal-hero-copy{
+    padding:42px;
+    border-radius:30px;
+    background:#003f28;
+    color:#ffffff;
+  }
+
+  .wc-transmittal-kicker{
+    display:block;
+    margin:0 0 12px;
+    color:#d1be78;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  .wc-transmittal-hero-copy h2{
+    margin:0 0 16px;
+    color:#ffffff;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(42px, 6vw, 72px);
+    line-height:.98;
+    font-weight:500;
+  }
+
+  .wc-transmittal-hero-copy p{
+    max-width:760px;
+    margin:0;
+    color:rgba(255,255,255,.86);
+    font-size:17px;
+    line-height:1.7;
+  }
+
+  .wc-transmittal-letter-grid{
+    margin:0 0 34px;
+  }
+
+  .wc-transmittal-letter{
+    padding:34px;
+    border:1px solid rgba(23,32,51,.11);
+    border-radius:26px;
+    background:#ffffff;
+    box-shadow:0 14px 34px rgba(23,32,51,.06);
+  }
+
+  .wc-transmittal-letter p{
+    margin:0 0 18px;
+    color:#526577;
+    font-size:16px;
+    line-height:1.82;
+  }
+
+  .wc-transmittal-letter h3{
+    margin:34px 0 12px;
+    color:#003f28;
+    font-size:22px;
+    line-height:1.2;
+  }
+
+  .wc-transmittal-letter ul{
+    display:grid;
+    gap:9px;
+    margin:0 0 22px;
+    padding-left:22px;
+    color:#526577;
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  .wc-transmittal-letter p:last-child{
+    margin-bottom:0;
+  }
+
+  .wc-transmittal-salutation,
+  .wc-transmittal-signature{
+    color:#172033 !important;
+    font-weight:800;
+  }
+
+  .wc-transmittal-section{
+    margin:0 0 34px;
+  }
+
+  .wc-transmittal-section-header{
+    max-width:780px;
+    margin:0 0 20px;
+  }
+
+  .wc-transmittal-section-header h2{
+    margin:0 0 10px;
+    color:#172033;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(32px, 4vw, 54px);
+    line-height:1.05;
+    font-weight:500;
+  }
+
+  .wc-transmittal-section-header p{
+    margin:0;
+    color:#607184;
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .wc-transmittal-links{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:14px;
+  }
+
+  .wc-transmittal-link-card{
+    display:flex;
+    flex-direction:column;
+    min-height:172px;
+    padding:22px;
+    border:1px solid rgba(23,32,51,.11);
+    border-radius:20px;
+    background:#ffffff;
+    color:inherit;
+    text-decoration:none;
+    box-shadow:0 14px 34px rgba(23,32,51,.06);
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+
+  .wc-transmittal-link-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(0,63,40,.22);
+    box-shadow:0 18px 42px rgba(23,32,51,.09);
+  }
+
+  .wc-transmittal-link-card h3{
+    margin:0 0 8px;
+    color:#172033;
+    font-size:18px;
+    line-height:1.2;
+  }
+
+  .wc-transmittal-link-card p{
+    margin:0 0 18px;
+    color:#607184;
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .wc-transmittal-link-card span{
+    margin-top:auto;
+    color:#003f28;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  @media(max-width:960px){
+    body.transmittal-page #content{
+      padding:34px 22px 64px;
+    }
+
+    .wc-transmittal-links{
+      grid-template-columns:repeat(2, minmax(0,1fr));
+    }
+  }
+
+  @media(max-width:640px){
+    body.transmittal-page #content{
+      padding:28px 16px 54px;
+    }
+
+    .wc-transmittal-hero-copy,
+    .wc-transmittal-letter{
+      padding:22px;
+      border-radius:22px;
+    }
+
+    .wc-transmittal-links{
+      grid-template-columns:1fr;
+    }
+  }
+
+  /* The hero banner is always set on a fixed dark-green background, so it
+     reads fine in either theme without changes. The letter card, section
+     text, and link cards below it assume a light page background, so they
+     need explicit dark-theme treatment to stay legible when the site theme
+     switches. */
+  :root[data-theme="dark"] .wc-transmittal-letter,
+  :root[data-theme="dark"] .wc-transmittal-link-card{
+    background:rgba(14,28,22,.92);
+    border-color:var(--border);
+    box-shadow:0 18px 46px rgba(0,0,0,.28);
+  }
+
+  :root[data-theme="dark"] .wc-transmittal-letter p,
+  :root[data-theme="dark"] .wc-transmittal-letter ul,
+  :root[data-theme="dark"] .wc-transmittal-section-header p,
+  :root[data-theme="dark"] .wc-transmittal-letter-status,
+  :root[data-theme="dark"] .wc-transmittal-link-card p{
+    color:var(--muted);
+  }
+
+  :root[data-theme="dark"] .wc-transmittal-letter h3,
+  :root[data-theme="dark"] .wc-transmittal-section-header h2,
+  :root[data-theme="dark"] .wc-transmittal-link-card h3{
+    color:var(--text);
+  }
+
+  :root[data-theme="dark"] .wc-transmittal-salutation,
+  :root[data-theme="dark"] .wc-transmittal-signature{
+    color:var(--text) !important;
+  }
+
+  /* The gold kicker reads well on the dark hero but measures 1.85:1 on the
+     white section background below it, failing the contrast minimum. The
+     dark theme already substitutes green here; light mode needs the same
+     treatment. */
+  .wc-transmittal-section .wc-transmittal-kicker{
+    color:#00522f;
+  }
+
+  :root[data-theme="dark"] .wc-transmittal-section .wc-transmittal-kicker,
+  :root[data-theme="dark"] .wc-transmittal-link-card span{
+    color:var(--green);
+  }
+
+  :root[data-theme="dark"] .wc-transmittal-link-card:hover{
+    border-color:rgba(123,211,159,.35);
+    box-shadow:0 22px 50px rgba(0,0,0,.34);
+  }
+
+  .wc-context-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .wc-context-card{display:grid;align-content:start;gap:16px;padding:26px;border:1px solid rgba(23,32,51,.11);border-top:5px solid #003f28;border-radius:20px;background:#ffffff;box-shadow:0 14px 34px rgba(23,32,51,.06)}
+  .wc-context-card header{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center}
+  .wc-context-number{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#003f28;color:#fff;font-weight:900}
+  .wc-context-card h2{margin:0;color:#172033;font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.15}
+  .wc-context-card p{margin:0;color:#526577;font-size:15px;line-height:1.68}
+  .wc-context-detail{display:grid;gap:11px;margin:0}
+  .wc-context-detail div{padding-top:11px;border-top:1px solid rgba(23,32,51,.11)}
+  .wc-context-detail dt{margin:0 0 4px;color:#00522f;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+  .wc-context-detail dd{margin:0;color:#172033;font-size:14px;line-height:1.58}
+  .wc-context-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
+  .wc-context-links a{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border:1px solid rgba(23,32,51,.11);border-radius:999px;color:#00522f;font-size:12px;font-weight:900;text-decoration:none}
+  @media(max-width:820px){.wc-context-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.wc-context-card{padding:20px}.wc-context-card header{grid-template-columns:38px minmax(0,1fr)}.wc-context-number{width:38px;height:38px}}
+  :root[data-theme="dark"] .wc-context-card{background:rgba(14,28,22,.92);border-color:var(--border)}
+  :root[data-theme="dark"] .wc-context-card h2{color:var(--text)}
+  :root[data-theme="dark"] .wc-context-card p,
+  :root[data-theme="dark"] .wc-context-detail dd{color:var(--muted)}
+  :root[data-theme="dark"] .wc-context-detail dt,
+  :root[data-theme="dark"] .wc-context-links a{color:var(--green)}
+  :root[data-theme="dark"] .wc-context-detail div{border-color:var(--border)}
+</style>
+
+<section class="wc-transmittal">
+  <div class="wc-transmittal-hero">
+    <div class="wc-transmittal-hero-copy">
+      <span class="wc-transmittal-kicker">Transmittal Letter</span>
+      <h2>A budget message for Walton County.</h2>
+      <p>The transmittal letter introduces the annual budget, explains the financial conditions shaping the plan, and connects the County&rsquo;s priorities to the services, infrastructure, and stewardship residents depend on.</p>
+    </div>
+
+  </div>
+
+  <div class="wc-transmittal-letter-grid">
+    <article class="wc-transmittal-letter">
+      <div id="wc-transmittal-letter-body">
+        <p class="wc-transmittal-salutation">To the Honorable Walton County Board of County Commissioners:</p>
+        <p>In accordance with Florida Statute Chapter 129.03(3), I am transmitting with this message the budget for Fiscal Year 2027. This budget is balanced and provides a general operating framework for providing all County services for the forthcoming year. This budget focuses on public safety, infrastructure needs, and providing services for a continually growing county in the most efficient and effective manner possible.</p>
+        <p>The budget has been developed with the following objectives:</p>
+        <ul>
+          <li>Maintaining the existing service levels for residents.</li>
+          <li>Consideration of the Board of County Commissioners&rsquo; directives.</li>
+          <li>Funding the Sheriff, other Constitutional Officers, and other statutory requirements.</li>
+          <li>Addressing the needs required for an aging infrastructure and the maintenance of county facilities.</li>
+          <li>Investing in our employees.</li>
+          <li>Maintaining a sound self-insurance fund for health insurance.</li>
+          <li>Maintaining reserves.</li>
+        </ul>
+
+        <h3>Summary of Changes</h3>
+        <p>The Fiscal Year 2027 Final Budget is $2,935,920 higher than the Tentative Budget. This includes <span class="wc-review-flag">an amount of excess EMS revenue not published here</span> requested to be budgeted by the Sheriff&rsquo;s Office, and a net increase of $1,235,920 in other appropriations. In the General Fund, interfund transfers-in increased, reflecting <span class="wc-review-flag">a Clerk of Court IT staffing request not published here</span> and <span class="wc-review-flag">a cost-of-living adjustment amount for the Clerk of Court not published here</span>, as recommended by the BCC at the proposed workshop. In the Transportation Fund, <span class="wc-review-flag">a cost-of-living adjustment amount not published here</span> was offset by increased state contributions. The Debt Service Fund now includes <span class="wc-review-flag">a remaining cash balance amount not published here</span>, representing the remaining cash balance from the voter-approved sales tax referendum dedicated to the construction of the Highway 331 bridge. The largest change occurred in the Fine &amp; Forfeiture Fund, an increase of $4.7 million, including <span class="wc-review-flag">an EMS excess revenue amount not published here</span> for capital recreation projects and <span class="wc-review-flag">an amount not published here</span> redirected to the Bruce Fire Station project. This increase was offset by a $2.5 million increase in interest revenue.</p>
+        <p>In comparing the FY 27 Budget to the FY 26 Final Budget, the total budget across all funds has increased from $327,945,088 to $364,932,816. This difference is due to a combination of several factors. Staff&rsquo;s primary focus has been on meeting infrastructure needs while maintaining current service levels for our citizens. With this goal, an additional $10 million has been budgeted within the Capital Projects Fund for various infrastructure projects. Within the General Fund&rsquo;s discretion, <span class="wc-review-flag">a Managed Vendor Program revenue amount not published here</span> has also been budgeted toward infrastructure improvements. <span class="wc-review-flag">A Road/Bridge/Mossy Head infrastructure allocation amount not published here</span> has also been allocated to the Mossy Head Community Redevelopment Agency, along with an additional funding request from the Walton County Health Department to maintain current primary care services within Walton County.</p>
+        <p>General Government Taxes remain the county&rsquo;s largest revenue source, accounting for 73% of budgeted revenues and projected at $265,247,494, with Ad Valorem Taxes making up 44%, or $161,066,332, of the total. The projection for Ad Valorem taxes is supported by an increase in the County-Wide Certified Taxable Value <span class="wc-review-flag">(the prior fiscal year comparison value is not published here)</span> for Fiscal Year 2027. The Discretionary Sales Surtax now contributes 11%, or $40,000,000, to be utilized primarily for solid waste collection and disposal, as well as funding road and bridge construction and maintenance.</p>
+        <p>Intergovernmental Revenues, expected to rise slightly to $29,662,519, include all revenues received from federal and state government sources. These revenues comprise 8.7% of budgeted revenues.</p>
+        <p>Miscellaneous Revenues are anticipated to increase to $38,681,133, primarily from increased budgeted interest earnings and an increase in expected Recreation Plat Fee collections. Charges for Services are projected to generate $14,642,264, reflecting an increase from the prior year&rsquo;s budget, in line with the sustained demand for county services. Permits, Fees, and Special Assessments are budgeted at $3,400,000, a decline from the prior year.</p>
+
+        <h3>Budget Summary</h3>
+        <p>The final budget has been crafted with a countywide operating millage rate of 3.5190 mills and a North Walton Mosquito Control millage rate of 0.4410 mills.</p>
+        <p>Public Safety remains the largest expenditure category for our County, with an allocation of $126,571,918, staying relatively flat compared to the prior year. The Sheriff&rsquo;s Office allocation of $114,116,228 reflects a slight increase from the prior year. Of the total public-safety expenditure, 90% is allocated to the Walton County Sheriff&rsquo;s Office, while the remaining 10% funds other services such as the Building Department, Code Enforcement, and the Medical Examiner.</p>
+        <p>General Government expenditures reflect a decrease from the previous year, ensuring continued support for essential government functions, including the constitutional offices. The Economic Environment category is budgeted at $62,761,100, a decrease from the prior year due to lower Tourist Development Tax collections seen during FY 26. Additionally, this reflects a decrease in overall expenses related to solid waste collection and disposal.</p>
+        <p>The budget for the Physical Environment activity category has been increased to $24,559,033, reflecting an increase in overall expenses related to solid waste collection and disposal. Culture and Recreation funding has been budgeted at $6,151,031, or a moderate increase in anticipated recreation program costs, and an increase in Parks Maintenance staffing and expenditures related to maintenance of community parks facilities. The Human Services activity category has increased, driven by increased funding for the DeFuniak Community Redevelopment Agency, and an additional funding request from the Walton County Health Department to maintain current primary care services within Walton County.</p>
+
+        <h3>Opportunities and Challenges in Budget Development</h3>
+        <p>As we move through the budget process and into the upcoming budget year, we are aware that there are several factors that could potentially impact government operations over the next year. There is a possible impact on revenues due to legislative changes with sales and property taxes. Another long-term concern is the uncertainty of future economic conditions, while both tourism development taxes are collected and used within that fund for eligible projects as allowable under Florida statute related to tourism, sales tax revenues collected in Solid Waste and General Fund are impacted by tourism levels within the County. The budget development process presents both challenges and opportunities that will strengthen our financial planning and resource allocation for the future. As we move through the remainder of the current fiscal year and into the next fiscal year, it will be imperative to closely monitor those and other revenue sources that the County relies on for revenue.</p>
+        <p>The county&rsquo;s reliance on sales tax revenue is particularly significant, given that a large portion of all consumer purchases in Walton County are taxed. Because the half-cent and one-cent sales tax revenues, though projected to remain moderately flat this year, can continue to rise and fall with the strength of the local economy, focusing on optimizing our financial management practices, we can continue to support essential services and infrastructure projects without compromising the quality of life for our residents. Similarly, although tourism development taxes are expected to experience a decline in recent years, this is a natural rebalancing as global travel has normalized post-pandemic. The dip offers us the chance to refine our tourism strategies and focus on attracting visitors who will continue to contribute positively to the local economy.</p>
+        <p>Overall, while there are challenges ahead, they also offer opportunities for growth, innovation, and improved financial management. By tackling these challenges with a proactive and strategic approach, we can ensure that our community remains well-equipped to meet the challenges of the upcoming fiscal year while continuing to provide the high level of service our residents expect.</p>
+
+        <h3>Full-Time Positions</h3>
+        <p>The final budget includes additional FTEs under the Board of County Commissioners, <span class="wc-review-flag">and an FTE count not published here</span> for the Clerk of Courts, and <span class="wc-review-flag">an FTE count not published here</span> for the Supervisor of Elections. This requests focus on the need to maintain existing county facilities and levels of service. A detailed personnel summary is provided on each department budget page in this document, and an overall summary is provided as a separate page within the budget document.</p>
+        <p>During the budget process, each department identifies the positions that are necessary to either provide an enhanced level of service or maintain an existing one. Not all requests for new positions were included in the FY 2027 Tentative Budget, with some requests not being recommended. Positions that were not recommended were those that added new services or were considered an expansion of existing service. Only the BCC has the ability to add positions; additional positions approved or denied by the BCC during the budget workshops will be added or removed accordingly and reflected in the staffing totals.</p>
+        <p>New positions approved for FY 27 are as follows:</p>
+        <ul>
+          <li>Facilities Maintenance: FTEs for a construction crew, unrelated to a neutral budget item, smaller projects previously contracted will be done in-house.</li>
+          <li>Custodial: FTEs for increased facilities and workload, with one FTE dedicated to the Building Department facility and the cost recouped through the cost allocation study.</li>
+          <li>Parks Maintenance: FTEs for increased workload with park expansions and aging park facilities.</li>
+          <li>Public Works: FTEs for a Utility Inspector and a Stabilization Crew.</li>
+          <li>Office of Management and Budget: an FTE for an experienced Budget Analyst for succession planning.</li>
+          <li>Procurement: an FTE for additional duties related to contracts awarded for solicitation.</li>
+          <li>Mossy Head Wastewater Treatment Facility: an FTE bringing the Sewer Technician to a full FTE.</li>
+        </ul>
+        <p>These positions were partially offset by reductions in Engineering, Eagle Springs Grill, Building Department, and Section 8 Housing. The Clerk of Courts &amp; Comptroller has requested an FTE for IT Network and an FTE for Payroll Specialist. The Supervisor of Elections has requested an FTE for a part-time employee for the South Walton Office.</p>
+        <p>These positions were partially offset by reductions elsewhere. By making these adjustments, we are ensuring that our County remains well-equipped to meet the operational needs and strategic objectives of our residents while continuing to provide the high level of service our residents deserve.</p>
+
+        <h3>Major Fund Highlights</h3>
+        <p>As we transition into Fiscal Year 2027, the General Fund budget has been tentatively set at $81,424,611, a notable increase from the allocation in FY 26. The largest increase in revenue is attributed to a 9.70% increase in proposed taxable property values over the prior year, resulting in a corresponding increase in tentative ad valorem tax revenues. The transfer of these ad valorem tax revenues from the General Fund to the Capital Projects and Fine &amp; Forfeiture Funds throughout the year. The other main driver of the increase in the General Fund budget is the addition of the Managed Vendor Program revenue and expenditures.</p>
+        <p>The Transportation Fund for Fiscal Year 2027 is budgeted at $26,723,118, a modest increase from the allocated in FY 26. This investment supports the county&rsquo;s commitment to maintaining and improving its transportation infrastructure, which is crucial for both residents and the local economy. Projected costs have remained relatively flat for FY 27 due to a lower anticipated cost of capital projects to be completed in the coming fiscal year.</p>
+        <p>The Fine &amp; Forfeiture Fund budget for Fiscal Year 2027 is tentatively set at $114,116,228, an increase over last year&rsquo;s budget of $114,116,228. The Fiscal Year 2027 Budget includes <span class="wc-review-flag">an EMS excess revenue amount not published here</span> to be requested by the Sheriff&rsquo;s Office and <span class="wc-review-flag">an amount not published here</span> redirected to the Bruce Fire Station, contributing to the overall increase in this fund.</p>
+        <p>The Tourist Development Fund for Fiscal Year 2027 is tentatively set at $58,965,950, reflecting a decrease from the $51,500,000 budgeted in FY 26. This tentative decrease is due to Tourist Development Tax revenues remaining flat compared to <span class="wc-review-flag">the prior year figure not published here</span>. This budget has been approved and recommended by the Tourist Development Council, which focused on conservative budgeting principles and an increased effort for marketing for FY 27.</p>
+        <p>The Solid Waste Fund for Fiscal Year 2027 is at $23,119,567, reflecting an increase from FY 26. In the Solid Waste Fund budget focus on regular operations and maintenance of the county&rsquo;s solid waste management system, as well as an increase in transfers out to the Transportation Fund for road and bridge projects.</p>
+        <p>The Capital Project Fund for Fiscal Year 2027 is tentatively set at $27,586,536, marking a substantial increase from the allocated in FY 26. This increase in over reflects the county&rsquo;s commitment to advancing critical infrastructure projects that are essential for supporting the community&rsquo;s growth and development.</p>
+        <p>In summary, the Fiscal Year 2027 budget reflects a balanced and forward-thinking approach, carefully constructed to meet the immediate needs of our community while positioning Walton County for sustained growth and resilience. This budget reflects our commitment to fiscal responsibility, strategic investment in critical infrastructure, and the continued delivery of high-quality services to our residents. Together, we are ensuring that Walton County remains a vibrant and prosperous place to live, work, and grow.</p>
+        <p class="wc-transmittal-signature">Melissa Thomason,<br>Chief Financial Officer</p>
+        <p><span class="wc-review-flag">This letter was migrated from the County&rsquo;s narrative planning workbook to this page as a static, editable document; a small number of figures noted above were not filled in in the source workbook before it was retired and should be confirmed and added directly to this page.</span></p>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="wc-transmittal-section" id="letter-challenges">
+    <div class="wc-transmittal-section-header">
+      <span class="wc-transmittal-kicker">Challenges, Opportunities, and Decisions</span>
+      <h2>The conditions behind this proposal.</h2>
+      <p>These conditions were identified through department operating and capital requests, revenue and taxable-value estimates, constitutional-officer submissions, the five-year financial forecast, Board budget workshops, and the public budget process. They are not listed as a ranking of community preferences; they explain the major pressures and opportunities considered while preparing the tentative budget. Because the budget remains tentative until final adoption, public comments and Board decisions may change the plan.</p>
+    </div>
+
+    <section class="wc-context-grid" aria-label="Major budget challenges and opportunities">
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">1</span><h2>Maintain services at the rolled-back millage rate</h2></header>
+        <p>The tentative countywide millage rate equals the rolled-back rate. This limits revenue growth from the existing property-tax base while operating costs and service demands continue to change.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>Florida&rsquo;s rolled-back-rate calculation reflects taxable-value growth while excluding most new-construction value. The tentative rate is designed to produce approximately the same countywide levy from the prior-year tax base, before new construction.</dd></div>
+          <div><dt>Planning horizon</dt><dd>Immediate FY 2027 adoption decision with effects carried through the five-year financial forecast.</dd></div>
+          <div><dt>Community and service effect</dt><dd>Countywide property owners and residents are affected through the tax rate and the service capacity supported by recurring revenue.</dd></div>
+          <div><dt>Budget response</dt><dd>Departments and Administration reviewed requests against recurring revenue, fund capacity, and a required budget-reduction exercise.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Adoption of a balanced budget, recurring revenues compared with recurring expenditures, and projected fund-balance trends.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="summary-of-property-tax-allocations.html">Property tax details</a><a href="summary-of-budget-changes-and-adjustments.html">Budget changes</a></div>
+      </article>
+
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">2</span><h2>Fund public safety while preserving other County services</h2></header>
+        <p>The independently elected Sheriff&rsquo;s budget is supported by the General Fund after applying revenue available within the Sheriff Fund. That funding requirement competes with the resources used for Board-controlled departments and other countywide obligations.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>The Sheriff is independently elected, while the Board provides the transfer required after revenue available within the Sheriff Fund is applied.</dd></div>
+          <div><dt>Planning horizon</dt><dd>Annual appropriation decision evaluated across the five-year General Fund and Sheriff Fund forecasts.</dd></div>
+          <div><dt>Community and service effect</dt><dd>Public-safety funding serves the countywide population and reduces resources otherwise available for Board departments and other county obligations.</dd></div>
+          <div><dt>Budget response</dt><dd>The forecast treats the Sheriff Fund as transfer supported and calculates the General Fund transfer needed after the Sheriff&rsquo;s other projected revenues.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Annual transfer requirements, General Fund structural balance, Sheriff service measures, and public-safety funding compared with the adopted plan.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="sheriffs-office.html">Sheriff&rsquo;s Office</a><a href="summary-of-interfund-transfers.html">Interfund transfers</a></div>
+      </article>
+
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">3</span><h2>Deliver infrastructure for a growing county</h2></header>
+        <p>Roads, drainage, public facilities, recreation assets, public-safety facilities, and other infrastructure often require several years of planning, design, funding, and construction.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>Population and development growth, aging assets, permitting, land acquisition, and multiyear design and construction schedules create long-lived infrastructure needs.</dd></div>
+          <div><dt>Planning horizon</dt><dd>Five-year capital plan, with some project life cycles extending beyond the plan period.</dd></div>
+          <div><dt>Community and service effect</dt><dd>Effects vary by project location and service area, while countywide residents and visitors benefit from the broader transportation, safety, drainage, and facility network.</dd></div>
+          <div><dt>Budget response</dt><dd>The five-year Capital Improvement Plan organizes projects by timing and funding source and identifies the departments responsible for delivery.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Project status, planned versus actual timing, available funding, completion of scheduled phases, and the service benefit delivered.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="capital-improvement-plan.html">Capital plan</a><a href="search.html">Search projects</a></div>
+      </article>
+
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">4</span><h2>Keep recurring costs aligned with sustainable revenue</h2></header>
+        <p>Personnel, contracts, utilities, maintenance, and other operating costs continue beyond a single budget year. One-time resources can support one-time needs but should not hide an ongoing operating imbalance.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>Continuing personnel, contractual, utility, maintenance, and service costs can grow differently from recurring tax and fee revenue.</dd></div>
+          <div><dt>Planning horizon</dt><dd>FY 2027 operating plan tested through FY 2031.</dd></div>
+          <div><dt>Community and service effect</dt><dd>A persistent mismatch would reduce future service capacity or require later revenue, spending, or fund-balance decisions.</dd></div>
+          <div><dt>Budget response</dt><dd>The five-year forecast applies documented assumptions to recurring revenue and expenditure lines and excludes unusual one-time activity from trend calculations when it would distort the outlook.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Annual revenue compared with expenditure, changes in available fund balance, and updates to assumptions as actual results become available.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="financial-forecast.html">Financial forecast</a><a href="summary-of-revenues.html">Revenue sources</a></div>
+      </article>
+
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">5</span><h2>Protect committed and restricted resources</h2></header>
+        <p>Fund balance is not a single pool of money available for any purpose. Legal restrictions, revenue-source limitations, and Board commitments determine how portions of a balance may be used.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>Florida law, revenue-source requirements, fund accounting, and formal Board commitments limit how certain resources may be used.</dd></div>
+          <div><dt>Planning horizon</dt><dd>Multiyear stewardship extending beyond a single annual budget.</dd></div>
+          <div><dt>Community and service effect</dt><dd>Resources remain available only for their authorized or committed purpose and cannot automatically offset unrelated services.</dd></div>
+          <div><dt>Budget response</dt><dd>The forecast separately identifies the Board-committed Tourist Development balance for Beach Renourishment and the balance available for other eligible Tourist Development uses.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Fund-balance classifications, compliance with financial policies, and the availability of resources for their authorized purposes.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="fund-financial-schedules.html">Fund schedules</a><a href="financial-policies.html">Financial policies</a></div>
+      </article>
+
+      <article class="wc-context-card">
+        <header><span class="wc-context-number">6</span><h2>Use dedicated and outside revenue effectively</h2></header>
+        <p>Tourist Development Taxes, fuel taxes, grants, impact fees, special assessments, and other dedicated sources can reduce pressure on general revenue, but their use may be limited and their timing or amount may be less predictable.</p>
+        <dl class="wc-context-detail">
+          <div><dt>Root condition</dt><dd>Collections depend on economic activity, visitor spending, fuel use, development, grant eligibility, intergovernmental formulas, and other factors outside direct County control.</dd></div>
+          <div><dt>Planning horizon</dt><dd>Annual estimates monitored against a five-year revenue outlook and project schedule.</dd></div>
+          <div><dt>Community and service effect</dt><dd>Who pays and who benefits varies by source: property owners, visitors, motorists, service users, developers, and outside governments support different funds and eligible services.</dd></div>
+          <div><dt>Budget response</dt><dd>Revenue is budgeted in the funds and service areas permitted by each source, while grant-funded and other one-time capital activity is presented separately where practicable.</dd></div>
+          <div><dt>How progress is measured</dt><dd>Collections compared with estimates, compliance with restrictions, grant and project delivery, and the share of eligible costs supported by dedicated revenue.</dd></div>
+        </dl>
+        <div class="wc-context-links"><a href="summary-of-revenues.html">Revenue overview</a><a href="capital-improvement-plan.html">Capital funding</a></div>
+      </article>
+    </section>
+  </section>
+
+  <section class="wc-transmittal-section">
+    <div class="wc-transmittal-section-header">
+      <span class="wc-transmittal-kicker">Explore the Supporting Detail</span>
+      <h2>Move from the message to the numbers.</h2>
+      <p>The pages below provide the financial schedules, department detail, and capital planning information that support the transmittal letter.</p>
+    </div>
+
+    <div class="wc-transmittal-links">
+      <a class="wc-transmittal-link-card" href="budget-overview.html">
+        <h3>Budget Overview</h3>
+        <p>Review the budget hub, process, policies, fund structure, and major financial context.</p>
+        <span>Open Overview</span>
+      </a>
+      <a class="wc-transmittal-link-card" href="budget-overview.html">
+        <h3>Financial Detail</h3>
+        <p>Explore revenues, expenses, fund schedules, transfers, personnel, equipment, debt, and forecast information from Budget Overview.</p>
+        <span>View Financial Detail</span>
+      </a>
+      <a class="wc-transmittal-link-card" href="capital-projects.html">
+        <h3>Capital Projects</h3>
+        <p>Browse the capital overview, fund schedules, and searchable project index for planned investments.</p>
+        <span>View Capital Plan</span>
+      </a>
+    </div>
+  </section>
+</section>
+</main>
+</div>
+
+<!-- nav.js will inject footer[role="contentinfo"] here -->
+
+<script>
+/* set wcBudgetPages before nav script runs so search is fully populated */
+window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/gfoa-distinguished-budget-presentation-award.html"},
+  {title:"Transmittal Letter",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/transmittal-letter.html"},
+  {title:"Our County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/our-county.html"},
+  {title:"Overview of Walton County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/overview-of-walton-county.html"},
+  {title:"Organizational Structure",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/organizational-structure.html"},
+  {title:"Strategic Initiatives",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/strategic-initiatives.html"},
+  {title:"Budget Overview",section:"Budget Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-overview.html"},
+  {title:"Constitutional Officers & Other Agencies",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/constitutional-officers.html"},
+  {title:"Departments",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/departments.html"},
+  {title:"Budget Process & Calendar",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-process-and-calendar.html"},
+  {title:"Fund Descriptions and Structure",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-descriptions-and-structure.html"},
+  {title:"Department to Fund Relationship",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/department-to-fund-relationship.html"},
+  {title:"Financial Policies",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-policies.html"},
+  {title:"Consolidated Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/consolidated-financial-schedules.html"},
+  {title:"Fund Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-financial-schedules.html"},
+  {title:"Revenue Budget",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-revenues.html"},
+  {title:"Summary of Expenses",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-expenses.html"},
+  {title:"Summary of Interfund Transfers",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-interfund-transfers.html"},
+  {title:"Summary of Personnel",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-personnel.html"},
+  {title:"Summary of Machinery, Vehicles & Equipment",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-machinery-vehicles-and-equipment.html"},
+  {title:"Summary of Property Tax Allocations",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-property-tax-allocations.html"},
+  {title:"Financials",section:"Financials",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financials.html"},
+  {title:"Board of County Commissioners",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/board-of-county-commissioners.html"},
+  {title:"Clerk of Courts & County Comptroller",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/clerk-of-courts-and-county-comptroller.html"},
+  {title:"Property Appraiser",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/property-appraiser.html"},
+  {title:"Sheriff's Office",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/sheriffs-office.html"},
+  {title:"Supervisor of Elections",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/supervisor-of-elections.html"},
+  {title:"Tax Collector",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tax-collector.html"},
+  {title:"Circuit Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/circuit-court.html"},
+  {title:"County Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-court.html"},
+  {title:"Court Technology & Innovations",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/court-technology-and-innovations.html"},
+  {title:"Guardian Ad Litem",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/guardian-ad-litem.html"},
+  {title:"Medical Examiner",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/medical-examiner.html"},
+  {title:"Non-Profit Funding Program",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/non-profit-funding-program.html"},
+  {title:"Public Defender",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-defender.html"},
+  {title:"South Walton Fire & State Control",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/south-walton-fire-and-state-control.html"},
+  {title:"State Attorney",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/state-attorney.html"},
+  {title:"Statutory & Other Agency Funding",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statutory-and-other-agency-funding.html"},
+  {title:"Walton County Health Department",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/walton-county-health-department.html"},
+  {title:"Building Construction and Maintenance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-construction-and-maintenance.html"},
+  {title:"Building Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-department.html"},
+  {title:"Code Compliance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/code-compliance.html"},
+  {title:"County Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-administration.html"},
+  {title:"Eagle Springs Golf and Recreation Center",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-golf-and-recreation-center.html"},
+  {title:"Eagle Springs Grill",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-grill.html"},
+  {title:"Emergency Management",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/emergency-management.html"},
+  {title:"Engineering Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/engineering-department.html"},
+  {title:"Environmental Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/environmental-resources.html"},
+  {title:"Extension Office",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/extension-office.html"},
+  {title:"Geographic Info Systems",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/geographic-info-systems.html"},
+  {title:"Housing & Urban Development",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/housing-and-urban-development.html"},
+  {title:"Human Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/human-resources.html"},
+  {title:"Libraries",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/libraries.html"},
+  {title:"Mosquito Control",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mosquito-control.html"},
+  {title:"Mossy Head Wastewater Treatment Facility",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mossy-head-wastewater-treatment-facility.html"},
+  {title:"Office of Management and Budget",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-management-and-budget.html"},
+  {title:"Office of the County Attorney",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-the-county-attorney.html"},
+  {title:"Planning",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/planning.html"},
+  {title:"Probation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/probation.html"},
+  {title:"Public Works",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-works.html"},
+  {title:"Purchasing",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/purchasing.html"},
+  {title:"Recreation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/recreation.html"},
+  {title:"Soil Conservation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/soil-conservation.html"},
+  {title:"Solid Waste",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/solid-waste.html"},
+  {title:"Tourism Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-administration.html"},
+  {title:"Tourism Beach Operations",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-beach-operations.html"},
+  {title:"Tourism Lifeguard Services and Beach Safety",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-lifeguard-services-and-beach-safety.html"},
+  {title:"Veteran Services",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/veteran-services.html"},
+  {title:"Capital Projects",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-projects.html"},
+  {title:"Capital Improvement Plan Overview",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-improvement-plan.html"},
+  {title:"CIP Project Search",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/search.html"},
+  {title:"Capital Projects Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-capital-projects.html"},
+  {title:"Sheriff Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-sheriff.html"},
+  {title:"Tourist Development Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-tourist-development.html"},
+  {title:"Transportation Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-transportation.html"},
+  {title:"Debt Overview",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/debt-overview.html"},
+  {title:"Financial Forecast",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-forecast.html"},
+  {title:"Glossary, Acronyms, and Frequently Asked Questions",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/glossary-acronyms-and-frequently-asked-questions.html"},
+  {title:"Statistical & Supplemental Information",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statistical-and-supplemental-information.html"}
+];
+</script>
+<script src="../assets/search-data.js?v=20260726-transmittal-letter"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>

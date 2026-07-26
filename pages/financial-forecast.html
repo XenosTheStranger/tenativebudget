@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Forecast — Walton County Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Debt and Financial Forecast</div>
+<h1 class="page-title">Financial Forecast</h1>
+
+<section class="page-text wc-forecast-intro">
+  <p>The financial forecast presents a planning view of major fund revenues, expenditures, and fund balance from FY 2027 through FY 2031. Forecast years apply documented growth assumptions to the FY 2027 baseline and are intended for long-range planning rather than appropriation authority.</p>
+</section>
+
+<section class="wc-forecast-outlook" aria-labelledby="forecast-outlook-title">
+  <div class="wc-section-heading-row">
+    <div>
+      <span class="page-eyebrow">Long-Term Outlook</span>
+      <h2 id="forecast-outlook-title" class="wc-fund-section-heading">How current decisions affect future budgets</h2>
+    </div>
+    <p>This is a baseline planning forecast, not a promise of future appropriations. It shows the direction of major funds if the FY 2027 tentative budget and documented assumptions continue.</p>
+  </div>
+  <div class="wc-forecast-outlook-grid">
+    <article><h3>Structural balance</h3><p>Annual revenues and expenditures should be read together. A fund that repeatedly spends more than its recurring revenue will draw down fund balance even when its total ending balance remains positive.</p></article>
+    <article><h3>Fund balance is not all available</h3><p>Projected ending fund balance may include restricted, committed, assigned, or otherwise limited resources. The Tourist Development forecast separately presents the Board-committed Beach Renourishment balance and the amount available for other eligible Tourist Development uses.</p></article>
+    <article><h3>Continuing obligations</h3><p>Personnel, contracts, operating costs, and the General Fund support required by the Sheriff continue beyond FY 2027. The Sheriff transfer is forecast at the amount needed after applying projected Sheriff Fund revenue.</p></article>
+    <article><h3>Capital and deferred costs</h3><p>Capital project spending follows the five-year Capital Improvement Plan. Future operating or maintenance costs are included only when they are already part of a department&rsquo;s forecast baseline; the absence of a separate amount does not mean a project has no future operating impact.</p></article>
+    <article><h3>Forecast uncertainty</h3><p>The forecast presents one planning baseline. Economic conditions, taxable values, tourism, state-shared revenue, grants, emergencies, inflation, project schedules, and Board policy decisions may produce different results.</p></article>
+    <article><h3>How the outlook is monitored</h3><p>Actual revenue, expenditures, transfers, staffing decisions, capital schedules, and fund balances should be compared with this forecast during each annual budget cycle. Assumptions are updated when newer information becomes available.</p></article>
+  </div>
+  <p class="wc-forecast-outlook-note"><strong>Important:</strong> This forecast does not itself determine compliance with the County&rsquo;s fund-balance policy and does not replace the legally adopted annual budget. See <a href="financial-policies.html">Financial Policies</a>, <a href="fund-financial-schedules.html">Fund Financial Schedules</a>, and the <a href="capital-improvement-plan.html">Capital Improvement Plan</a>.</p>
+</section>
+
+<style>
+  .wc-forecast-outlook{margin:30px 0;padding:28px;border:1px solid var(--border);border-radius:22px;background:var(--light);font-family:Arial,Helvetica,sans-serif}
+  .wc-forecast-outlook .wc-section-heading-row{align-items:end}
+  .wc-forecast-outlook .wc-section-heading-row>p{max-width:570px;margin:0;color:var(--muted);line-height:1.65}
+  .wc-forecast-outlook-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+  .wc-forecast-outlook-grid article{padding:20px;border:1px solid var(--border);border-radius:16px;background:var(--surface,#fff)}
+  .wc-forecast-outlook-grid h3{margin:0 0 8px;color:var(--green);font-size:16px}
+  .wc-forecast-outlook-grid p{margin:0;color:var(--muted);font-size:14px;line-height:1.62}
+  .wc-forecast-outlook-note{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.65}
+  @media(max-width:980px){.wc-forecast-outlook-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:650px){.wc-forecast-outlook{padding:20px}.wc-forecast-outlook-grid{grid-template-columns:1fr}}
+  :root[data-theme="dark"] .wc-forecast-outlook-grid article{background:rgba(14,28,22,.92)}
+  .wc-reserve-policy{margin:30px 0;padding:28px;border:1px solid var(--border);border-radius:22px;background:var(--surface,#fff);font-family:Arial,Helvetica,sans-serif}
+  .wc-reserve-policy h2{margin:0 0 9px;color:var(--text);font-size:clamp(27px,4vw,39px)}
+  .wc-reserve-policy>p{max-width:980px;margin:0;color:var(--muted);line-height:1.65}
+  .wc-reserve-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:22px}
+  .wc-reserve-metric{padding:18px;border:1px solid var(--border);border-radius:15px;background:var(--light)}
+  .wc-reserve-metric span{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .wc-reserve-metric strong{display:block;margin-top:7px;color:var(--green);font-size:21px}
+  .wc-reserve-policy-note{margin-top:18px!important;padding:15px 17px;border-left:4px solid var(--gold,#d7bd68);background:var(--light);font-size:13px}
+  @media(max-width:900px){.wc-reserve-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:560px){.wc-reserve-metrics{grid-template-columns:1fr}}
+</style>
+
+<section class="wc-reserve-policy" aria-labelledby="reserve-policy-title">
+  <div class="page-eyebrow">General Fund Policy Comparison</div>
+  <h2 id="reserve-policy-title">How the tentative balance compares with policy</h2>
+  <p><a href="https://www.mywaltonfl.gov/DocumentCenter/View/9811" target="_blank" rel="noopener noreferrer">Resolution 2012-52</a> establishes a targeted minimum unrestricted General Fund balance equal to two months of current-year operating expenditures and transfers out. The comparison below applies that formula to the FY 2027 tentative budget.</p>
+  <div id="gfoa-reserve-comparison" aria-live="polite"><div class="wc-data-loading">Loading policy comparison...</div></div>
+  <p class="wc-reserve-policy-note"><strong>Policy scope:</strong> The adopted numerical target applies to the General Fund. Other fund balances may be restricted, committed, or assigned for specific purposes and should not be evaluated against this General Fund threshold. Final compliance depends on the County&rsquo;s official fund-balance classifications and adopted budget.</p>
+</section>
+
+<div id="financial-forecast"></div>
+</main>
+</div>
+
+<!-- nav.js will inject footer[role="contentinfo"] here -->
+
+<script>
+/* set wcBudgetPages before nav script runs so search is fully populated */
+window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/gfoa-distinguished-budget-presentation-award.html"},
+  {title:"Transmittal Letter",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/transmittal-letter.html"},
+  {title:"Our County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/our-county.html"},
+  {title:"Overview of Walton County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/overview-of-walton-county.html"},
+  {title:"Organizational Structure",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/organizational-structure.html"},
+  {title:"Strategic Initiatives",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/strategic-initiatives.html"},
+  {title:"Budget Overview",section:"Budget Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-overview.html"},
+  {title:"Constitutional Officers & Other Agencies",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/constitutional-officers.html"},
+  {title:"Departments",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/departments.html"},
+  {title:"Budget Process & Calendar",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-process-and-calendar.html"},
+  {title:"Fund Descriptions and Structure",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-descriptions-and-structure.html"},
+  {title:"Department to Fund Relationship",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/department-to-fund-relationship.html"},
+  {title:"Financial Policies",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-policies.html"},
+  {title:"Consolidated Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/consolidated-financial-schedules.html"},
+  {title:"Fund Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-financial-schedules.html"},
+  {title:"Revenue Budget",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-revenues.html"},
+  {title:"Summary of Expenses",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-expenses.html"},
+  {title:"Summary of Interfund Transfers",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-interfund-transfers.html"},
+  {title:"Summary of Personnel",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-personnel.html"},
+  {title:"Summary of Machinery, Vehicles & Equipment",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-machinery-vehicles-and-equipment.html"},
+  {title:"Summary of Property Tax Allocations",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-property-tax-allocations.html"},
+  {title:"Financials",section:"Financials",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financials.html"},
+  {title:"Board of County Commissioners",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/board-of-county-commissioners.html"},
+  {title:"Clerk of Courts & County Comptroller",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/clerk-of-courts-and-county-comptroller.html"},
+  {title:"Property Appraiser",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/property-appraiser.html"},
+  {title:"Sheriff's Office",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/sheriffs-office.html"},
+  {title:"Supervisor of Elections",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/supervisor-of-elections.html"},
+  {title:"Tax Collector",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tax-collector.html"},
+  {title:"Circuit Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/circuit-court.html"},
+  {title:"County Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-court.html"},
+  {title:"Court Technology & Innovations",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/court-technology-and-innovations.html"},
+  {title:"Guardian Ad Litem",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/guardian-ad-litem.html"},
+  {title:"Medical Examiner",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/medical-examiner.html"},
+  {title:"Non-Profit Funding Program",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/non-profit-funding-program.html"},
+  {title:"Public Defender",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-defender.html"},
+  {title:"South Walton Fire & State Control",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/south-walton-fire-and-state-control.html"},
+  {title:"State Attorney",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/state-attorney.html"},
+  {title:"Statutory & Other Agency Funding",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statutory-and-other-agency-funding.html"},
+  {title:"Walton County Health Department",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/walton-county-health-department.html"},
+  {title:"Building Construction and Maintenance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-construction-and-maintenance.html"},
+  {title:"Building Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-department.html"},
+  {title:"Code Compliance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/code-compliance.html"},
+  {title:"County Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-administration.html"},
+  {title:"Eagle Springs Golf and Recreation Center",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-golf-and-recreation-center.html"},
+  {title:"Eagle Springs Grill",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-grill.html"},
+  {title:"Emergency Management",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/emergency-management.html"},
+  {title:"Engineering Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/engineering-department.html"},
+  {title:"Environmental Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/environmental-resources.html"},
+  {title:"Extension Office",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/extension-office.html"},
+  {title:"Geographic Info Systems",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/geographic-info-systems.html"},
+  {title:"Housing & Urban Development",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/housing-and-urban-development.html"},
+  {title:"Human Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/human-resources.html"},
+  {title:"Libraries",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/libraries.html"},
+  {title:"Mosquito Control",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mosquito-control.html"},
+  {title:"Mossy Head Wastewater Treatment Facility",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mossy-head-wastewater-treatment-facility.html"},
+  {title:"Office of Management and Budget",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-management-and-budget.html"},
+  {title:"Office of the County Attorney",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-the-county-attorney.html"},
+  {title:"Planning",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/planning.html"},
+  {title:"Probation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/probation.html"},
+  {title:"Public Works",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-works.html"},
+  {title:"Purchasing",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/purchasing.html"},
+  {title:"Recreation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/recreation.html"},
+  {title:"Soil Conservation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/soil-conservation.html"},
+  {title:"Solid Waste",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/solid-waste.html"},
+  {title:"Tourism Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-administration.html"},
+  {title:"Tourism Beach Operations",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-beach-operations.html"},
+  {title:"Tourism Lifeguard Services and Beach Safety",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-lifeguard-services-and-beach-safety.html"},
+  {title:"Veteran Services",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/veteran-services.html"},
+  {title:"Capital Projects",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-projects.html"},
+  {title:"Capital Improvement Plan Overview",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-improvement-plan.html"},
+  {title:"CIP Project Search",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/search.html"},
+  {title:"Capital Projects Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-capital-projects.html"},
+  {title:"Sheriff Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-sheriff.html"},
+  {title:"Tourist Development Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-tourist-development.html"},
+  {title:"Transportation Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-transportation.html"},
+  {title:"Debt Overview",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/debt-overview.html"},
+  {title:"Financial Forecast",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-forecast.html"},
+  {title:"Glossary, Acronyms, and Frequently Asked Questions",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/glossary-acronyms-and-frequently-asked-questions.html"},
+  {title:"Statistical & Supplemental Information",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statistical-and-supplemental-information.html"}
+];
+</script>
+<script src="../assets/financial-forecast-assumptions.js?v=20260724-sheriff-transfer-supported"></script>
+<script src="../assets/cip-projects-data.js?v=20260723-asset-path-cleanup"></script>
+  <script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/gfoa-completion.js?v=20260724-gfoa-completion"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>

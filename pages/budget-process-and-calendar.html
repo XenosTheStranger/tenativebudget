@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Process &amp; Calendar — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+<style>
+  .wc-process-hero{
+    margin:34px 0 32px;
+    padding:34px;
+    border-radius:24px;
+    background:var(--light);
+    border:1px solid var(--border);
+  }
+  .wc-process-hero p{
+    max-width:850px;
+    margin:0;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.75;
+  }
+  .wc-process-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:24px;
+  }
+  .wc-process-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:42px;
+    padding:0 18px;
+    border-radius:999px;
+    background:var(--green);
+    color:#ffffff;
+    font-size:13px;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .wc-process-section{
+    margin-top:46px;
+  }
+  .wc-process-section h2{
+    margin:0 0 18px;
+    color:var(--text);
+    font-size:clamp(28px, 4vw, 42px);
+    line-height:1.1;
+  }
+  .wc-process-grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:18px;
+  }
+  .wc-process-card{
+    min-height:100%;
+    padding:24px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:#ffffff;
+  }
+  .wc-process-card span{
+    display:block;
+    margin-bottom:12px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .wc-process-card h3{
+    margin:0 0 10px;
+    color:var(--text);
+    font-size:21px;
+    line-height:1.25;
+  }
+  .wc-process-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.65;
+  }
+  .wc-process-detail{
+    display:grid;
+    grid-template-columns:minmax(0, 1.2fr) minmax(280px, .8fr);
+    gap:24px;
+    align-items:start;
+    margin-top:28px;
+  }
+  .wc-process-panel{
+    padding:28px;
+    border-radius:20px;
+    background:#ffffff;
+    border:1px solid var(--border);
+  }
+  .wc-process-panel h3{
+    margin:0 0 12px;
+    color:var(--text);
+    font-size:24px;
+  }
+  .wc-process-panel p,
+  .wc-process-panel li{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+  }
+  .wc-process-panel ul{
+    margin:12px 0 0;
+    padding-left:20px;
+  }
+  .wc-process-links{
+    display:grid;
+    gap:12px;
+  }
+  .wc-process-note-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+    margin-top:18px;
+  }
+  .wc-process-role-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+  }
+  .wc-process-role{
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:#ffffff;
+  }
+  .wc-process-role h3{
+    margin:0 0 8px;
+    color:var(--text);
+    font-size:18px;
+  }
+  .wc-process-role p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+  }
+  .wc-process-status{
+    margin-top:18px;
+    padding:20px 22px;
+    border-left:4px solid var(--gold);
+    background:var(--light);
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+  }
+  .wc-process-status a{
+    color:var(--green);
+    font-weight:900;
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+  }
+  .wc-process-status a:hover,
+  .wc-process-status a:focus-visible{
+    color:var(--green-dark);
+  }
+  .wc-decision-kpis{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-top:20px;
+  }
+  .wc-decision-kpi{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:var(--light);
+  }
+  .wc-decision-kpi strong{
+    display:block;
+    margin-bottom:6px;
+    color:var(--green);
+    font-size:25px;
+    line-height:1.1;
+  }
+  .wc-decision-kpi span{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
+  }
+  .wc-decision-record{
+    margin-top:18px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:#ffffff;
+  }
+  .wc-decision-record-row{
+    display:grid;
+    grid-template-columns:110px minmax(0,1fr) minmax(220px,.7fr);
+    gap:18px;
+    align-items:start;
+    padding:19px 20px;
+    border-bottom:1px solid var(--border);
+  }
+  .wc-decision-record-row:last-child{ border-bottom:0; }
+  .wc-decision-record-row time{
+    color:var(--green);
+    font-weight:900;
+  }
+  .wc-decision-record-row h3{
+    margin:0 0 5px;
+    color:var(--text);
+    font-size:16px;
+  }
+  .wc-decision-record-row p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.55;
+  }
+  .wc-decision-outcome{
+    display:grid;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:var(--light);
+    color:var(--text);
+    font-size:13px;
+    font-weight:800;
+    line-height:1.45;
+  }
+  .wc-decision-record-link{
+    width:max-content;
+    color:var(--green);
+    font-size:12px;
+    font-weight:900;
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+  }
+  .wc-decision-record-link:hover,
+  .wc-decision-record-link:focus-visible{
+    color:var(--green-dark);
+  }
+  .wc-process-link{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:#ffffff;
+    color:var(--text);
+    text-decoration:none;
+    font-weight:800;
+  }
+  .wc-process-link small{
+    display:block;
+    margin-top:6px;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:600;
+    line-height:1.45;
+  }
+  @media(max-width:980px){
+    .wc-process-grid,
+    .wc-process-detail,
+    .wc-process-note-grid,
+    .wc-process-role-grid,
+    .wc-decision-kpis{
+      grid-template-columns:1fr;
+    }
+  }
+  @media(max-width:640px){
+    .wc-process-hero,
+    .wc-process-panel,
+    .wc-process-card{
+      padding:22px;
+    }
+    .wc-decision-record-row{
+      grid-template-columns:1fr;
+      gap:9px;
+    }
+  }
+
+  /* Dark mode: var(--green) becomes a light mint in dark mode, so the solid
+     button needs a dark text color instead of white to stay readable; the
+     white card/panel/link surfaces need an explicit dark surface too,
+     matching the dark card treatment used elsewhere on the site. */
+  :root[data-theme="dark"] .wc-process-button{
+    color:#07110d;
+  }
+  :root[data-theme="dark"] .wc-process-card,
+  :root[data-theme="dark"] .wc-process-panel,
+  :root[data-theme="dark"] .wc-process-link,
+  :root[data-theme="dark"] .wc-process-role,
+  :root[data-theme="dark"] .wc-decision-record{
+    background: rgba(14,28,22,.92);
+    border-color: var(--border);
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Financial Structure, Policies, and Process</div>
+<h1 class="page-title">Budget Process &amp; Calendar</h1>
+<p class="page-intro">A simplified guide to how Walton County develops, reviews, adopts, and manages the annual budget &mdash; and the key dates along the way.</p>
+
+<section class="wc-process-hero" aria-label="Budget process summary">
+  <p>The annual budget process turns department needs, revenue forecasts, public priorities, Board direction, and Florida statutory requirements into an adopted spending plan for the fiscal year.</p>
+  <div class="wc-process-actions">
+    <a class="wc-process-button" href="#process-calendar" data-process-goto="calendar">View Budget Calendar</a>
+    <a class="wc-process-button" href="financial-policies.html">Review Financial Policies</a>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-phases" aria-label="Budget process phases">
+  <h2>Four Phases, One Adopted Budget</h2>
+  <div class="wc-process-grid">
+    <article class="wc-process-card">
+      <span>Phase 1</span>
+      <h3>Preparation</h3>
+      <p>Departments prepare operating and capital requests based on service needs, staffing, projects, and funding assumptions.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Phase 2</span>
+      <h3>Review</h3>
+      <p>OMB and County Administration evaluate requests against revenue estimates, priorities, fund capacity, and policy guidance.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Phase 3</span>
+      <h3>Workshops</h3>
+      <p>The tentative budget is reviewed publicly with the Board, including funding requests, service levels, and the proposed millage rate.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Phase 4</span>
+      <h3>Adoption</h3>
+      <p>Required public hearings are held before the Board adopts the final millage rate and annual operating budget.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-roles" aria-labelledby="wc-process-roles-title">
+  <h2 id="wc-process-roles-title">Who Does What</h2>
+  <div class="wc-process-role-grid">
+    <article class="wc-process-role">
+      <h3>County departments</h3>
+      <p>Evaluate service demand, staffing, equipment, operating needs, and capital projects, then prepare requests and explain the service results those resources are intended to support.</p>
+    </article>
+    <article class="wc-process-role">
+      <h3>Office of Management and Budget</h3>
+      <p>Issues budget instructions, develops revenue estimates, reviews requests, tests fund balance and policy impacts, and prepares recommendations and public budget materials.</p>
+    </article>
+    <article class="wc-process-role">
+      <h3>County Administration</h3>
+      <p>Reviews department requests and recommendations for operational feasibility, service priorities, organizational needs, and alignment with Board direction.</p>
+    </article>
+    <article class="wc-process-role">
+      <h3>Constitutional Officers</h3>
+      <p>Independently elected offices prepare and submit their budget requests under applicable law. The County incorporates the required funding into the countywide budget presented for adoption.</p>
+    </article>
+    <article class="wc-process-role">
+      <h3>Board of County Commissioners</h3>
+      <p>Reviews recommendations in public meetings, provides policy direction, establishes the proposed and final millage rates, and adopts the annual budget after the required hearings.</p>
+    </article>
+    <article class="wc-process-role">
+      <h3>Residents and stakeholders</h3>
+      <p>Review proposed materials, attend workshops and hearings, ask questions, identify service concerns, and provide recommendations before final adoption.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-basis" aria-label="Basis of budgeting">
+  <h2>Basis of Budgeting</h2>
+  <div class="wc-process-hero">
+    <p>Walton County prepares and adopts its annual budget in accordance with Generally Accepted Accounting Principles and applicable Florida Statutes governing local government budgeting practices.</p>
+  </div>
+  <div class="wc-process-grid">
+    <article class="wc-process-card">
+      <span>GAAP</span>
+      <h3>Budgeting Standards</h3>
+      <p>Annual budgets for governmental fund types that are legally required to prepare a budget are adopted on a basis consistent with GAAP.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Control</span>
+      <h3>Encumbrance Accounting</h3>
+      <p>Encumbrances represent commitments for goods or services, including purchase orders and contractual obligations.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Accounting</span>
+      <h3>Modified Accrual Basis</h3>
+      <p>The modified accrual basis is used for budgeting purposes and audited financial statements for governmental funds.</p>
+    </article>
+    <article class="wc-process-card">
+      <span>Grants</span>
+      <h3>Grant Revenue Treatment</h3>
+      <p>Grant revenue is generally added to the budget after grant agreements are executed or prior-year grant balances are carried forward.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-detail" aria-label="Budget process details">
+  <h2>What Happens During The Process</h2>
+  <div class="wc-process-detail">
+    <article class="wc-process-panel">
+      <h3>From requests to recommendations</h3>
+      <p>Budget development begins when departments receive instructions from the Office of Management and Budget. Departments review current programs, service demands, staffing, capital needs, and operating requirements before submitting requests.</p>
+      <p>OMB reviews requests with County Administration and departments, compares proposed expenditures to available resources, and prepares recommendations for Board consideration.</p>
+      <ul>
+        <li>Operating and capital requests are reviewed together.</li>
+        <li>Constitutional Officer budgets are incorporated at required points in the process.</li>
+        <li>Public workshops and hearings provide transparency before adoption.</li>
+      </ul>
+    </article>
+    <aside class="wc-process-links" aria-label="Related budget process pages">
+      <a class="wc-process-link" href="#process-calendar" data-process-goto="calendar">
+        <span>Budget Calendar<small>Key dates, workshops, hearings, TRIM notices, and adoption milestones.</small></span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="wc-process-link" href="fund-descriptions-and-structure.html">
+        <span>Fund Structure<small>How the County organizes resources by fund type and purpose.</small></span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="wc-process-link" href="financial-policies.html">
+        <span>Financial Policies<small>Fiscal policies that guide reserves, budgeting, debt, and stewardship.</small></span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </aside>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-decisions" aria-labelledby="wc-process-input-title">
+  <h2 id="wc-process-input-title">Public Input &amp; Decision Record</h2>
+  <div class="wc-process-note-grid">
+    <article class="wc-process-panel">
+      <h3>How to participate</h3>
+      <p>Budget workshops and hearings are open to the public. The <a href="#process-calendar" data-process-goto="calendar">Budget Calendar</a> lists key dates and participation information. Questions, concerns, and recommendations may also be sent to the Office of Management and Budget at <a href="mailto:budget@mywaltonfl.gov">budget@mywaltonfl.gov</a>.</p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>How changes are documented</h3>
+      <p>Board direction and formal action occur in public meetings. As the tentative budget changes, revised schedules and the <a href="summary-of-budget-changes-and-adjustments.html">Summary of Budget Changes and Adjustments</a> provide the financial record, while official meeting records document the discussion and action.</p>
+    </article>
+  </div>
+  <div class="wc-decision-kpis" aria-label="Public budget meeting status">
+    <div class="wc-decision-kpi"><strong>3</strong><span>Public budget workshops held through July 21, 2026</span></div>
+    <div class="wc-decision-kpi"><strong>$60,000</strong><span>Removed from the proposed budget on Board direction at a public workshop</span></div>
+    <div class="wc-decision-kpi"><strong>4</strong><span>Budget decisions set by the Board on July 21: two millage rates, the pay adjustment, and health insurance</span></div>
+  </div>
+  <div class="wc-decision-record" aria-label="Public budget workshop decision record">
+    <article class="wc-decision-record-row">
+      <time datetime="2026-07-07">July 7, 2026</time>
+      <div><h3>First public budget workshop</h3><p>The Board reviewed the tentative budget, department funding requests, and the proposed millage rate.</p></div>
+      <div class="wc-decision-outcome">
+        <span><strong>Outcome:</strong> No change to the proposed budget.</span>
+        <a class="wc-decision-record-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7211" target="_blank" rel="noopener noreferrer">Official meeting page</a>
+      </div>
+    </article>
+    <article class="wc-decision-record-row">
+      <time datetime="2026-07-14">July 14, 2026</time>
+      <div><h3>Public budget workshop</h3><p>Review of the tentative budget and the required budget-reduction exercise continued. Commissioners questioned an equipment request in the Environmental Services capital submission.</p></div>
+      <div class="wc-decision-outcome">
+        <span><strong>Outcome:</strong> The Board directed staff to remove a vessel and trailer from the Environmental Services capital request. The item was taken out of the proposed budget and now appears under <a href="summary-of-machinery-vehicles-and-equipment.html">Requested But Not Included in the Budget</a> at <span class="wc-review-flag">$60,000</span>.</span>
+        <a class="wc-decision-record-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7326" target="_blank" rel="noopener noreferrer">Official meeting page</a>
+      </div>
+    </article>
+    <article class="wc-decision-record-row">
+      <time datetime="2026-07-21">July 21, 2026</time>
+      <div><h3>Public budget workshop &mdash; rate and compensation decisions</h3><p>The Board set the tax rates that fund the proposal and the two largest assumptions driving personnel cost.</p></div>
+      <div class="wc-decision-outcome">
+        <span><strong>Outcome:</strong> The Board set the countywide millage rate, the North Walton Mosquito Control millage rate, the cost-of-living adjustment, and the health-insurance increase used in the proposed budget. <span class="wc-review-flag">The values the Board adopted at this meeting have not been confirmed against the official minutes. The budget as published continues to use the 3.4347 countywide rate, the 0.4410 North Walton Mosquito Control rate, and a 3% cost-of-living adjustment; the 5.5% health-insurance figure is still presented elsewhere on this site as a planning scenario rather than an adopted assumption. Confirm all four against the July 21 minutes and correct this record and the personnel pages if any differ.</span></span>
+        <a class="wc-decision-record-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7323" target="_blank" rel="noopener noreferrer">Official meeting page</a>
+      </div>
+    </article>
+  </div>
+  <p class="wc-process-status"><strong>What the public record shows so far.</strong> Board direction at a public workshop changed the proposed budget: the Environmental Services vessel and trailer was removed on July 14 and is now shown as a request the budget does not fund, so residents can see both the decision and the item it affected. On July 21 the Board set the two millage rates and the pay and health-insurance assumptions. The next scheduled workshop is July 28; view the <a href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7324" target="_blank" rel="noopener noreferrer">official meeting page and agenda</a>. Public input and Board decisions continue through the TRIM hearings and final adoption on September 28.</p>
+  <p class="wc-process-status"><strong>How to read this record.</strong> This page reports the budget outcome of each meeting and links to the official record; it does not reproduce every individual comment, and the absence of a change does not mean no questions or discussion occurred. A consolidated summary of feedback received during the statutory hearings will be added once those hearings are complete and the official records are available.</p>
+</section>
+
+<section class="wc-process-section" id="process-priorities" aria-labelledby="wc-process-priorities-title">
+  <h2 id="wc-process-priorities-title">How Community Priorities Reach the Budget</h2>
+  <div class="wc-process-note-grid">
+    <article class="wc-process-panel">
+      <h3>How priorities are identified</h3>
+      <p>The Board of County Commissioners sets countywide direction through its adopted Strategic Priority Initiatives. Departments tie their goals, objectives, and performance measures to those initiatives, and the code shown beside each measure on a department page identifies which initiative it supports.</p>
+      <p>Service-level information also reaches the budget through department requests, permitting and development activity, capital needs identified by Engineering and Public Works, constitutional-officer submissions, and issues raised by residents at Board meetings throughout the year.</p>
+      <p><a href="strategic-initiatives.html">Review the Strategic Initiatives</a></p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>Who is asked for input</h3>
+      <p>Budget workshops and the two statutory TRIM hearings are open to all residents, property owners, and businesses, and are noticed in advance through the newspaper advertisement, the County meeting portal, and the County news subscription list. Every County department and every independently elected Constitutional Officer submits a request. Outside agencies that receive County funding &mdash; volunteer fire departments, health and human-services providers, and economic-development organizations &mdash; submit written requests that are published with the budget.</p>
+      <p>Input is gathered through the statutory public process rather than through a countywide opinion survey. The County did not field a resident budget survey for FY 2027, and it does not treat the workshops as a substitute for one: the record of what was raised and what changed as a result is published above, so residents can see the effect of participation rather than being asked to assume it.</p>
+      <p><a href="supporting-budget-documentation.html">See the submitted agency requests</a></p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>How the budget reflects those priorities</h3>
+      <p>Each department page shows the services the department provides, the resources proposed for it, and, where measures have been submitted, the targets it expects to reach. The <a href="transmittal-letter.html#letter-challenges">Transmittal Letter</a> explains the six conditions that shaped this proposal and the response to each.</p>
+      <p>Where the Board changes the proposal, the change is recorded above and carried into the revised schedules and the <a href="summary-of-budget-changes-and-adjustments.html">Summary of Budget Changes and Adjustments</a>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-instructions" aria-labelledby="wc-process-instructions-title">
+  <h2 id="wc-process-instructions-title">What Departments Were Asked to Submit</h2>
+  <div class="wc-process-note-grid">
+    <article class="wc-process-panel">
+      <h3>Budget instructions</h3>
+      <p>The Office of Management and Budget issues written budget instructions that open the annual process. Departments are asked to build their request against current service levels, identify personnel changes by position, separate recurring operating costs from one-time needs, and submit capital and equipment requests with justification.</p>
+      <p>For FY 2027 departments were also asked to complete a budget-reduction exercise, identifying what they would reduce if resources were constrained, so that the Board could weigh trade-offs at the workshops.</p>
+      <p><span class="wc-review-flag">The budget instruction memorandum itself, its issue date, and the specific reduction target departments were given are not published on this site. Posting the instructions with the supporting documentation would answer this question directly.</span></p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>Assumptions departments were given</h3>
+      <p>So that requests are comparable, OMB supplies the cost assumptions departments must apply rather than letting each department choose its own. For FY 2027 these include a 3% cost-of-living adjustment, the published health-plan rates by plan and coverage tier, statutory FICA and Medicare rates, and Florida Retirement System contribution rates by pension class.</p>
+      <p><a href="summary-of-personnel.html#personnel-pay">See the personnel cost assumptions</a></p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>Who advises the budget</h3>
+      <p>Walton County does not use volunteer advisory bodies, a citizen budget committee, or a task force convened to prepare the budget. The work is done by permanent County staff and decided by the five directly elected members of the Board of County Commissioners.</p>
+      <p>That is a deliberate structure rather than a gap. Florida&rsquo;s Government-in-the-Sunshine Law and the Truth in Millage process require these deliberations to take place in noticed public meetings, on a published schedule, with the proposed tax rate advertised to every property owner before it can be adopted. Responsibility for the budget stays with officials residents elect directly and can replace, and every decision point is open to the public at the time it is made rather than after an appointed body has met.</p>
+      <p>The budget does rely on independent outside sources rather than County judgment alone. Revenue estimates use Florida Office of Economic and Demographic Research distributions, the Property Appraiser&rsquo;s certified taxable values, and state revenue-sharing estimates. Personnel costs use Florida Retirement System contribution rates and carrier health-plan rates. Constitutional Officers prepare and submit their own budgets independently under Florida law, and outside agencies that receive County funding submit written requests that are published with this budget.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wc-process-section" id="process-implementation" aria-label="Budget implementation and amendment process">
+  <h2>Budget Implementation &amp; Amendments</h2>
+  <div class="wc-process-note-grid">
+    <article class="wc-process-panel">
+      <h3>Ongoing budget monitoring</h3>
+      <p>After adoption, the budget remains an active financial management tool. The Office of Management and Budget and County departments monitor spending, revenues, appropriations, and amendments throughout the fiscal year.</p>
+      <p>Budgetary control is established at the fund level for all funds to ensure total fund appropriations remain within approved limits.</p>
+    </article>
+    <article class="wc-process-panel">
+      <h3>Budget amendment process</h3>
+      <p>When circumstances require changes to the approved budget, the Board of County Commissioners may amend the budget by resolution in accordance with Section 129.06, Florida Statutes.</p>
+      <p>Amendments may be needed for unforeseen expenditures, use of contingency reserves, allocation of unanticipated revenues, grant revenues, or carry-forward funding.</p>
+    </article>
+  </div>
+</section>
+
+<section id="process-calendar" aria-label="Budget calendar">
+  <section class="wc-calendar-intro" aria-label="Budget calendar summary">
+    <p>The budget calendar identifies the anticipated timeline for the annual budget process, including departmental submissions, constitutional officer budget deadlines, taxable value certifications, public workshops, TRIM notices, public hearings, and final adoption.</p>
+    <a href="https://floridarevenue.com/property/Documents/trimregwb.pdf" target="_blank" rel="noopener noreferrer">View TRIM Compliance Workbook</a>
+  </section>
+
+  <section class="wc-public-involvement" aria-label="Public involvement in the budget process">
+    <h2>Public Involvement</h2>
+    <div class="wc-public-grid">
+      <article class="wc-public-card">
+        <h3>Public budget workshops</h3>
+        <p>Residents can review the tentative budget, proposed service levels, funding priorities, and allocation of resources during public budget workshops.</p>
+      </article>
+      <article class="wc-public-card">
+        <h3>Community feedback</h3>
+        <p>Citizens are encouraged to ask questions, express concerns, provide recommendations, and offer feedback as the budget is refined. Contact the Office of Management and Budget at <a href="mailto:budget@mywaltonfl.gov">budget@mywaltonfl.gov</a> to get your budget questions answered.</p>
+      </article>
+      <article class="wc-public-card">
+        <h3>Meeting notifications</h3>
+        <p>Walton County provides meeting and public notice information so residents can follow workshops, hearings, and Board meetings.</p>
+        <a href="https://www.mywaltonfl.gov/list.aspx" target="_blank" rel="noopener noreferrer">Subscribe to News Flash</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wc-timeline-strip" aria-label="Budget calendar monthly milestones">
+    <div class="wc-timeline-month"><strong>March</strong><span>Budget requests distributed</span></div>
+    <div class="wc-timeline-month"><strong>April</strong><span>Department submissions due</span></div>
+    <div class="wc-timeline-month"><strong>May</strong><span>Revenue estimates prepared</span></div>
+    <div class="wc-timeline-month"><strong>June</strong><span>Taxable values and officer budgets</span></div>
+    <div class="wc-timeline-month featured"><strong>July</strong><span>Budget workshops and reduction exercise</span></div>
+    <div class="wc-timeline-month"><strong>August</strong><span>TRIM notices and hearing certification</span></div>
+    <div class="wc-timeline-month featured"><strong>September</strong><span>Public hearings and final adoption</span></div>
+  </section>
+
+  <section aria-label="Budget calendar detailed schedule">
+    <div class="wc-calendar-table">
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">March 12</div>
+        <div class="wc-calendar-event">The Office of Management and Budget distributes operating and capital improvement budget requests for department entry.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">April 6</div>
+        <div class="wc-calendar-event">Operating and capital improvement budget requests are due from county departments.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">May 1</div>
+        <div class="wc-calendar-event">The Office of Management and Budget prepares preliminary revenue and fund balance estimates.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">June 1</div>
+        <div class="wc-calendar-event">The Property Appraiser delivers preliminary taxable value to the Board of County Commissioners.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">June 1</div>
+        <div class="wc-calendar-event">Tentative budget submissions from Constitutional Officers are due to the Board of County Commissioners.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">June 10-11</div>
+        <div class="wc-calendar-event">The Office of Management and Budget holds staff budget workshops with Administration.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">July 1</div>
+        <div class="wc-calendar-event">The Property Appraiser sends certification of taxable values, Form DR-420.</div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">July 7</div>
+        <div class="wc-calendar-event"><strong>Completed.</strong> The first public budget workshop reviewed the tentative budget, funding requests, and proposed millage rate. No revision to the proposed budget resulted from the meeting. <a class="wc-calendar-meeting-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7211" target="_blank" rel="noopener noreferrer">Official meeting page</a></div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">July 14</div>
+        <div class="wc-calendar-event"><strong>Completed.</strong> Public review of the tentative budget and required budget-reduction exercise continued. The Board directed staff to remove a vessel and trailer from the Environmental Services capital request; the item now appears under <a href="summary-of-machinery-vehicles-and-equipment.html">Requested But Not Included in the Budget</a>. <a class="wc-calendar-meeting-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7326" target="_blank" rel="noopener noreferrer">Official meeting page</a></div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">July 21</div>
+        <div class="wc-calendar-event"><strong>Completed.</strong> Public review of the proposed FY 2027 financial plan continued. The Board set the countywide millage rate, the North Walton Mosquito Control millage rate, the cost-of-living adjustment, and the health-insurance increase. <span class="wc-review-flag">The adopted values have not been confirmed against the official minutes.</span> <a class="wc-calendar-meeting-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7323" target="_blank" rel="noopener noreferrer">Official meeting page</a></div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">July 28</div>
+        <div class="wc-calendar-event"><strong>Scheduled.</strong> Public budget workshop and continued Board review of the proposed budget. <a class="wc-calendar-meeting-link" href="https://walton.civicweb.net/Portal/MeetingInformation.aspx?Id=7324" target="_blank" rel="noopener noreferrer">Official meeting page and agenda</a></div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">August 1</div>
+        <div class="wc-calendar-event">The Tax Collector budget submission is due to the Department of Revenue and Board of County Commissioners.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">August 4</div>
+        <div class="wc-calendar-event">The Office of Management and Budget certifies the completed DR-420 form, including millage rates and hearing information.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">August 24</div>
+        <div class="wc-calendar-event">The Property Appraiser mails TRIM notices to taxpayers.</div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">September 14</div>
+        <div class="wc-calendar-event">The tentative budget and proposed millage rate hearing is held.</div>
+      </div>
+      <div class="wc-calendar-row">
+        <div class="wc-calendar-date">September 23</div>
+        <div class="wc-calendar-event">The Notice of Proposed Tax Increase and Budget Summary Advertisement is advertised.</div>
+      </div>
+      <div class="wc-calendar-row featured">
+        <div class="wc-calendar-date">September 28</div>
+        <div class="wc-calendar-event">The final budget hearing is held to adopt the final millage rate and final budget.</div>
+      </div>
+    </div>
+    <p class="wc-calendar-note"><strong>Budget Coordinator:</strong> Office of Management and Budget. All dates shown are estimates for planning purposes and may be adjusted as necessary during the budget development process.</p>
+  </section>
+</section>
+
+<style>
+  .wc-calendar-intro{margin:34px 0;padding:32px;border-radius:24px;background:var(--light);border:1px solid var(--border)}
+  .wc-calendar-intro p{max-width:880px;margin:0;color:var(--muted);font-size:17px;line-height:1.75}
+  .wc-calendar-intro a{display:inline-flex;margin-top:20px;color:var(--green);font-size:13px;font-weight:900;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+  .wc-timeline-strip{display:grid;grid-template-columns:repeat(7, minmax(0, 1fr));gap:10px;margin:34px 0}
+  .wc-timeline-month{min-height:110px;padding:16px;border:1px solid var(--border);border-radius:18px;background:#ffffff}
+  .wc-timeline-month.featured{border-color:var(--green);background:var(--light)}
+  .wc-timeline-month strong{display:block;margin-bottom:8px;color:var(--green);font-size:13px;text-transform:uppercase;letter-spacing:.10em}
+  .wc-timeline-month span{color:var(--text);font-size:14px;font-weight:800;line-height:1.35}
+  .wc-calendar-table{margin-top:28px;border:1px solid var(--border);border-radius:22px;overflow:hidden;background:#ffffff}
+  .wc-calendar-row{display:grid;grid-template-columns:180px minmax(0, 1fr);border-bottom:1px solid var(--border)}
+  .wc-calendar-row:last-child{border-bottom:0}
+  .wc-calendar-date{display:flex;align-items:center;justify-content:center;padding:16px 18px;background:var(--light);color:var(--text);font-weight:900;text-align:center}
+  .wc-calendar-row.featured .wc-calendar-date{background:var(--border)}
+  .wc-calendar-event{padding:16px 20px;color:var(--muted);font-size:15px;line-height:1.65}
+  .wc-calendar-meeting-link{display:inline-block;margin-left:6px;color:var(--green);font-weight:800;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  .wc-calendar-meeting-link:hover,.wc-calendar-meeting-link:focus-visible{color:var(--green-dark)}
+  .wc-calendar-row.featured .wc-calendar-event{background:var(--light);color:var(--text)}
+  .wc-calendar-note{max-width:880px;margin:22px auto 0;color:var(--muted);font-size:13px;line-height:1.55;text-align:center}
+  .wc-public-involvement{margin:34px 0}
+  .wc-public-involvement h2{margin:0 0 18px;color:var(--text);font-size:clamp(28px, 4vw, 42px);line-height:1.1}
+  .wc-public-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
+  .wc-public-card{padding:22px;border:1px solid var(--border);border-radius:18px;background:#ffffff}
+  .wc-public-card h3{margin:0 0 10px;color:var(--text);font-size:20px}
+  .wc-public-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.65}
+  .wc-public-card > a{display:inline-flex;margin-top:14px;color:var(--green);font-size:13px;font-weight:900;text-decoration:none}
+  .wc-public-card p a{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  @media(max-width:980px){.wc-timeline-strip,.wc-public-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+  @media(max-width:680px){
+    .wc-calendar-intro{padding:22px}
+    .wc-timeline-strip,.wc-calendar-row,.wc-public-grid{grid-template-columns:1fr}
+    .wc-timeline-month{min-height:auto}
+    .wc-calendar-date{justify-content:flex-start;text-align:left}
+  }
+  :root[data-theme="dark"] .wc-timeline-month,
+  :root[data-theme="dark"] .wc-calendar-table,
+  :root[data-theme="dark"] .wc-public-card{background: rgba(14,28,22,.92);border-color: var(--border)}
+
+  .wc-process-experience{margin-top:34px}
+  .wc-process-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
+  .wc-process-tab{min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+  .wc-process-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(0,63,40,.16)}
+  .wc-process-tab:focus-visible{outline:3px solid rgba(209,190,120,.65);outline-offset:2px}
+  .wc-process-tabpanel{min-height:300px;padding-top:26px}
+  .wc-process-tabpanel[hidden]{display:none!important}
+  .wc-process-tabpanel-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 6px}
+  .wc-process-tabpanel-intro h2{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,3.6vw,38px)}
+  .wc-process-tabpanel-intro p{max-width:520px;margin:0;color:var(--muted);line-height:1.6}
+  @media(max-width:900px){
+    .wc-process-tabpanel-intro{display:block}
+    .wc-process-tabpanel-intro p{margin-top:8px}
+  }
+  @media(max-width:620px){
+    .wc-process-tabs{grid-template-columns:1fr 1fr}
+  }
+</style>
+
+<script>
+/* Compact, click-through budget-process experience. Existing sections keep
+   their ids and are only relocated into panels; nothing about their own
+   content or scripts changes. */
+(function(){
+  function initProcessExperience(){
+    var main=document.querySelector('main#content');
+    var hero=main&&main.querySelector('.wc-process-hero');
+    if(!main||!hero||document.querySelector('.wc-process-experience')) return;
+
+    var byId=function(id){ return document.getElementById(id); };
+    var groups={
+      overview:{
+        title:'How the budget comes together',
+        note:'',
+        ids:['process-phases','process-roles','process-basis','process-detail']
+      },
+      calendar:{
+        title:'Budget Calendar',
+        note:'Key dates, public workshops, TRIM notices, and adoption milestones.',
+        ids:['process-calendar']
+      },
+      decisions:{
+        title:'Public Input & Decision Record',
+        note:'',
+        ids:['process-decisions']
+      },
+      priorities:{
+        title:'Priorities, Instructions & Amendments',
+        note:'',
+        ids:['process-priorities','process-instructions','process-implementation']
+      }
+    };
+
+    var shell=document.createElement('section');
+    shell.className='wc-process-experience';
+    shell.innerHTML='<div class="wc-process-tabs" role="tablist" aria-label="Explore the budget process">'+
+      '<button class="wc-process-tab" type="button" role="tab" id="process-tab-overview" data-process-panel="overview" aria-controls="process-panel-overview" aria-selected="true">Overview</button>'+
+      '<button class="wc-process-tab" type="button" role="tab" id="process-tab-calendar" data-process-panel="calendar" aria-controls="process-panel-calendar" aria-selected="false">Calendar</button>'+
+      '<button class="wc-process-tab" type="button" role="tab" id="process-tab-decisions" data-process-panel="decisions" aria-controls="process-panel-decisions" aria-selected="false">Decision Record</button>'+
+      '<button class="wc-process-tab" type="button" role="tab" id="process-tab-priorities" data-process-panel="priorities" aria-controls="process-panel-priorities" aria-selected="false">Priorities &amp; Input</button></div>';
+
+    var panelsByKey={};
+    Object.keys(groups).forEach(function(key){
+      var panel=document.createElement('section');
+      panel.className='wc-process-tabpanel';
+      panel.id='process-panel-'+key;
+      panel.setAttribute('role','tabpanel');
+      panel.setAttribute('aria-labelledby','process-tab-'+key);
+      if(key!=='overview') panel.hidden=true;
+      shell.appendChild(panel);
+      panelsByKey[key]=panel;
+    });
+
+    Object.keys(groups).forEach(function(key){
+      groups[key].ids.forEach(function(id){
+        var section=byId(id);
+        if(section) panelsByKey[key].appendChild(section);
+      });
+    });
+
+    hero.insertAdjacentElement('afterend',shell);
+
+    function showPanel(key,updateHash){
+      shell.querySelectorAll('.wc-process-tab').forEach(function(tab){tab.setAttribute('aria-selected',tab.dataset.processPanel===key?'true':'false');});
+      shell.querySelectorAll('.wc-process-tabpanel').forEach(function(panel){panel.hidden=panel.id!=='process-panel-'+key;});
+      if(updateHash) history.replaceState(null,'','#process-'+key);
+    }
+    shell.querySelector('.wc-process-tabs').addEventListener('click',function(event){
+      var tab=event.target.closest('.wc-process-tab');
+      if(tab) showPanel(tab.dataset.processPanel,true);
+    });
+    document.addEventListener('click',function(event){
+      var link=event.target.closest('[data-process-goto]');
+      if(!link) return;
+      event.preventDefault();
+      showPanel(link.dataset.processGoto,true);
+      var targetId=(link.getAttribute('href')||'').replace('#','');
+      var target=targetId&&document.getElementById(targetId);
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    var hash=location.hash.slice(1);
+    if(/^process-(overview|calendar|decisions|priorities)$/.test(hash)) showPanel(hash.replace('process-',''),false);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProcessExperience,{once:true});
+  else initProcessExperience();
+})();
+</script>
+
+</main>
+</div>
+
+<script src="../assets/search-data.js"></script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+<script src="../assets/budget-pdf.js?v=20260723-asset-path-cleanup"></script>
+</body>
+</html>

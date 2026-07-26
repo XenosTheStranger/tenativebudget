@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue Budget — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260725-department-costs">
+</head>
+<body>
+
+<!-- nav#nav-menu.nav-menu is the hook nav.js uses for logo + search injection -->
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Financial Plan</div>
+<h1 class="page-title">Revenue Budget</h1>
+
+<p class="page-intro">The FY 2027 revenue budget explains how much money the County expects to receive, who contributes it, what it may legally fund, how reliable it is, and what choices the Board has when resources change.</p>
+
+<details class="wc-simple-disclosure">
+<summary><span class="wc-simple-disclosure-summary">What should I know before reading revenue tables?<small>Who pays, what is restricted, what can change, and what the County controls</small></span></summary>
+<div class="wc-simple-disclosure-body"><section class="wc-revenue-guide" aria-labelledby="wc-revenue-guide-title">
+  <div class="wc-revenue-guide-heading">
+    <span>Reader Guide</span>
+    <h2 id="wc-revenue-guide-title">How to read the revenue plan</h2>
+    <p>Revenue sources differ in reliability, legal use, who pays them, and how much control the County has over the amount collected. Those differences matter when deciding which revenues can support continuing services.</p>
+  </div>
+  <div class="wc-revenue-guide-grid">
+    <article>
+      <h3>Recurring operating revenue</h3>
+      <p>Ongoing property taxes, state-shared distributions, and recurring charges or fees may support continuing services when the underlying activity and collection pattern are expected to continue.</p>
+    </article>
+    <article>
+      <h3>Dedicated or restricted revenue</h3>
+      <p>Tourist Development Taxes, fuel taxes, impact fees, special assessments, and grants may be limited to particular purposes, projects, service areas, or eligible costs.</p>
+    </article>
+    <article>
+      <h3>Variable or nonrecurring resources</h3>
+      <p>Grants, debt proceeds, asset sales, contributions, and use of fund balance can change significantly and generally should not support an ongoing service unless a reliable continuing source is identified.</p>
+    </article>
+    <article>
+      <h3>County control and outside risk</h3>
+      <p>The Board sets the countywide millage rate within Florida law and approves certain rates and fees. State formulas, grants, economic activity, tourism, and fuel consumption are not fully controlled by the County.</p>
+    </article>
+    <article>
+      <h3>Who pays</h3>
+      <p>Property owners support ad valorem taxes; visitors contribute Tourist Development Taxes; motorists generate fuel-tax revenue; service users pay applicable charges; and federal or state governments provide grants and shared revenue.</p>
+    </article>
+    <article>
+      <h3>FY 2027 revenue decisions</h3>
+      <p>The tentative countywide millage rate is set at the rolled-back rate. North Walton Mosquito Control has a separate millage rate. Review the tax rates, levy, and departmental allocations in the <a href="summary-of-property-tax-allocations.html">property tax summary</a>.</p>
+    </article>
+    <article>
+      <h3>Rate and fee authority</h3>
+      <p>The Board approves the County millage rates and certain County fees within applicable law. Other amounts are established through state formulas, grant awards, contracts, interlocal agreements, market activity, or action by another government.</p>
+    </article>
+    <article>
+      <h3>Revenue burden and cost recovery</h3>
+      <p>The current budget identifies the general type of payer for major sources, but it does not contain verified resident, nonresident, household, or business burden shares or service-level cost-recovery targets. Those measures should be added only when a documented methodology and source are available.</p>
+    </article>
+  </div>
+  <p class="wc-revenue-guide-note"><strong>Important:</strong> These are general planning characteristics. The legal use and reliability of a revenue source must be evaluated at the individual fund and account level. Interfund transfers may be recurring or nonrecurring depending on their source and purpose. Detailed forecast assumptions are available in the <a href="financial-forecast.html">Financial Forecast</a>.</p>
+</section></div></details>
+
+<style>
+  .wc-revenue-guide{
+    margin:34px 0 42px;
+    padding:32px;
+    border:1px solid var(--border);
+    border-radius:24px;
+    background:var(--light);
+  }
+  .wc-revenue-guide-heading span{
+    display:block;
+    margin-bottom:8px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .wc-revenue-guide-heading h2{
+    margin:0 0 10px;
+    color:var(--text);
+    font-size:clamp(28px,4vw,40px);
+  }
+  .wc-revenue-guide-heading p{
+    max-width:900px;
+    margin:0;
+    color:var(--muted);
+    line-height:1.7;
+  }
+  .wc-revenue-guide-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+    margin-top:24px;
+  }
+  .wc-revenue-guide-grid article{
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:#ffffff;
+  }
+  .wc-revenue-guide-grid h3{
+    margin:0 0 9px;
+    color:var(--text);
+    font-size:18px;
+  }
+  .wc-revenue-guide-grid p,
+  .wc-revenue-guide-note{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+  }
+  .wc-revenue-guide-grid p{ margin:0; }
+  .wc-revenue-guide-note{
+    margin:20px 0 0;
+    padding-top:18px;
+    border-top:1px solid var(--border);
+  }
+  .wc-visitor-revenue-answer{
+    display:grid;
+    grid-template-columns:minmax(110px,.35fr) minmax(300px,1fr) minmax(300px,1fr);
+    gap:28px;
+    align-items:start;
+    margin:28px 0 48px;
+    padding:30px;
+    border:1px solid rgba(209,190,120,.7);
+    border-radius:22px;
+    background:linear-gradient(120deg,rgba(209,190,120,.16),rgba(0,63,40,.05));
+  }
+  .wc-visitor-revenue-answer>span{
+    color:var(--green);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .wc-visitor-revenue-answer h2{
+    margin:0 0 10px;
+    color:var(--text);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(28px,4vw,46px);
+    line-height:1.02;
+  }
+  .wc-visitor-revenue-answer p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+  }
+  .wc-visitor-revenue-limit{
+    grid-column:2 / -1;
+    padding-left:22px;
+    border-left:2px solid var(--gold2);
+  }
+  .wc-visitor-revenue-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .wc-visitor-revenue-metrics>div{padding:15px;border:1px solid rgba(209,190,120,.5);border-radius:14px;background:rgba(255,255,255,.68)}
+  .wc-visitor-revenue-metrics strong{display:block;color:var(--text);font-size:clamp(22px,3vw,32px);line-height:1}
+  .wc-visitor-revenue-metrics span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.4}
+  :root[data-theme="dark"] .wc-visitor-revenue-metrics>div{background:rgba(14,28,22,.7)}
+  .wc-revenue-policy-answer{margin:32px 0 48px;padding:clamp(24px,4vw,42px);border:1px solid var(--border);border-radius:24px;background:var(--light)}
+  .wc-revenue-policy-heading{max-width:940px}
+  .wc-revenue-policy-heading>span{color:var(--green);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .wc-revenue-policy-heading h2{margin:9px 0 12px;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4vw,48px);line-height:1.04}
+  .wc-revenue-policy-heading p,.wc-peer-comparison-notes p,.wc-revenue-option-list p,.wc-revenue-source-note{color:var(--muted);font-size:14px;line-height:1.65}
+  .wc-peer-rate-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:28px 0}
+  .wc-peer-rate-grid.wc-peer-rate-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .wc-peer-rate-grid>div{padding:18px;border:1px solid var(--border);border-radius:16px;background:#fff}
+  .wc-peer-rate-grid .is-walton{border-color:var(--gold2);background:rgba(209,190,120,.14)}
+  .wc-peer-rate-grid span,.wc-peer-rate-grid small{display:block;color:var(--muted);font-size:12px}
+  .wc-peer-rate-grid strong{display:block;margin:6px 0 2px;color:var(--text);font-size:clamp(22px,3vw,34px)}
+  .wc-peer-comparison-notes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .wc-revenue-option-list{margin-top:28px;border-top:1px solid var(--border)}
+  .wc-revenue-option-list article{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(150px,.35fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--border)}
+  .wc-revenue-option-list article>span{color:var(--gold2);font-family:Georgia,"Times New Roman",serif;font-size:20px}
+  .wc-revenue-option-list h3{margin:0 0 6px;color:var(--text);font-size:18px}
+  .wc-revenue-option-list p{margin:0}
+  .wc-revenue-option-list article>strong{color:var(--green);font-size:12px;line-height:1.45;text-transform:uppercase;letter-spacing:.06em}
+  .wc-revenue-source-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--border)}
+  :root[data-theme="dark"] .wc-peer-rate-grid>div{background:rgba(14,28,22,.92)}
+  :root[data-theme="dark"] .wc-revenue-guide-grid article{
+    background:rgba(14,28,22,.92);
+  }
+  .wc-revenue-experience{margin-top:30px}
+  .wc-revenue-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
+  .wc-revenue-tab{min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+  .wc-revenue-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(0,63,40,.16)}
+  .wc-revenue-tab:focus-visible{outline:3px solid rgba(209,190,120,.65);outline-offset:2px}
+  .wc-revenue-panel{min-height:430px;padding-top:26px}
+  .wc-revenue-panel[hidden]{display:none!important}
+  .wc-revenue-panel-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 22px}
+  .wc-revenue-panel-intro h2{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,4vw,44px)}
+  .wc-revenue-panel-intro p{max-width:580px;margin:0;color:var(--muted);line-height:1.6}
+  .wc-revenue-at-a-glance{display:grid;grid-template-columns:minmax(240px,.7fr) minmax(420px,1.3fr);gap:26px;padding:clamp(24px,4vw,40px);border:1px solid var(--border);border-radius:24px;background:linear-gradient(130deg,rgba(0,63,40,.06),rgba(209,190,120,.10))}
+  .wc-revenue-total>span{display:block;color:var(--green);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .wc-revenue-total>strong{display:block;margin:12px 0 10px;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,7vw,82px);line-height:.9}
+  .wc-revenue-total p{max-width:300px;margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+  .wc-revenue-category-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .wc-revenue-category-grid article{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.74)}
+  .wc-revenue-category-grid span{display:block;color:var(--muted);font-size:11px;line-height:1.25}
+  .wc-revenue-category-grid strong{display:block;margin-top:3px;color:var(--text);font-size:18px}
+  .wc-revenue-category-grid b{color:var(--green);font-size:12px}
+  .wc-revenue-schedule-disclosure,.wc-revenue-options-disclosure,.wc-revenue-detail-group{margin-top:14px;border:1px solid var(--border);border-radius:16px;background:var(--surface,#fff);overflow:hidden}
+  .wc-revenue-schedule-disclosure>summary,.wc-revenue-options-disclosure>summary,.wc-revenue-detail-group>summary{padding:18px 20px;color:var(--text);font-weight:850;cursor:pointer;list-style:none}
+  .wc-revenue-schedule-disclosure>summary::-webkit-details-marker,.wc-revenue-options-disclosure>summary::-webkit-details-marker,.wc-revenue-detail-group>summary::-webkit-details-marker{display:none}
+  .wc-revenue-schedule-disclosure>summary span,.wc-revenue-options-disclosure>summary span{display:block}
+  .wc-revenue-schedule-disclosure>summary small,.wc-revenue-options-disclosure>summary small{display:block;margin-top:4px;color:var(--muted);font-weight:500}
+  .wc-revenue-schedule-disclosure>.wc-budget-lines-card{margin:0;border:0;border-top:1px solid var(--border);border-radius:0;box-shadow:none}
+  .wc-revenue-guide-source>summary{display:none}
+  .wc-revenue-guide-source>.wc-simple-disclosure-body{padding:0!important}
+  .wc-revenue-guide-source .wc-revenue-guide{margin:0}
+  .wc-revenue-options-disclosure .wc-revenue-policy-answer{margin:0;border:0;border-top:1px solid var(--border);border-radius:0}
+  .wc-revenue-detail-group{margin:0 0 10px}
+  .wc-revenue-detail-group>summary{display:flex;justify-content:space-between;gap:16px}
+  .wc-revenue-detail-group>summary::after{content:"+";color:var(--green);font-size:20px}
+  .wc-revenue-detail-group[open]>summary::after{content:"–"}
+  .wc-revenue-topic-block .wc-revenue-topic-row{padding:0 20px 24px}
+  .wc-revenue-topic-block .wc-revenue-topic-title{display:none}
+  .wc-revenue-classification-heading{margin:30px 0 10px;padding:0 2px}
+  .wc-revenue-classification-heading:first-child{margin-top:0}
+  .wc-revenue-classification-heading span{display:block;margin-bottom:4px;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+  .wc-revenue-classification-heading h2{margin:0 0 6px;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:500}
+  .wc-revenue-classification-heading p{margin:0;max-width:760px;color:var(--muted);font-size:13px;line-height:1.6}
+  :root[data-theme="dark"] .wc-revenue-category-grid article{background:rgba(14,28,22,.72)}
+  @media(max-width:900px){
+    .wc-revenue-guide-grid{ grid-template-columns:1fr 1fr; }
+    .wc-visitor-revenue-answer{ grid-template-columns:1fr; gap:14px; }
+    .wc-visitor-revenue-limit{ grid-column:auto; padding:16px 0 0; border-left:0; border-top:2px solid var(--gold2); }
+    .wc-peer-rate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .wc-peer-comparison-notes{grid-template-columns:1fr}
+    .wc-revenue-tabs{grid-template-columns:repeat(3,1fr)}
+    .wc-revenue-at-a-glance{grid-template-columns:1fr}
+    .wc-revenue-panel-intro{display:block}
+    .wc-revenue-panel-intro p{margin-top:8px}
+  }
+  @media(max-width:620px){
+    .wc-revenue-guide{ padding:22px; }
+    .wc-revenue-guide-grid{ grid-template-columns:1fr; }
+    .wc-revenue-option-list article{grid-template-columns:36px 1fr}
+    .wc-revenue-option-list article>strong{grid-column:2}
+    .wc-revenue-tabs{grid-template-columns:1fr 1fr}
+    .wc-revenue-category-grid{grid-template-columns:1fr}
+  }
+</style>
+
+<div id="consolidated-revenue-summary-table"></div>
+
+<section class="wc-revenue-policy-answer" id="property-tax-sector" aria-labelledby="property-tax-sector-title">
+  <div class="wc-revenue-policy-heading"><span>Who owns the property tax base</span><h2 id="property-tax-sector-title">Homes carry most of the property tax base; exemptions remove about $3.2 billion from what is taxed.</h2><p>The County does not track ad valorem collections by sector directly. The closest publicly available measure is the Florida Department of Revenue&rsquo;s published breakdown of each county&rsquo;s real property just value by classification, used here as a value-based proxy for who carries the property tax base.</p></div>
+  <div class="wc-peer-rate-grid wc-peer-rate-grid--3" aria-label="2024 real property just value by classification">
+    <div class="is-walton"><span>Residential</span><strong>87.9%</strong><small>$50.1B just value &mdash; vacant, single-family, and multi-family residential parcels</small></div>
+    <div><span>Commercial &amp; industrial</span><strong>5.3%</strong><small>$3.0B just value &mdash; developed and vacant commercial/industrial parcels</small></div>
+    <div><span>Government, institutional, agricultural, vacant acreage &amp; other</span><strong>6.8%</strong><small>$3.9B just value, largely exempt or specially assessed</small></div>
+  </div>
+  <div class="wc-peer-comparison-notes">
+    <p><strong>What this shows:</strong> Single-family, multi-family, and vacant residential parcels made up 87.9% of Walton County&rsquo;s $57.1 billion in real property just value for 2024. Commercial and industrial parcels, developed and vacant, made up 5.3%. Because the countywide millage rate applies uniformly to taxable value, residential property supports a similarly large share of ad valorem tax revenue &mdash; this is a property-value proxy, not a direct measure of dollars collected by sector.</p>
+    <p><strong>Value of exemptions:</strong> $3,212,567,104 in assessed value was exempt from County ad valorem taxation in 2024 (chiefly homestead exemptions), out of $53.1 billion in total county assessed value. At the 2024 county operating millage of 3.6000 mills, that represents approximately $11.6 million in County ad valorem revenue foregone through exemptions that year. The County does not calculate this figure itself; it is derived here from the Department of Revenue&rsquo;s published totals and is not a FY 2027 estimate.</p>
+  </div>
+  <p class="wc-revenue-source-note">Source: <a href="https://floridarevenue.com/property/Documents/2024_County_Profiles.pdf" target="_blank" rel="noopener noreferrer">Florida Department of Revenue, Walton County Property Tax Overview (2024)</a>, the most recent certified county profile published. Figures reflect calendar-year 2024 tax-roll data; FY 2027 uses updated taxable values not yet reflected in this statewide report.</p>
+</section>
+
+<section class="wc-revenue-policy-answer" id="peer-revenue-comparison" aria-labelledby="peer-revenue-title">
+  <div class="wc-revenue-policy-heading"><span>Comparison with nearby governments</span><h2 id="peer-revenue-title">Walton uses a comparatively low county operating millage.</h2><p>Raw revenue totals are not directly comparable because counties have different populations, taxable values, service responsibilities, dependent districts, and accounting structures. The most consistent nearby-government comparison is the county operating millage reported for the same year by the Florida Department of Revenue.</p></div>
+  <div class="wc-peer-rate-grid" aria-label="2025 county operating millage comparison"><div class="is-walton"><span>Walton</span><strong>3.5190</strong><small>mills</small></div><div><span>Okaloosa</span><strong>3.8308</strong><small>mills</small></div><div><span>Santa Rosa</span><strong>3.8850</strong><small>mills</small></div><div><span>Bay</span><strong>5.4362</strong><small>mills</small></div><div><span>Escambia</span><strong>6.6000</strong><small>mills</small></div></div>
+  <div class="wc-peer-comparison-notes"><p><strong>What this shows:</strong> Walton&rsquo;s 2025 county operating rate was below the four neighboring Northwest Florida counties shown. A lower millage rate does not necessarily mean a lower tax bill because taxable property value also matters.</p><p><strong>Tourist-tax context:</strong> Florida&rsquo;s 2025 schedule reports Walton at 5% in the South Walton district and 2% in the remainder of the county. Okaloosa reports 6% in its established district and 5% in its expansion district; Santa Rosa reports 2% countywide. Peer counties use different geographic districts and rates.</p></div>
+  <p class="wc-revenue-source-note">Sources: <a href="https://floridarevenue.com/property/Documents/MillCapComp25.pdf" target="_blank" rel="noopener noreferrer">Florida Department of Revenue, 2025 Maximum Millage Compliance Report</a> and <a href="https://floridarevenue.com/Forms_library/current/dr15tdt.pdf" target="_blank" rel="noopener noreferrer">2025 Local Option Transient Rental Tax Rates</a>.</p>
+</section>
+
+<section class="wc-revenue-policy-answer" id="revenue-options" aria-labelledby="revenue-options-title">
+  <div class="wc-revenue-policy-heading"><span>Choices available to the County</span><h2 id="revenue-options-title">How could Walton County increase revenue?</h2><p>These are available policy tools, not recommendations and not assumptions in the FY 2027 tentative budget. Each choice affects different taxpayers, may be restricted to specific uses, and requires the public process and approval established by Florida law.</p></div>
+  <div class="wc-revenue-option-list">
+    <article><span>01</span><div><h3>Increase the county millage rate</h3><p>The Board could adopt a higher operating millage within constitutional and statutory limits, increasing property taxes. Florida&rsquo;s TRIM process requires public notice, hearings, and specified Board voting thresholds depending on the rate selected.</p></div><strong>Property owners</strong></article>
+    <article><span>02</span><div><h3>Increase local-option fuel taxes</h3><p>The County could levy additional authorized cents per gallon that are not currently imposed, subject to Florida law and the required ordinance or interlocal process. Fuel-tax proceeds are restricted to eligible transportation purposes.</p></div><strong>Motorists</strong></article>
+    <article><span>03</span><div><h3>Increase or expand Tourist Development Taxes in North Walton</h3><p>The North Walton district currently has a lower transient-rental tax rate than South Walton. The County could pursue additional eligible Tourist Development Tax levies in that district. The exact levy, approval method, referendum requirement, and permitted uses depend on the statutory tax component considered.</p></div><strong>Short-term lodging guests</strong></article>
+    <article><span>04</span><div><h3>Adjust charges and fees for services</h3><p>The Board could revise legally authorized charges for recreation programs and facilities, golf, wastewater, solid waste, permits, development review, records, rentals, and optional or nonresident library services. Fees should be connected to the service provided and reviewed for affordability, access, and cost recovery.</p></div><strong>Service users</strong></article>
+    <article><span>05</span><div><h3>Adopt or revise special assessments and MSBUs</h3><p>The County may charge benefiting properties for eligible services or improvements such as roads, lighting, fire protection, drainage, or other local benefits when legal benefit and apportionment requirements are met.</p></div><strong>Benefiting properties</strong></article>
+    <article><span>06</span><div><h3>Update impact fees</h3><p>Impact fees may be adjusted when a current study demonstrates that new development creates a proportional need for additional capital facilities. The money is restricted to eligible growth-related capital costs, not general operations.</p></div><strong>New development</strong></article>
+    <article><span>07</span><div><h3>Seek a discretionary sales surtax</h3><p>Where authorized by Florida law, the County could place a local discretionary sales surtax before voters for an eligible purpose. This generally requires a referendum and may carry expenditure-plan, duration, and sharing requirements.</p></div><strong>Residents and visitors making taxable purchases</strong></article>
+    <article><span>08</span><div><h3>Pursue grants, shared revenues, and partnerships</h3><p>The County can seek competitive grants, legislative appropriations, intergovernmental agreements, and partner contributions. These sources reduce local funding needs but are often restricted, competitive, temporary, or require a County match.</p></div><strong>Other governments and partners</strong></article>
+    <article><span>09</span><div><h3>Use financing for eligible capital projects</h3><p>Bonds and loans can make capital funding available sooner, but they are financing—not new recurring revenue—and commit future revenue to principal and interest. Debt must follow County policy and applicable approval requirements.</p></div><strong>Future County resources</strong></article>
+  </div>
+  <p class="wc-revenue-source-note">Legal context: <a href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0200-0299/0200/Sections/0200.071.html" target="_blank" rel="noopener noreferrer">county millage limits</a>, <a href="https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&amp;URL=0300-0399/0336/Sections/0336.025.html" target="_blank" rel="noopener noreferrer">local-option fuel taxes</a>, and <a href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0100-0199/0125/Sections/0125.0104.html" target="_blank" rel="noopener noreferrer">Tourist Development Taxes</a>.</p>
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>General Government Taxes</h2>
+
+      <p>
+        The General Government Taxes classification includes property taxes
+        and other locally generated revenue sources used to support County
+        operations, infrastructure, public services, and long-term capital
+        investment. Revenue sources within this category include Ad Valorem
+        (Property) Taxes, Tourist Development Taxes, Sales Surtax, and Local
+        Option Fuel Taxes. The Board adopts the countywide property-tax
+        millage rate through Florida&rsquo;s public TRIM process; North
+        Walton Mosquito Control has a separate levy. Open the property-tax
+        summary for rates, levy calculations, and department allocations.
+      </p>
+
+    </div>
+
+  </section>
+
+  <div id="general-government-tax-topics"></div>
+
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>Intergovernmental Revenues</h2>
+
+      <p>
+        The Intergovernmental Revenues classification includes revenues
+        received from federal and state governmental sources, including
+        grants, shared revenues, and payments in lieu of taxes. Major
+        revenue sources within this category include the Local Government
+        Half-Cent Sales Tax, State Fuel Taxes, and State Revenue Sharing
+        distributions used to support County operations, transportation,
+        and public service programs.
+      </p>
+
+    </div>
+
+  </section>
+  <div id="intergovernmental-revenue-topics"></div>
+
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>Charges for Services</h2>
+
+      <p>
+        The Charges for Services classification reflects revenues generated
+        from charges for current services provided by the County. This
+        category includes revenues associated with services performed for
+        private individuals, businesses, and other governmental units.
+        Major revenue sources within this classification include planning
+        fees, permitting-related revenues, and MSBU fees.
+      </p>
+
+    </div>
+
+  </section>
+  <div id="charges-for-services-topics"></div>
+
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>Permits, Fees, and Special Assessments</h2>
+
+      <p>
+        Under Florida&rsquo;s Constitution, local governments possess broad home
+        rule authority allowing the generation of revenue through franchise
+        fees, impact fees, special assessments, user fees, and regulatory
+        charges. This classification includes revenues designed to recover
+        the cost of services, infrastructure, and regulatory activities
+        rather than general taxation. Included within this category are
+        permit fees, inspection fees, franchise fees, utility-related fees,
+        impact fees, and special assessments that provide a direct benefit
+        to specific properties or service areas.
+      </p>
+
+    </div>
+
+  </section>
+  <div id="permits-fees-topics"></div>
+
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>Judgments, Fines and Forfeits</h2>
+
+      <p>
+        The Judgments, Fines and Forfeits classification includes revenues
+        received from fines, penalties, and forfeitures imposed for statutory
+        offenses, violations of administrative rules and regulations, and
+        neglect of official duty. This classification also includes revenues
+        derived from the confiscation of deposits or bonds held as performance
+        guarantees, as well as proceeds from the sale of contraband property
+        seized by law enforcement agencies.
+      </p>
+
+    </div>
+
+  </section>
+  <div id="judgments-fines-topics"></div>
+
+</section>
+
+<section class="wc-revenue-full-bleed full-width contains-media-block" style="background:linear-gradient(135deg,#f4f8f5 0%,#eef7f1 100%); padding-top:50px; padding-bottom:55px;">
+
+  <section class="wc-revenue-heading">
+
+    <div class="wc-revenue-heading-inner">
+
+      <span>Revenue Classification</span>
+
+      <h2>Miscellaneous Revenue</h2>
+
+      <p>
+        The Miscellaneous Revenue classification includes various revenue
+        sources that do not fall within other specific classifications.
+        This category includes interest earned on County funds, as well as
+        incidental revenues generated through activities such as the sale of
+        surplus property, contributions, reimbursements, and other miscellaneous
+        receipts supporting County operations.
+      </p>
+
+    </div>
+
+  </section>
+  <div id="miscellaneous-revenue-topics"></div>
+
+</section><style>
+
+  .wc-revenue-full-bleed{
+    position:relative;
+    left:50%;
+    width:100vw !important;
+    max-width:100vw !important;
+    margin-left:-50vw !important;
+    margin-right:-50vw !important;
+    box-sizing:border-box;
+  }
+
+  .wc-revenue-heading{
+    width:100%;
+    margin:0;
+    padding:0 35px;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  .wc-revenue-heading-inner{
+    width:100%;
+    max-width:none;
+    margin:0;
+    background:#ffffff;
+    border-radius:30px;
+    padding:52px 56px;
+    text-align:center;
+    box-sizing:border-box;
+    border:1px solid rgba(0,63,40,0.16);
+    box-shadow:
+      0 18px 42px rgba(0,63,40,0.08),
+      0 6px 18px rgba(36,52,77,0.06);
+  }
+
+  .wc-revenue-heading-inner span{
+    display:inline-block;
+    margin-bottom:14px;
+    color:#003f28;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .wc-revenue-heading-inner h2{
+    margin:0 0 18px 0;
+    color:#172033;
+    font-size:42px;
+    line-height:1.08;
+    font-weight:700;
+  }
+
+  .wc-revenue-heading-inner h2::after{
+    content:"";
+    display:block;
+    width:100px;
+    height:5px;
+    margin:18px auto 0 auto;
+    border-radius:999px;
+    background:linear-gradient(90deg,#003f28 0%,#005236 100%);
+  }
+
+  .wc-revenue-heading-inner p{
+    margin:0 auto;
+    max-width:820px;
+    color:#344054;
+    font-size:17px;
+    line-height:1.9;
+    text-align:justify;
+  }
+
+  @media(max-width:700px){
+    .wc-revenue-heading{
+      padding:0 20px;
+    }
+
+    .wc-revenue-heading-inner{
+      padding:36px 28px;
+      border-radius:24px;
+    }
+
+    .wc-revenue-heading-inner h2{
+      font-size:32px;
+    }
+
+    .wc-revenue-heading-inner p{
+      font-size:16px;
+      line-height:1.8;
+    }
+  }
+
+</style>
+</main>
+</div>
+
+<!-- nav.js will inject footer[role="contentinfo"] here -->
+
+<script>
+/* Compact, question-led revenue experience. Existing financial mounts keep
+   their data bindings; this only changes how the reader reveals them. */
+(function(){
+  function initRevenueExperience(){
+    var main=document.querySelector('main#content');
+    var intro=main&&main.querySelector('.page-intro');
+    var summary=document.getElementById('consolidated-revenue-summary-table');
+    if(!main||!intro||!summary||document.querySelector('.wc-revenue-experience')) return;
+
+    var sourceGuide=main.querySelector('.wc-simple-disclosure');
+    var sector=document.getElementById('property-tax-sector');
+    var peer=document.getElementById('peer-revenue-comparison');
+    var options=document.getElementById('revenue-options');
+    var classifications=Array.prototype.slice.call(main.querySelectorAll('.wc-revenue-full-bleed'));
+    var shell=document.createElement('section');
+    shell.className='wc-revenue-experience';
+    shell.innerHTML='<div class="wc-revenue-tabs" role="tablist" aria-label="Explore the revenue budget">'+
+      '<button class="wc-revenue-tab" type="button" role="tab" id="revenue-tab-overview" data-revenue-panel="overview" aria-controls="revenue-panel-overview" aria-selected="true">Overview</button>'+
+      '<button class="wc-revenue-tab" type="button" role="tab" id="revenue-tab-payers" data-revenue-panel="payers" aria-controls="revenue-panel-payers" aria-selected="false">Who pays?</button>'+
+      '<button class="wc-revenue-tab" type="button" role="tab" id="revenue-tab-mechanics" data-revenue-panel="mechanics" aria-controls="revenue-panel-mechanics" aria-selected="false">How it works</button>'+
+      '<button class="wc-revenue-tab" type="button" role="tab" id="revenue-tab-choices" data-revenue-panel="choices" aria-controls="revenue-panel-choices" aria-selected="false">Revenue choices</button>'+
+      '<button class="wc-revenue-tab" type="button" role="tab" id="revenue-tab-detail" data-revenue-panel="detail" aria-controls="revenue-panel-detail" aria-selected="false">Full detail</button></div>';
+    var panelCopy={
+      overview:['The FY 2027 revenue plan','Start with the total and see every major revenue category.'],
+      payers:['Who supports County services?','See the documented contribution from visitors and the people or activities associated with major revenue sources.'],
+      mechanics:['Not every dollar works the same way','Understand recurring revenue, legal restrictions, reliability, and Board control.'],
+      choices:['What could the County change?','Compare Walton with nearby counties and review the principal options available to increase revenue.'],
+      detail:['Follow every dollar','Open only the revenue classification you need, then drill into its history and account lines.']
+    };
+    Object.keys(panelCopy).forEach(function(key){
+      var panel=document.createElement('section');
+      panel.className='wc-revenue-panel';
+      panel.id='revenue-panel-'+key;
+      panel.setAttribute('role','tabpanel');
+      panel.setAttribute('aria-labelledby','revenue-tab-'+key);
+      if(key!=='overview') panel.hidden=true;
+      panel.innerHTML='<div class="wc-revenue-panel-intro"><h2>'+panelCopy[key][0]+'</h2><p>'+panelCopy[key][1]+'</p></div>';
+      shell.appendChild(panel);
+    });
+    intro.insertAdjacentElement('afterend',shell);
+    document.getElementById('revenue-panel-overview').appendChild(summary);
+
+    if(sourceGuide){
+      sourceGuide.classList.add('wc-revenue-guide-source');
+      sourceGuide.open=true;
+      document.getElementById('revenue-panel-mechanics').appendChild(sourceGuide);
+    }
+    if(peer) document.getElementById('revenue-panel-choices').appendChild(peer);
+    if(options){
+      var optionDisclosure=document.createElement('details');
+      optionDisclosure.className='wc-revenue-options-disclosure';
+      optionDisclosure.innerHTML='<summary><span>See all nine revenue options<small>Who pays, what approval is required, and what the money may fund</small></span></summary>';
+      optionDisclosure.appendChild(options);
+      document.getElementById('revenue-panel-choices').appendChild(optionDisclosure);
+    }
+    // Each classification's own <h2>/description becomes a plain, non-
+    // collapsible heading -- every individual revenue underneath gets to be
+    // its own top-level clickable line instead of being buried one more
+    // click down inside a classification-level accordion.
+    var detailPanel=document.getElementById('revenue-panel-detail');
+    classifications.forEach(function(section){
+      var headingSrc=section.querySelector('.wc-revenue-heading-inner');
+      var heading=document.createElement('div');
+      heading.className='wc-revenue-classification-heading';
+      heading.innerHTML=headingSrc?headingSrc.innerHTML:'';
+      detailPanel.appendChild(heading);
+      var mount=section.querySelector('[id$="-topics"]')||section;
+      detailPanel.appendChild(mount);
+    });
+
+    function moveVisitorAnswer(){
+      var visitor=document.getElementById('visitor-revenue');
+      var payerPanel=document.getElementById('revenue-panel-payers');
+      if(visitor&&payerPanel&&!payerPanel.contains(visitor)) payerPanel.appendChild(visitor);
+    }
+    new MutationObserver(moveVisitorAnswer).observe(summary,{childList:true,subtree:true});
+    moveVisitorAnswer();
+    if(sector) document.getElementById('revenue-panel-payers').appendChild(sector);
+
+    function resizeRevealedCharts(){
+      if(window.wcResizeRevealCharts) window.wcResizeRevealCharts();
+    }
+
+    function showPanel(key,updateHash){
+      shell.querySelectorAll('.wc-revenue-tab').forEach(function(tab){tab.setAttribute('aria-selected',tab.dataset.revenuePanel===key?'true':'false');});
+      shell.querySelectorAll('.wc-revenue-panel').forEach(function(panel){panel.hidden=panel.id!=='revenue-panel-'+key;});
+      if(updateHash) history.replaceState(null,'','#revenue-'+key);
+      if(key==='detail') setTimeout(resizeRevealedCharts,50);
+    }
+    shell.querySelector('.wc-revenue-tabs').addEventListener('click',function(event){
+      var tab=event.target.closest('.wc-revenue-tab');
+      if(tab) showPanel(tab.dataset.revenuePanel,true);
+    });
+
+    // Each revenue's chart is created while its <details> row is still
+    // closed, so its canvas has zero size until Chart.js is told to
+    // resize. Revenue rows render asynchronously (after loadBudgetData()),
+    // so listening on the panel up front can't attach a 'toggle' listener
+    // to each one directly -- and 'toggle' doesn't bubble anyway, so this
+    // uses a capture-phase listener on the document instead, which sees
+    // the event regardless of when or how deep the row was added.
+    document.addEventListener('toggle',function(event){
+      if(event.target.matches&&event.target.matches('.wc-revenue-detail-group')) resizeRevealedCharts();
+    },true);
+
+    // Homepage revenue cards and other pages deep-link straight to a
+    // revenue's own slug, e.g. summary-of-revenues.html#tourist-development-taxes
+    // -- that target is now the flat, top-level <details> row itself.
+    function revealTopic(target,updateHash){
+      showPanel('detail',updateHash);
+      if(!target.open) target.open=true;
+      setTimeout(function(){
+        resizeRevealedCharts();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      },60);
+    }
+
+    // Its row is built by budget-data.js's async loadBudgetData(), which may
+    // not have run yet when this fires, so watch for it if it's not there.
+    function revealTopicByHash(topicHash){
+      var target=document.getElementById(topicHash);
+      if(target){ revealTopic(target,false); return true; }
+      return false;
+    }
+
+    var hash=location.hash.slice(1);
+    if(hash==='visitor-revenue') showPanel('payers',false);
+    else if(hash==='peer-revenue-comparison'||hash==='revenue-options') showPanel('choices',false);
+    else if(/^revenue-(overview|payers|mechanics|choices|detail)$/.test(hash)) showPanel(hash.replace('revenue-',''),false);
+    else if(hash&&!revealTopicByHash(hash)){
+      var topicWatcher=new MutationObserver(function(){
+        if(revealTopicByHash(hash)) topicWatcher.disconnect();
+      });
+      topicWatcher.observe(document.getElementById('revenue-panel-detail'),{childList:true,subtree:true});
+      setTimeout(function(){ topicWatcher.disconnect(); },8000);
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initRevenueExperience,{once:true});
+  else initRevenueExperience();
+})();
+
+/* set wcBudgetPages before nav script runs so search is fully populated */
+window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/gfoa-distinguished-budget-presentation-award.html"},
+  {title:"Transmittal Letter",section:"Introduction and Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/transmittal-letter.html"},
+  {title:"Our County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/our-county.html"},
+  {title:"Overview of Walton County",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/overview-of-walton-county.html"},
+  {title:"Organizational Structure",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/organizational-structure.html"},
+  {title:"Strategic Initiatives",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/strategic-initiatives.html"},
+  {title:"Budget Overview",section:"Budget Overview",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-overview.html"},
+  {title:"Constitutional Officers & Other Agencies",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/constitutional-officers.html"},
+  {title:"Departments",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/departments.html"},
+  {title:"Budget Process & Calendar",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/budget-process-and-calendar.html"},
+  {title:"Fund Descriptions and Structure",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-descriptions-and-structure.html"},
+  {title:"Department to Fund Relationship",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/department-to-fund-relationship.html"},
+  {title:"Financial Policies",section:"Financial Structure, Policies, and Process",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-policies.html"},
+  {title:"Consolidated Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/consolidated-financial-schedules.html"},
+  {title:"Fund Financial Schedules",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/fund-financial-schedules.html"},
+  {title:"Revenue Budget",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-revenues.html"},
+  {title:"Summary of Expenses",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-expenses.html"},
+  {title:"Summary of Interfund Transfers",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-interfund-transfers.html"},
+  {title:"Summary of Personnel",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-personnel.html"},
+  {title:"Summary of Machinery, Vehicles & Equipment",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-machinery-vehicles-and-equipment.html"},
+  {title:"Summary of Property Tax Allocations",section:"Financial Summaries",href:"https://budget-pixel.github.io/budget-fy2027/../pages/summary-of-property-tax-allocations.html"},
+  {title:"Financials",section:"Financials",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financials.html"},
+  {title:"Board of County Commissioners",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/board-of-county-commissioners.html"},
+  {title:"Clerk of Courts & County Comptroller",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/clerk-of-courts-and-county-comptroller.html"},
+  {title:"Property Appraiser",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/property-appraiser.html"},
+  {title:"Sheriff's Office",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/sheriffs-office.html"},
+  {title:"Supervisor of Elections",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/supervisor-of-elections.html"},
+  {title:"Tax Collector",section:"Constitutional Officers",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tax-collector.html"},
+  {title:"Circuit Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/circuit-court.html"},
+  {title:"County Court",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-court.html"},
+  {title:"Court Technology & Innovations",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/court-technology-and-innovations.html"},
+  {title:"Guardian Ad Litem",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/guardian-ad-litem.html"},
+  {title:"Medical Examiner",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/medical-examiner.html"},
+  {title:"Non-Profit Funding Program",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/non-profit-funding-program.html"},
+  {title:"Public Defender",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-defender.html"},
+  {title:"South Walton Fire & State Control",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/south-walton-fire-and-state-control.html"},
+  {title:"State Attorney",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/state-attorney.html"},
+  {title:"Statutory & Other Agency Funding",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statutory-and-other-agency-funding.html"},
+  {title:"Walton County Health Department",section:"Autonomous Entities",href:"https://budget-pixel.github.io/budget-fy2027/../pages/walton-county-health-department.html"},
+  {title:"Building Construction and Maintenance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-construction-and-maintenance.html"},
+  {title:"Building Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/building-department.html"},
+  {title:"Code Compliance",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/code-compliance.html"},
+  {title:"County Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/county-administration.html"},
+  {title:"Eagle Springs Golf and Recreation Center",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-golf-and-recreation-center.html"},
+  {title:"Eagle Springs Grill",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/eagle-springs-grill.html"},
+  {title:"Emergency Management",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/emergency-management.html"},
+  {title:"Engineering Department",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/engineering-department.html"},
+  {title:"Environmental Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/environmental-resources.html"},
+  {title:"Extension Office",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/extension-office.html"},
+  {title:"Geographic Info Systems",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/geographic-info-systems.html"},
+  {title:"Housing & Urban Development",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/housing-and-urban-development.html"},
+  {title:"Human Resources",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/human-resources.html"},
+  {title:"Libraries",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/libraries.html"},
+  {title:"Mosquito Control",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mosquito-control.html"},
+  {title:"Mossy Head Wastewater Treatment Facility",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/mossy-head-wastewater-treatment-facility.html"},
+  {title:"Office of Management and Budget",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-management-and-budget.html"},
+  {title:"Office of the County Attorney",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/office-of-the-county-attorney.html"},
+  {title:"Planning",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/planning.html"},
+  {title:"Probation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/probation.html"},
+  {title:"Public Works",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/public-works.html"},
+  {title:"Purchasing",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/purchasing.html"},
+  {title:"Recreation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/recreation.html"},
+  {title:"Soil Conservation",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/soil-conservation.html"},
+  {title:"Solid Waste",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/solid-waste.html"},
+  {title:"Tourism Administration",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-administration.html"},
+  {title:"Tourism Beach Operations",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-beach-operations.html"},
+  {title:"Tourism Lifeguard Services and Beach Safety",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/tourism-lifeguard-services-and-beach-safety.html"},
+  {title:"Veteran Services",section:"Departments",href:"https://budget-pixel.github.io/budget-fy2027/../pages/veteran-services.html"},
+  {title:"Capital Projects",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-projects.html"},
+  {title:"Capital Improvement Plan Overview",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/capital-improvement-plan.html"},
+  {title:"CIP Project Search",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/search.html"},
+  {title:"Capital Projects Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-capital-projects.html"},
+  {title:"Sheriff Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-sheriff.html"},
+  {title:"Tourist Development Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-tourist-development.html"},
+  {title:"Transportation Fund Schedule",section:"Capital Improvement Plan",href:"https://budget-pixel.github.io/budget-fy2027/../pages/cip-transportation.html"},
+  {title:"Debt Overview",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/debt-overview.html"},
+  {title:"Financial Forecast",section:"Debt and Financial Forecast",href:"https://budget-pixel.github.io/budget-fy2027/../pages/financial-forecast.html"},
+  {title:"Glossary, Acronyms, and Frequently Asked Questions",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/glossary-acronyms-and-frequently-asked-questions.html"},
+  {title:"Statistical & Supplemental Information",section:"Our County",href:"https://budget-pixel.github.io/budget-fy2027/../pages/statistical-and-supplemental-information.html"}
+];
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="../assets/budget-data.js?v=20260725-property-tax-split"></script>
+<script src="../assets/nav.js?v=20260725-original-navigation"></script>
+</body>
+</html>
