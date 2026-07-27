@@ -20,11 +20,23 @@
 <div class="page-eyebrow">Departments</div>
 <h1 class="page-title">Office of Management and Budget</h1>
 
+<section class="wc-omb-snapshot" aria-labelledby="wc-omb-snapshot-title">
+  <div class="wc-omb-snapshot-title"><h2 id="wc-omb-snapshot-title" class="wc-omb-section-title">Department Snapshot</h2></div>
+  <dl class="wc-omb-snapshot-grid">
+    <div><dt>FY 2027 Budget</dt><dd><div class="wc-profile-snapshot-value"><strong data-omb-snapshot="budget">Loading&hellip;</strong><small data-omb-snapshot="budgetChange"></small></div><button type="button" class="wc-profile-snapshot-sheet" data-profile-sheet-jump="budget">View Full Budget Sheet</button></dd></div>
+    <div class="wc-profile-fund-card"><dt>Fund</dt><dd><span data-omb-snapshot="fund">Loading&hellip;</span><button type="button" class="wc-profile-snapshot-sheet wc-profile-fund-sheet-button wc-view-budget-lines-toggle" data-target="wc-omb-fund-sheet" data-closed-label="View Fund Sheet" aria-expanded="false">View Fund Sheet</button></dd></div>
+    <div class="wc-omb-personnel-snapshot"><dt>Authorized Positions</dt><dd><div class="wc-profile-snapshot-value"><strong data-omb-snapshot="fte">Loading&hellip;</strong><small data-omb-snapshot="fteChange"></small></div><button type="button" class="wc-profile-snapshot-sheet" data-profile-sheet-jump="personnel">View Personnel Sheet</button></dd></div>
+    <div><dt>Reports To</dt><dd>Chief Financial Officer<a class="wc-profile-snapshot-sheet" href="organizational-structure.html">View Organizational Chart</a></dd></div>
+  </dl>
+</section>
+<div id="department-staffing-table" class="wc-department-question wc-profile-snapshot-personnel-source"></div>
+<div id="wc-omb-fund-sheet" class="wc-budget-lines-detail wc-budget-lines-card wc-profile-fund-sheet-source" hidden></div>
+
 <section class="wc-omb-intro-grid" aria-label="Department introduction">
   <div class="wc-omb-intro-copy">
     <h2 class="wc-omb-section-title">Statement of Function</h2>
     <p class="wc-omb-purpose">Plans, prepares, monitors, and explains Walton County&rsquo;s budget.</p>
-    <div class="wc-omb-statement-copy" id="ombStatementCopy"><p>The Office of Management and Budget (OMB) plays a pivotal role in Walton County by providing comprehensive financial and administrative support to the Board of County Commissioners (BCC). The department is responsible for overseeing all funds authorized to ensure their proper utilization, and offers advice and guidance to department and division heads. Within the department, key functions include preparing and monitoring the annual operating and capital budget, overseeing grant budgets and reporting, and maintaining the inventory of capital assets. By diligently executing these responsibilities, the OMB contributes significantly to the County&rsquo;s fiscal responsibility and overall operational efficiency, in alignment with BCC policies and regulatory standards.</p></div>
+    <div class="wc-omb-statement-copy" id="ombStatementCopy"><p>The Office of Management and Budget (OMB) plays a pivotal role in Walton County by providing comprehensive financial and administrative support to the Board of County Commissioners (BCC). The department is responsible for overseeing all funds authorized to ensure their proper utilization, and offers advice and guidance to department and division heads. Within the department, key functions include preparing and monitoring the annual operating and capital budget, overseeing grant budgets and reporting, and maintaining the inventory of capital assets. By diligently executing these responsibilities, the OMB contributes significantly to the County&rsquo;s fiscal responsibility and overall operational efficiency, in alignment with BCC policies and regulatory standards.</p><p class="wc-profile-collaboration-note"><strong>Collaboration:</strong> OMB works across the County organization on budgeting, purchasing, personnel, grants, capital projects, and financial reporting.</p><p class="wc-profile-challenge-note"><strong>Challenge:</strong> OMB must coordinate a growing and increasingly complex county budget while revenue conditions, operating costs, capital needs, and department priorities continue to change. The department must also maintain accurate forecasts, meet legal and GFOA reporting expectations, modernize financial tools, and explain complex decisions clearly with a limited team and fixed budget calendar.</p></div>
   </div>
   <aside class="wc-plaque-card wc-omb-award-top" aria-labelledby="wc-omb-top-award-title">
     <div class="wc-plaque-inner">
@@ -40,22 +52,13 @@
 </section>
 
 <section class="wc-omb-functions" aria-labelledby="wc-omb-functions-title">
-  <h2 id="wc-omb-functions-title" class="wc-omb-section-title">Core functions</h2>
+  <h2 id="wc-omb-functions-title" class="wc-omb-section-title">County services</h2>
   <div class="wc-omb-function-grid">
     <article><span class="wc-omb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 2h6v4H9zM9 14l2 2 4-4"/></svg></span><div><h3>Build the annual budget</h3><p>Coordinates department requests, revenue estimates, balancing, and the tentative county budget.</p></div></article>
     <article><span class="wc-omb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 16l4-5 4 3 5-7M7 16v2M11 11v7M15 14v4M20 7v11"/></svg></span><div><h3>Monitor public spending</h3><p>Tracks budget performance and supports amendments throughout the fiscal year.</p></div></article>
     <article><span class="wc-omb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 4h20M4 4v13h16V4M8 21l4-4 4 4M8 13l3-3 2 2 3-4"/></svg></span><div><h3>Explain financial decisions</h3><p>Produces schedules, forecasts, analysis, and public budget information for decision-making.</p></div></article>
   </div>
-</section>
-
-<section class="wc-omb-snapshot" aria-labelledby="wc-omb-snapshot-title">
-  <div class="wc-omb-snapshot-title"><span class="wc-omb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h18M5 10V20M9 10V20M15 10V20M19 10V20M3 20h18M2 7l10-4 10 4v3H2z"/></svg></span><h2 id="wc-omb-snapshot-title">Department<br>Snapshot</h2></div>
-  <dl class="wc-omb-snapshot-grid">
-    <div><dt>FY 2027 Budget</dt><dd><strong data-omb-snapshot="budget">Loading&hellip;</strong><small data-omb-snapshot="budgetChange"></small></dd></div>
-    <div><dt>Fund</dt><dd data-omb-snapshot="fund">Loading&hellip;</dd></div>
-    <div><dt>Authorized Positions</dt><dd><strong data-omb-snapshot="fte">Loading&hellip;</strong><small data-omb-snapshot="fteChange"></small></dd></div>
-    <div><dt>Reports To</dt><dd>Chief Financial Officer</dd></div>
-  </dl>
+  <p class="wc-profile-service-note"><strong>No new services are being added.</strong> The budget continues OMB&rsquo;s existing responsibilities.</p>
 </section>
 
 <section class="wc-omb-questions wc-department-questions" aria-labelledby="wc-omb-questions-title">
@@ -66,41 +69,16 @@
     <div class="wc-simple-disclosure-body"><div class="wc-omb-finance-overview" id="ombExpenseOverview"></div><div class="wc-omb-cost-context" id="ombCostContext" aria-live="polite"></div><div id="department-expense-table"></div></div>
   </details>
   <details class="wc-simple-disclosure wc-department-question">
+    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18M2 7l10-4 10 4v3H2z"/></svg></span><span class="wc-simple-disclosure-summary"><b>Who pays for this department?</b></span></summary>
+    <div class="wc-simple-disclosure-body"><div class="wc-omb-finance-overview" id="ombRevenueOverview"></div><div id="department-revenue-table"></div></div>
+  </details>
+  <details class="wc-simple-disclosure wc-department-question">
     <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V8h16v13M2 21h20M7 8V4h10v4M8 13h3M13 13h3M8 17h3M13 17h3"/></svg></span><span class="wc-simple-disclosure-summary"><b>What capital investments are planned for this department?</b></span></summary>
     <div class="wc-simple-disclosure-body"><div class="wc-omb-finance-overview wc-omb-capital-overview" id="ombCapitalOverview"></div><p class="wc-omb-capital-note" id="ombCapitalNote"></p></div>
   </details>
   <details class="wc-simple-disclosure wc-department-question">
     <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h10v4H7zM5 7h14v14H5zM8 12h8M8 16h5M9 5h6"/></svg></span><span class="wc-simple-disclosure-summary"><b>What contractual services does this department use?</b></span></summary>
     <div class="wc-simple-disclosure-body"><div id="ombContractualServices" aria-live="polite"></div></div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M3 18h18M2 7l10-4 10 4v3H2z"/></svg></span><span class="wc-simple-disclosure-summary"><b>How is this department funded?</b></span></summary>
-    <div class="wc-simple-disclosure-body"><div class="wc-omb-finance-overview" id="ombRevenueOverview"></div><div id="department-revenue-table"></div></div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5h6M9 3h6v4H9zM7 5H5v16h14V5h-2M8 12l2 2 5-5M8 18h8"/></svg></span><span class="wc-simple-disclosure-summary"><b>What county services does this department provide?</b></span></summary>
-    <div class="wc-simple-disclosure-body wc-omb-work-detail">
-      <ul class="wc-omb-service-list">
-        <li><strong>Build the annual budget.</strong> Coordinates department requests, revenue estimates, balancing, and the tentative county budget.</li>
-        <li><strong>Monitor public spending.</strong> Tracks budget performance and supports amendments throughout the fiscal year.</li>
-        <li><strong>Explain financial decisions.</strong> Produces schedules, forecasts, analysis, and public budget information for decision-making.</li>
-      </ul>
-      <a href="budget-process-and-calendar.html">See the county budget process and calendar</a>
-    </div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span class="wc-simple-disclosure-summary"><b>Are services being added to this department?</b></span></summary>
-    <div class="wc-simple-disclosure-body wc-omb-service-change-answer">
-      <strong>No new services are being added.</strong>
-      <p>OMB will continue its existing responsibilities for preparing and monitoring the County budget, overseeing grants, maintaining capital asset information, and supporting financial reporting and decision-making. Changes in funding, staffing, workload, or how these responsibilities are delivered do not by themselves create a new service.</p>
-    </div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2-7 5-7s5 3 5 7M13 15c1-1.2 2.3-1.8 4-1.8 2.7 0 4.5 2.7 4.5 6.8M11 10l3-1"/></svg></span><span class="wc-simple-disclosure-summary"><b>Does this department collaborate with other departments?</b></span></summary>
-    <div class="wc-simple-disclosure-body wc-omb-collaboration-answer">
-      <strong>Yes. OMB works across the entire County organization.</strong>
-      <p>Every department works with OMB to develop its annual budget, estimate costs and revenues, monitor spending, and request budget amendments. OMB also coordinates with the Chief Financial Officer and departments responsible for purchasing, personnel, grants, and capital projects so financial decisions use consistent information and follow County policy.</p>
-    </div>
   </details>
   <details class="wc-simple-disclosure wc-department-question">
     <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18l5-5 4 3 7-9M15 7h5v5"/></svg></span><span class="wc-simple-disclosure-summary"><b>How is this department held accountable?</b></span></summary>
@@ -114,21 +92,11 @@
     </div>
   </details>
   <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2.5-7 6-7s6 3 6 7M14 14c3.5 0 6 2.3 6 6"/></svg></span><span class="wc-simple-disclosure-summary"><b>Who does the work?</b></span></summary>
-    <div class="wc-simple-disclosure-body"><div id="department-staffing-table"></div></div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
     <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z"/></svg></span><span class="wc-simple-disclosure-summary"><b>What is changing?</b></span></summary>
     <div class="wc-simple-disclosure-body wc-omb-change-detail">
       <p data-omb-change="budget">Budget change is loading.</p>
       <p data-omb-change="staffing">Staffing change is loading.</p>
       <div class="wc-omb-object-changes" id="ombObjectChanges"></div>
-    </div>
-  </details>
-  <details class="wc-simple-disclosure wc-department-question">
-    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 20h19zM12 9v5M12 18h.01"/></svg></span><span class="wc-simple-disclosure-summary"><b>What challenges does this department face?</b></span></summary>
-    <div class="wc-simple-disclosure-body wc-omb-challenge-detail">
-      <p>OMB must coordinate a growing and increasingly complex county budget while revenue conditions, operating costs, capital needs, and department priorities continue to change. The department must also maintain accurate forecasts, meet legal and GFOA reporting expectations, modernize financial tools, and explain complex decisions clearly with a limited team and fixed budget calendar.</p>
     </div>
   </details>
 </section>
@@ -372,6 +340,16 @@
   .wc-omb-recognition-band>a{padding:12px 18px;border:1px solid var(--green);border-radius:5px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
   @media(max-width:950px){.wc-omb-intro-grid{grid-template-columns:1fr;gap:28px}.wc-omb-award-card{max-width:620px}.wc-omb-award-top{max-width:620px;margin:0;transform:none}.wc-omb-snapshot{grid-template-columns:1fr}.wc-omb-snapshot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 0}.wc-omb-snapshot-grid>div:nth-child(even){border-right:0}.wc-omb-recognition-band{grid-template-columns:70px 1fr}.wc-omb-recognition-band>a{grid-column:2;justify-self:start}}
   @media(max-width:700px){.wc-omb-function-grid,.wc-omb-finance-overview{grid-template-columns:1fr}.wc-omb-function-grid article,.wc-omb-function-grid article+article{min-height:0;padding:20px}.wc-omb-award-card{grid-template-columns:1fr}.wc-omb-award-mark{height:64px;border-right:0;border-bottom:1px solid #d8c487}.wc-omb-snapshot{padding:22px 18px}.wc-omb-snapshot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wc-omb-snapshot-grid>div,.wc-omb-snapshot-grid>div:nth-child(3),.wc-omb-snapshot-grid>div:nth-child(n+4){padding:13px 10px;border-top:1px solid #cbd8d0;border-right:1px solid #cbd8d0}.wc-omb-snapshot-grid>div:nth-child(even){border-right:0}.wc-omb-snapshot-grid>div:first-child,.wc-omb-snapshot-grid>div:nth-child(2){border-top:0}.wc-omb-snapshot-grid>div:last-child{grid-column:auto;border-right:0}.wc-omb-value-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wc-omb-value-grid div:nth-child(2){border-right:0}.wc-omb-value-grid div:nth-child(n+3){border-top:1px solid var(--border)}.wc-omb-value-grid div:nth-child(3){padding-left:0}.wc-omb-value-grid>div:nth-child(odd) .wc-omb-context-tooltip-text{right:auto;left:0}.wc-omb-value-grid>div:nth-child(even) .wc-omb-context-tooltip-text{right:0;left:auto}.wc-omb-recognition-band{grid-template-columns:1fr}.wc-omb-recognition-band>a{grid-column:1}.wc-omb-questions .wc-simple-disclosure>summary{gap:12px;padding:14px 12px}.wc-omb-question-icon{flex-basis:40px;width:40px;height:40px}.wc-omb-performance-item{grid-template-columns:1fr;padding:18px}.wc-omb-performance-target{padding:14px 0 0;border-left:0;border-top:1px solid var(--border)}.wc-omb-staffing-head{align-items:flex-start;flex-direction:column}.wc-omb-staffing-head p{text-align:left}.wc-omb-org-branches{grid-template-columns:1fr;gap:30px;padding-top:0}.wc-omb-org-branches::before,.wc-omb-org-branch::before,.wc-omb-org-root::after,.wc-omb-org-director::after{display:none}.wc-omb-org-root,.wc-omb-org-director{margin-bottom:20px}.wc-omb-org-branch{padding-left:18px;border-left:1px solid #a8c1b2}}
+  .wc-omb-snapshot{display:block;margin:30px 0 44px;padding:0;border:0;border-radius:0;background:transparent}
+  .wc-omb-snapshot-title{display:block}.wc-omb-snapshot-title h2{margin-bottom:18px}
+  .wc-omb-snapshot-grid dt{margin:-20px -20px 18px;padding:12px 20px;border-radius:9px 9px 0 0;background:var(--green);color:#fff;font-size:13px;font-weight:900}
+  .wc-omb-snapshot-grid dd{font-size:21px;line-height:1.3}
+  .wc-omb-snapshot-grid{gap:18px;border:0;background:transparent}
+  .wc-omb-snapshot-grid>div,.wc-omb-snapshot-grid>div:first-child,.wc-omb-snapshot-grid>div:last-child{padding:20px;border:1px solid var(--border);border-radius:10px;background:#fff}
+  .wc-omb-snapshot-grid>.wc-omb-personnel-snapshot{display:block;visibility:visible;padding:20px;border:1px solid var(--border);border-radius:10px;background:#fff}
+  .wc-omb-snapshot-grid .wc-profile-snapshot-value{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+  .wc-omb-snapshot-grid .wc-profile-snapshot-value strong{font-size:30px;line-height:1.1}
+  .wc-omb-snapshot-grid .wc-profile-snapshot-value small{display:inline;margin:0;font-size:14px}
   @media(max-width:600px){.wc-omb-object-change{align-items:flex-start;flex-direction:column;gap:10px}.wc-omb-object-change-value{text-align:left}.wc-omb-finance-stat-main,#department-staffing-table .wc-finance-card-head{gap:9px}.wc-omb-finance-stat strong{font-size:23px}.wc-omb-finance-trend{font-size:18px}.wc-omb-finance-trend em{font-size:11px}.wc-omb-finance-trend-percent{font-size:22px}}
   @media(max-width:600px){.wc-omb-contract-summary{grid-template-columns:1fr;gap:14px}.wc-omb-contract-list>div{align-items:flex-start;flex-direction:column;gap:4px}}
   @media(max-width:700px){.wc-omb-accountability{grid-template-columns:1fr}.wc-omb-accountability>div{border-right:0;border-bottom:1px solid var(--border)}.wc-omb-accountability>div:last-child{border-bottom:0}}
@@ -619,9 +597,17 @@ window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",
       return;
     }
     expenseMount.dataset.ombLinesSplit="true";
-    expenseButton.dataset.closedLabel="View Budget Sheet";
-    expenseButton.dataset.openLabel="Hide Budget Sheet";
-    expenseButton.textContent="View Budget Sheet";
+    var fullDetail=recurringDetail.cloneNode(true);
+    fullDetail.id=recurringDetail.id+"-full";
+    fullDetail.hidden=true;
+    var fullFooter=document.createElement("div");
+    fullFooter.className="wc-finance-card-footer wc-profile-full-budget-footer";
+    fullFooter.innerHTML='<button type="button" class="wc-view-budget-lines-toggle" data-profile-full-budget-toggle data-target="'+fullDetail.id+'" data-closed-label="View Full Budget Sheet" data-open-label="Hide Full Budget Sheet" aria-expanded="false">View Full Budget Sheet</button>';
+    expenseMount.appendChild(fullFooter);
+    expenseMount.appendChild(fullDetail);
+    expenseButton.dataset.closedLabel="View Operating Budget Sheet";
+    expenseButton.dataset.openLabel="Hide Operating Budget Sheet";
+    expenseButton.textContent="View Operating Budget Sheet";
     document.querySelectorAll('.wc-omb-questions .wc-view-budget-lines-toggle[data-closed-label="View Revenue Lines"]').forEach(function(button){
       button.dataset.closedLabel="View Revenue Sheet";
       button.dataset.openLabel="Hide Revenue Sheet";
@@ -726,7 +712,12 @@ window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",
   }
   function renderStaffingOrganization(rows){
     var mount=document.getElementById("department-staffing-table");
-    if(!mount||!rows.length) return;
+    if(!mount) return;
+    if(!rows.length){
+      mount.hidden=false;
+      mount.innerHTML='<section class="wc-finance-card"><div class="wc-finance-card-head"><div><p class="wc-finance-card-kicker">Authorized positions</p><strong class="wc-finance-card-total">Not listed</strong><span class="wc-finance-card-subtitle">Personnel data is not available in the published staffing sheet.</span></div></div></section>';
+      return;
+    }
     var order=["Chief Financial Officer","Budget Director","Grants Manager","Budget Analyst","Grants Coordinator"];
     var sorted=rows.slice().sort(function(a,b){return order.indexOf(a.Position_Name)-order.indexOf(b.Position_Name);});
     var total=rows.reduce(function(sum,row){return sum+(Number(row["2027"])||0);},0);
@@ -766,6 +757,10 @@ window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",
         var match=(data.funds||[]).find(function(fund){return String(fund.Fund_Code||"").trim()===code;});
         return match&&match.Fund_Name?match.Fund_Name:(code==="001"?"General Fund":"Fund "+code);
       });
+      var fundSheet=document.getElementById("wc-omb-fund-sheet");
+      if(fundSheet&&fundCodes.length&&window.WCBudgetData.buildFundFinancialSchedule){
+        fundSheet.innerHTML='<div class="wc-profile-fund-sheet-wrap"><div class="wc-profile-fund-sheet-tools"><button type="button" class="wc-profile-fund-prior-toggle" aria-expanded="false">View Prior Years</button></div>'+window.WCBudgetData.buildFundFinancialSchedule(fundCodes,fundNames.join(", ")||"Fund Financial Schedule")+'</div>';
+      }
 
       setSnapshot("budget",budget?compactMoney(budget):"Not listed");
       setSnapshot("fund",fundNames.length?fundNames.join(", "):"Not listed");

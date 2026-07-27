@@ -8012,7 +8012,10 @@
 
   function renderFundFinancialScheduleSection(funds) {
     return funds
-      .map((f) => buildFundFinancialSchedule([f.code], f.label))
+      .map((f) => {
+        const schedule = buildFundFinancialSchedule([f.code], f.label);
+        return schedule ? '<section id="fund-' + escapeHtml(f.code) + '" class="wc-fund-sheet-anchor">' + schedule + "</section>" : "";
+      })
       .filter(Boolean)
       .join("");
   }
@@ -8038,6 +8041,10 @@
         bindPriorYearsToggle(consolidatedEl);
         bindPriorYearsToggle(majorEl);
         bindPriorYearsToggle(nonMajorEl);
+        if (window.location.hash) {
+          const requestedFund = document.getElementById(window.location.hash.slice(1));
+          if (requestedFund) requestedFund.scrollIntoView({ block: "start" });
+        }
       })
       .catch((err) => {
         console.error("WCBudgetData: failed to load budget data", err);
@@ -10578,20 +10585,18 @@
     }).filter(Boolean).join("");
   }
 
-  const COMBINED_SECTION_RENDERERS = {
-    "tourism administration": renderTourismAdministrationSections,
-    "tourism beach operations": renderTourismBeachOperationsSections
-  };
+  // Tourism Administration and Tourism Beach Operations now use the shared
+  // OMB-style department profile. Their DEPT_ALIASES entries already combine
+  // the underlying divisions for each dataset, so routing them through the
+  // former per-division renderer would bypass that shared profile entirely.
+  const COMBINED_SECTION_RENDERERS = {};
 
   // Section labels for each combined page, in the same order they render
   // -- used only to paint instant, data-free placeholders (see
   // renderCombinedSectionPlaceholders) with the real ids a division link
   // (e.g. Summary of Expenses' "Tourism North Walton" row) needs to jump
   // to right away, before loadBudgetData() resolves.
-  const COMBINED_SECTION_LABELS = {
-    "tourism administration": TOURISM_ADMIN_SECTIONS.map((spec) => spec.label),
-    "tourism beach operations": TOURISM_BEACH_SECTIONS.map((spec) => spec.label)
-  };
+  const COMBINED_SECTION_LABELS = {};
 
   function renderCombinedSectionPlaceholders(labels) {
     return labels.map((label) =>
@@ -10605,7 +10610,7 @@
   // Departments whose combined sections (above) already render their own
   // Performance Measures table inline, so the page's standalone
   // performance container should stay empty instead of duplicating it.
-  const DEPTS_WITH_PERFORMANCE_FOLDED_IN = new Set(["tourism beach operations", "tourism administration"]);
+  const DEPTS_WITH_PERFORMANCE_FOLDED_IN = new Set();
 
   function renderMosquitoStateAidTables() {
     const expenseRows = filterAllZeroRowsForSelectedDepartments(
@@ -13833,6 +13838,7 @@
     renderInterfundTransfersInTable,
     renderConsolidatedRevenueSummaryTable,
     renderRevenueTopicCards,
+    buildFundFinancialSchedule,
     renderFinancialForecast,
     auditDepartmentExpenseRevenueParity,
     auditPersonnelCostPositionParity,

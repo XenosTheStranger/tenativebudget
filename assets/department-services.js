@@ -235,6 +235,34 @@
     if(summary) summary.innerHTML=icon(path)+'<span class="wc-simple-disclosure-summary"><b>'+escapeHtml(label)+'</b></span>';
     return details;
   }
+  function openSnapshotSheet(kind){
+    var mountId=kind==='personnel'?'department-staffing-table':'department-expense-table';
+    var mount=document.getElementById(mountId);
+    if(!mount) return;
+    var question=mount.closest('.wc-department-question');
+    if(question) question.open=true;
+    var sheetToggle=kind==='budget'
+      ? document.querySelector('[data-profile-full-budget-toggle]')||mount.querySelector('.wc-view-budget-lines-toggle[data-target]')
+      : mount.querySelector('.wc-view-budget-lines-toggle[data-target]');
+    if(sheetToggle&&sheetToggle.getAttribute('aria-expanded')!=='true') sheetToggle.click();
+    if(!sheetToggle) (question||mount).scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',function(event){
+    var button=event.target.closest('[data-profile-sheet-jump]');
+    if(!button) return;
+    event.preventDefault();
+    openSnapshotSheet(button.dataset.profileSheetJump);
+  });
+  document.addEventListener('click',function(event){
+    var button=event.target.closest('.wc-profile-fund-prior-toggle');
+    if(!button) return;
+    var sheet=button.closest('.wc-profile-fund-sheet-wrap');
+    if(!sheet) return;
+    var expanded=button.getAttribute('aria-expanded')==='true';
+    button.setAttribute('aria-expanded',String(!expanded));
+    button.textContent=expanded?'View Prior Years':'Hide Prior Years';
+    sheet.classList.toggle('show-prior-years',!expanded);
+  });
   function financeStat(label,amount,prior,total){
     var change=amount-prior;
     var pct=prior?change/prior*100:0;
@@ -303,12 +331,20 @@
     if(!expenseMount||!button||!detail){if(attempt<40) window.setTimeout(function(){enhanceFinanceSheets(expenseQuestion,revenueQuestion,capitalQuestion,attempt+1);},75);return;}
     if(expenseMount.dataset.profileEnhanced==='true') return;
     expenseMount.dataset.profileEnhanced='true';expenseMount.classList.add('wc-profile-finance-enhanced');
-    button.dataset.closedLabel='View Budget Sheet';button.dataset.openLabel='Hide Budget Sheet';button.textContent='View Budget Sheet';
+    var fullDetail=detail.cloneNode(true);fullDetail.id=detail.id+'-full';fullDetail.hidden=true;
+    button.dataset.closedLabel='View Operating Budget Sheet';button.dataset.openLabel='Hide Operating Budget Sheet';button.textContent='View Operating Budget Sheet';
     var capitalDetail=detail.cloneNode(true);capitalDetail.id=detail.id+'-capital';capitalDetail.hidden=true;
     retainBudgetRows(detail,function(category){return category==='personnel services'||category==='operating expenditures';});
     retainBudgetRows(capitalDetail,function(category){return category==='capital outlay';});
     capitalDetail.querySelectorAll('.wc-budget-line-zero-current').forEach(function(row){row.classList.remove('wc-budget-line-zero-current');});
     addBudgetTotals(detail);addBudgetTotals(capitalDetail);
+    var expenseBody=expenseQuestion&&expenseQuestion.querySelector('.wc-simple-disclosure-body');
+    if(expenseBody){
+      var fullFooter=document.createElement('div');
+      fullFooter.className='wc-finance-card-footer wc-profile-full-budget-footer';
+      fullFooter.innerHTML='<button type="button" class="wc-view-budget-lines-toggle" data-profile-full-budget-toggle data-target="'+fullDetail.id+'" data-closed-label="View Full Budget Sheet" data-open-label="Hide Full Budget Sheet" aria-expanded="false">View Full Budget Sheet</button>';
+      expenseBody.appendChild(fullFooter);expenseBody.appendChild(fullDetail);
+    }
     var capitalBody=capitalQuestion&&capitalQuestion.querySelector('.wc-simple-disclosure-body');
     if(capitalBody){
       var footer=document.createElement('div');footer.className='wc-finance-card-footer';footer.innerHTML='<button type="button" class="wc-view-budget-lines-toggle" data-target="'+capitalDetail.id+'" data-closed-label="View Budget Sheet" data-open-label="Hide Budget Sheet" aria-expanded="false">View Budget Sheet</button>';
@@ -416,6 +452,12 @@
       functionHeading.textContent='Statement of Function';
       functionHeading.id='wc-dept-function-services-title';
     }
+    if(!functionSection.querySelector('.wc-profile-collaboration-note')){
+      functionSection.insertAdjacentHTML('beforeend','<p class="wc-profile-collaboration-note"><strong>Collaboration:</strong> This department coordinates with other County departments through shared budget, purchasing, human-resources, legal, technology, capital-planning, and administrative processes.</p>');
+    }
+    if(!functionSection.querySelector('.wc-profile-challenge-note')){
+      functionSection.insertAdjacentHTML('beforeend','<p class="wc-profile-challenge-note"><strong>Challenge:</strong> '+escapeHtml(challenge)+'</p>');
+    }
     var mediaWrapper=narrative&&narrative.parentElement;
     var supportingMedia=[];
     if(mediaWrapper){
@@ -438,7 +480,7 @@
     }
     var serviceSection=document.createElement('section');
     serviceSection.className='wc-dept-services wc-profile-services-section';
-    serviceSection.innerHTML='<h2 class="wc-profile-section-title">Core services</h2><div class="wc-dept-services-grid">'+services.map(function(service,index){return '<article>'+serviceIcon(index)+'<div><h3>'+escapeHtml(service[0])+'</h3><p>'+escapeHtml(service[1])+'</p></div></article>';}).join('')+'</div>';
+    serviceSection.innerHTML='<h2 class="wc-profile-section-title">County services</h2><div class="wc-dept-services-grid">'+services.map(function(service,index){return '<article>'+serviceIcon(index)+'<div><h3>'+escapeHtml(service[0])+'</h3><p>'+escapeHtml(service[1])+'</p></div></article>';}).join('')+'</div><p class="wc-profile-service-note"><strong>No new services are being added.</strong> The budget continues the department&rsquo;s existing responsibilities.</p>';
     functionSection.insertAdjacentElement('afterend',serviceSection);
 
     var data=window.__wcDepartmentServiceData||{};
@@ -455,17 +497,26 @@
     var fundCodes=[];
     expenses.forEach(function(row){var code=String(row.Fund_Code||row.Dept_Code||'').trim().slice(0,3);if(code&&fundCodes.indexOf(code)===-1) fundCodes.push(code);});
     var fundNames=fundCodes.map(function(code){var match=(data.funds||[]).find(function(fund){return String(fund.Fund_Code||'').trim()===code;});return match&&match.Fund_Name?match.Fund_Name:'Fund '+code;});
+    var fundDetailId='wc-profile-fund-sheet';
+    var fundSheetHtml=fundCodes.length&&window.WCBudgetData.buildFundFinancialSchedule
+      ? '<div class="wc-profile-fund-sheet-wrap"><div class="wc-profile-fund-sheet-tools"><button type="button" class="wc-profile-fund-prior-toggle" aria-expanded="false">View Prior Years</button></div>'+window.WCBudgetData.buildFundFinancialSchedule(fundCodes,fundNames.join(', ')||'Fund Financial Schedule')+'</div>'
+      : '';
+    var oversight=key==='purchasing'?'Board of County Commissioners':'County Administration';
     var snapshot=document.createElement('section');
     snapshot.className='wc-profile-snapshot wc-board-department-profile';
-    snapshot.innerHTML='<div class="wc-profile-snapshot-label">'+icon('snapshot')+'<h2>Department<br>Snapshot</h2></div><dl><div><dt>Budget</dt><dd>'+compactMoney(budget)+'<small class="'+(budgetChange>0?'is-up':budgetChange<0?'is-down':'')+'">'+(budgetChange>0?'+':budgetChange<0?'−':'')+compactMoney(Math.abs(budgetChange))+(priorBudget?' ('+(budgetChange/priorBudget*100).toFixed(1)+'%)':'')+'</small></dd></div><div><dt>Fund</dt><dd>'+escapeHtml(fundNames.join(', ')||'Not listed')+'</dd></div><div><dt>Authorized Positions</dt><dd>'+fte.toLocaleString('en-US',{maximumFractionDigits:2})+' FTE<small class="'+(fteChange>0?'is-up':fteChange<0?'is-down':'')+'">'+(fteChange===0?'Unchanged':(fteChange>0?'+':'−')+Math.abs(fteChange).toLocaleString('en-US',{maximumFractionDigits:2})+' FTE')+'</small></dd></div><div><dt>Oversight</dt><dd>Board of County Commissioners</dd></div></dl>';
+    snapshot.innerHTML='<div class="wc-profile-snapshot-label"><h2 class="wc-profile-section-title">Department Snapshot</h2></div><dl><div><dt>Budget</dt><dd><div class="wc-profile-snapshot-value"><strong>'+compactMoney(budget)+'</strong><small class="'+(budgetChange>0?'is-up':budgetChange<0?'is-down':'')+'">'+(budgetChange>0?'+':budgetChange<0?'−':'')+compactMoney(Math.abs(budgetChange))+(priorBudget?' ('+(budgetChange/priorBudget*100).toFixed(1)+'%)':'')+'</small></div><button type="button" class="wc-profile-snapshot-sheet" data-profile-sheet-jump="budget">View Full Budget Sheet</button></dd></div><div class="wc-profile-fund-card"><dt>Fund</dt><dd>'+escapeHtml(fundNames.join(', ')||'Not listed')+(fundSheetHtml?'<button type="button" class="wc-profile-snapshot-sheet wc-profile-fund-sheet-button wc-view-budget-lines-toggle" data-target="'+fundDetailId+'" data-closed-label="View Fund Sheet" aria-expanded="false">View Fund Sheet</button>':'')+'</dd></div><div><dt>Authorized Positions</dt><dd><div class="wc-profile-snapshot-value"><strong>'+fte.toLocaleString('en-US',{maximumFractionDigits:2})+' FTE</strong><small class="'+(fteChange>0?'is-up':fteChange<0?'is-down':'')+'">'+(fteChange===0?'Unchanged':(fteChange>0?'+':'−')+Math.abs(fteChange).toLocaleString('en-US',{maximumFractionDigits:2})+' FTE')+'</small></div><button type="button" class="wc-profile-snapshot-sheet" data-profile-sheet-jump="personnel">View Personnel Sheet</button></dd></div><div><dt>Oversight</dt><dd>'+escapeHtml(oversight)+'<a class="wc-profile-snapshot-sheet" href="organizational-structure.html">View Organizational Chart</a></dd></div></dl>'+(fundSheetHtml?'<div class="wc-budget-lines-detail wc-budget-lines-card wc-profile-fund-sheet-source" id="'+fundDetailId+'" hidden>'+fundSheetHtml+'</div>':'');
     var mainContent=document.querySelector('main#content');
-    var statementAnchor=mediaWrapper&&mediaWrapper!==mainContent?mediaWrapper:narrative;
-    statementAnchor.insertAdjacentElement('afterend',snapshot);
+    var pageTitle=document.querySelector('h1.page-title');
+    if(pageTitle) pageTitle.insertAdjacentElement('afterend',snapshot);
+    else mainContent.insertBefore(snapshot,mainContent.firstChild);
 
     var expenseQuestion=configureExistingQuestion('department-expense-table','What does this department cost?','cost');
-    var revenueQuestion=configureExistingQuestion('department-revenue-table','How is this department funded?','funding');
+    var revenueQuestion=configureExistingQuestion('department-revenue-table','Who pays for this department?','funding');
     var performanceQuestion=configureExistingQuestion('department-performance-table','How is this department held accountable?','accountable');
-    var staffingQuestion=configureExistingQuestion('department-staffing-table','Who does the work?','staffing');
+    var staffingMount=document.getElementById('department-staffing-table');
+    var staffingQuestion=staffingMount&&staffingMount.closest('.wc-department-question');
+    if(staffingMount){staffingMount.classList.add('wc-profile-snapshot-personnel-source');snapshot.appendChild(staffingMount);}
+    if(staffingQuestion) staffingQuestion.remove();
     var group=expenseQuestion&&expenseQuestion.closest('.wc-department-questions');
     if(!group){group=document.createElement('section');group.className='wc-department-questions';snapshot.insertAdjacentElement('afterend',group);}
     group.classList.add('wc-profile-questions');
@@ -553,18 +604,13 @@
       if(revenueBody&&revenueGroups.length) revenueBody.insertAdjacentHTML('afterbegin','<div class="wc-profile-finance-overview wc-profile-revenue-overview">'+revenueGroups.map(function(item){return financeStat(item.label,item.amount,item.prior,revenueTotal);}).join('')+'</div>');
       group.appendChild(revenueQuestion);
     }
-    group.appendChild(question('What county services does this department provide?','<div class="wc-profile-answer"><ul>'+services.map(function(service){return '<li><strong>'+escapeHtml(service[0])+'.</strong> '+escapeHtml(service[1])+'</li>';}).join('')+'</ul></div>','services'));
-    group.appendChild(question('Are services being added to this department?','<div class="wc-profile-answer"><strong>No new services are being added.</strong><p>The budget continues the department&rsquo;s existing responsibilities. Changes in funding, staffing, workload, or delivery do not by themselves create a new service.</p></div>','added'));
-    group.appendChild(question('Does this department collaborate with other departments?','<div class="wc-profile-answer"><strong>Yes. This department works within the County organization.</strong><p>Board departments coordinate through shared budget, purchasing, human-resources, legal, technology, capital-planning, and administrative processes. Operational partnerships vary with the work being performed.</p></div>','collaborate'));
     if(performanceQuestion){
       var performanceBody=performanceQuestion.querySelector('.wc-simple-disclosure-body');
       if(performanceBody) performanceBody.insertAdjacentHTML('afterbegin','<dl class="wc-profile-accountability"><div><dt>Oversight and review</dt><dd>Work is reviewed through Board oversight, budget monitoring, adopted policies, public meetings, and financial reporting.</dd></div><div><dt>Countywide coordination</dt><dd>The department coordinates with other County functions when its work requires shared staff, systems, purchasing, legal, technology, or capital support.</dd></div><div><dt>Measurable results</dt><dd>'+(performanceRows.length?'Published measures include prior results and proposed targets so progress can be evaluated over time.':'No department performance measures were supplied in the published budget data.')+'</dd></div></dl>');
       group.appendChild(performanceQuestion);
     }
-    if(staffingQuestion) group.appendChild(staffingQuestion);
     var changes=expenses.map(function(row){var current=Number(row.FY2027_Proposed)||0,prior=Number(row.FY2026_Original_Budget)||0;return {code:String(row.Object_Code||''),name:row.Object_Name||'Budget line',type:row.Object_Type||'',diff:current-prior,prior:prior,current:current};}).filter(function(item){return item.diff!==0&&!/salar(?:y|ies)/i.test(item.name);}).sort(function(a,b){return Math.abs(b.diff)-Math.abs(a.diff);}).slice(0,3);
     group.appendChild(question('What is changing?','<div class="wc-profile-answer wc-profile-change-answer"><p>The department budget is '+(budgetChange>0?'increasing':budgetChange<0?'decreasing':'unchanged')+' by '+money(Math.abs(budgetChange))+(priorBudget?' ('+Math.abs(budgetChange/priorBudget*100).toFixed(1)+'%)':'')+'.</p><h3 class="wc-profile-change-title">Largest object-code changes</h3><div class="wc-profile-object-change-list">'+changes.map(function(item){return '<div class="wc-profile-object-change"><div><span>Object '+escapeHtml(item.code)+' &middot; '+escapeHtml(item.type)+'</span><strong>'+escapeHtml(item.name)+'</strong></div><div class="wc-profile-object-change-value '+(item.diff>0?'is-up':'is-down')+'">'+(item.diff>0?'+':'−')+money(Math.abs(item.diff))+'<small>'+money(item.prior)+' &rarr; '+money(item.current)+'</small></div></div>';}).join('')+'</div><div class="wc-profile-change-sheet-links" data-profile-change-sheet-links></div></div>','changing'));
-    group.appendChild(question('What challenges does this department face?','<div class="wc-profile-answer"><p>'+escapeHtml(challenge)+'</p></div>','challenges'));
     enhanceFinanceSheets(expenseQuestion,revenueQuestion,capitalQuestion);
     renderStaffingProfile(staffing);
     renderPerformanceProfile(performanceRows);
