@@ -85,11 +85,11 @@
     shell.className='wc-dept-experience';
     shell.innerHTML='<div class="wc-dept-tabs" role="tablist" aria-label="Explore the department budget">'+
       '<button class="wc-dept-tab" type="button" role="tab" id="dept-tab-overview" data-dept-panel="overview" aria-controls="dept-panel-overview" aria-selected="true">Overview by fund</button>'+
-      '<button class="wc-dept-tab" type="button" role="tab" id="dept-tab-directory" data-dept-panel="directory" aria-controls="dept-panel-directory" aria-selected="false">Every department</button></div>';
+      '<button class="wc-dept-tab" type="button" role="tab" id="dept-tab-directory" data-dept-panel="directory" aria-controls="dept-panel-directory" aria-selected="false">Department list</button></div>';
 
     var panelCopy={
       overview:['Spending by fund','Board-department spending grouped by the fund that pays for it. Click a card to filter the full directory to just that fund.'],
-      directory:['Every board department','Budget, year-over-year change, staffing, and a short description for each department.']
+      directory:['Department list','Budget, year-over-year change, staffing, and a short description for each department.']
     };
     var panelsByKey={};
     Object.keys(panelCopy).forEach(function(key){

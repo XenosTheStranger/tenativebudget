@@ -22,7 +22,8 @@
         item("Public Works","Public Works","public-works.html"),
         item("Engineering Services","Engineering Department","engineering-department.html",["Engineering Services","Engineering Department","Public Works Engineering Services"]),
         item("Sidewalk","Sidewalk Fund","sidewalk-fund.html",["Sidewalk","Sidewalk Fund"]),
-        item("MSBU","Municipal Service Benefit Unit Fund","municipal-service-benefit-unit-fund.html",["MSBU","Municipal Service Benefit Unit Fund","Municipal Service Benefit Unit"])
+        item("MSBU","Municipal Service Benefit Unit Fund","municipal-service-benefit-unit-fund.html",["MSBU","Municipal Service Benefit Unit Fund","Municipal Service Benefit Unit"]),
+        item("Capital Projects","Capital Projects Fund","cip-capital-projects.html",["Capital Projects","Capital Projects Fund"])
       ]
     },
     {
@@ -122,7 +123,7 @@
       note:"These are independently elected or appointed judicial offices and autonomous entities. County government funds them as required by Florida law but does not direct their day-to-day operations."
     },
     {
-      title:"Elections, Records, and Financial Administration",
+      title:"General Government Services",
       benefit:"Court records, property valuation, elections administration, and property tax collection are independently elected constitutional offices that County government funds but does not operate.",
       members:[
         item("Clerk of Court","Clerk of Courts & County Comptroller","clerk-of-courts-and-county-comptroller.html",["Clerk of Court","Clerk of Courts & County Comptroller","Clerk of Circuit Court"]),

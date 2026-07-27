@@ -10978,6 +10978,13 @@
     const deptName = getDepartmentNameFromPage();
     const deptCode = getDeptCodeFromPage();
     if (!deptName) return;
+    const pageEyebrow = document.querySelector(".page-eyebrow");
+    const usesSharedBoardProfile = pageEyebrow && pageEyebrow.textContent.trim().toLowerCase() === "departments" && normalizeDeptName(deptName) !== "office of management and budget";
+    if (usesSharedBoardProfile) {
+      document.body.classList.add("wc-board-department-loading");
+      const departmentMain = document.querySelector("main#content");
+      if (departmentMain) departmentMain.setAttribute("aria-busy", "true");
+    }
 
     // Combined pages (Tourism Administration, Tourism Beach Operations)
     // get instant, data-free placeholders carrying their real per-division

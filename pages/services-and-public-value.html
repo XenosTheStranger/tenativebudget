@@ -57,7 +57,7 @@
   @media print{nav,footer{display:none!important}.wc-value-service{break-inside:avoid;box-shadow:none}.wc-value-service summary{cursor:default}.wc-value-service:not([open])>.wc-value-body{display:grid}.wc-value-chevron{display:none}}
   .wc-hub-sub a{color:var(--gold);font-weight:800;text-decoration:underline}
   .wc-program-experience{margin-top:34px}
-  .wc-program-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
+  .wc-program-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:7px;border:1px solid var(--border);border-radius:18px;background:var(--light)}
   .wc-program-tab{min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
   .wc-program-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(0,63,40,.16)}
   .wc-program-tab:focus-visible{outline:3px solid rgba(209,190,120,.65);outline-offset:2px}
@@ -131,12 +131,6 @@
   </div>
 </section>
 
-<section id="program-how-section" aria-label="Scope and limitations">
-  <p class="wc-value-note"><strong>Scope and limitations:</strong> These programs communicate major services rather than every account or legal responsibility in the County budget. Constitutional Officers and autonomous entities retain independent operational authority and set their own budgets within statutory limits; grouping their budget alongside Board departments here is for public-facing context only and does not imply Board control over their operations. A department or agency budget may support more than one activity, so the amount shown should not be interpreted as the direct cost of a single performance measure. Revenue classifications reflect the revenue assigned to the included departments and agencies in the tentative budget.</p>
-  <p class="wc-value-note"><strong>What each program now shows:</strong> total FY 2027 budget and year-over-year dollar change, FTE, the same budget split by cost type (personnel, operating, capital, debt service, grants and aid) used elsewhere on this site, revenue assigned to the included departments, and &mdash; where assigned revenue is less than total cost &mdash; the dollar amount and share of cost not covered by that revenue. That subsidy figure compares assigned revenue to total cost for the departments in a program; it is a planning-level comparison, not an audited cost-allocation or indirect-cost study.</p>
-  <p class="wc-value-note"><strong>What this view still does not answer:</strong> it does not distinguish core from non-core services, does not separate fixed from variable cost, does not track cost by activity or program the way a formal cost-accounting system would, does not report expected workload or activity volumes, and does not explain the methodology behind any fee shown elsewhere on the site (benchmark, full cost recovery, or otherwise). Those all require a program-level cost-allocation exercise that has not been performed.</p>
-</section>
-
 <script>
 /* Compact, click-through program experience. Existing render mounts
    (services-public-value, services-public-value-overview) keep their ids
@@ -149,20 +143,17 @@
     var head=main&&main.querySelector('.wc-hub-head');
     var overviewSection=document.getElementById('program-overview-section');
     var allSection=document.getElementById('program-all-section');
-    var howSection=document.getElementById('program-how-section');
-    if(!main||!head||!overviewSection||!allSection||!howSection||document.querySelector('.wc-program-experience')) return;
+    if(!main||!head||!overviewSection||!allSection||document.querySelector('.wc-program-experience')) return;
 
     var shell=document.createElement('section');
     shell.className='wc-program-experience';
     shell.innerHTML='<div class="wc-program-tabs" role="tablist" aria-label="Explore the program budget">'+
       '<button class="wc-program-tab" type="button" role="tab" id="program-tab-overview" data-program-panel="overview" aria-controls="program-panel-overview" aria-selected="true">Overview</button>'+
-      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-all" data-program-panel="all" aria-controls="program-panel-all" aria-selected="false">Every program</button>'+
-      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-how" data-program-panel="how" aria-controls="program-panel-how" aria-selected="false">How to read this</button></div>';
+      '<button class="wc-program-tab" type="button" role="tab" id="program-tab-all" data-program-panel="all" aria-controls="program-panel-all" aria-selected="false">Every program</button></div>';
 
     var panelCopy={
       overview:['Programs at a glance','Every program area and its FY 2027 budget. Click a row to open its full detail.'],
-      all:['Every program, in full','Departments and agencies included, revenue assigned, and FY 2027 service targets.'],
-      how:['How to read these costs','What this view is, what it is not, and how Constitutional Officers and autonomous entities are treated.']
+      all:['Every program, in full','Departments and agencies included, revenue assigned, and FY 2027 service targets.']
     };
     var panelsByKey={};
     Object.keys(panelCopy).forEach(function(key){
@@ -179,7 +170,6 @@
 
     panelsByKey.overview.appendChild(overviewSection);
     panelsByKey.all.appendChild(allSection);
-    panelsByKey.how.appendChild(howSection);
 
     head.insertAdjacentElement('afterend',shell);
 
@@ -194,7 +184,7 @@
     });
     window.wcProgramShowAll=function(){ showPanel('all',true); };
     var hash=location.hash.slice(1);
-    if(/^program-(overview|all|how)$/.test(hash)) showPanel(hash.replace('program-',''),false);
+    if(/^program-(overview|all)$/.test(hash)) showPanel(hash.replace('program-',''),false);
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProgramExperience,{once:true});
   else initProgramExperience();

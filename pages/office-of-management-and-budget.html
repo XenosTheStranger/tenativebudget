@@ -96,6 +96,13 @@
     </div>
   </details>
   <details class="wc-simple-disclosure wc-department-question">
+    <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2-7 5-7s5 3 5 7M13 15c1-1.2 2.3-1.8 4-1.8 2.7 0 4.5 2.7 4.5 6.8M11 10l3-1"/></svg></span><span class="wc-simple-disclosure-summary"><b>Does this department collaborate with other departments?</b></span></summary>
+    <div class="wc-simple-disclosure-body wc-omb-collaboration-answer">
+      <strong>Yes. OMB works across the entire County organization.</strong>
+      <p>Every department works with OMB to develop its annual budget, estimate costs and revenues, monitor spending, and request budget amendments. OMB also coordinates with the Chief Financial Officer and departments responsible for purchasing, personnel, grants, and capital projects so financial decisions use consistent information and follow County policy.</p>
+    </div>
+  </details>
+  <details class="wc-simple-disclosure wc-department-question">
     <summary><span class="wc-omb-question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18l5-5 4 3 7-9M15 7h5v5"/></svg></span><span class="wc-simple-disclosure-summary"><b>How is this department held accountable?</b></span></summary>
     <div class="wc-simple-disclosure-body">
       <dl class="wc-omb-accountability">
@@ -174,14 +181,15 @@
   .wc-omb-service-list{display:grid;gap:12px;max-width:88ch;margin:0 0 18px;padding-left:22px;color:var(--muted);line-height:1.65}
   .wc-omb-service-list li::marker{color:var(--gold)}
   .wc-omb-service-list strong{color:var(--text)}
-  .wc-omb-service-change-answer>strong{display:block;margin:0 0 8px;color:var(--green);font-size:clamp(22px,2.4vw,30px);line-height:1.2}
-  .wc-omb-service-change-answer p{max-width:88ch;margin:0;color:var(--text);font-size:15px;line-height:1.7}
+  .wc-omb-service-change-answer>strong,.wc-omb-collaboration-answer>strong{display:block;margin:0 0 8px;color:var(--green);font-size:clamp(22px,2.4vw,30px);line-height:1.2}
+  .wc-omb-service-change-answer p,.wc-omb-collaboration-answer p{max-width:88ch;margin:0;color:var(--text);font-size:15px;line-height:1.7}
   .wc-omb-object-changes{margin-top:22px}
   .wc-omb-object-changes h3{margin:0 0 5px;color:var(--text);font-size:17px}
   .wc-omb-object-change-list{display:grid;gap:9px}
   .wc-omb-object-change{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:15px 17px;border:1px solid var(--border);border-radius:10px;background:#f8faf9}
   .wc-omb-object-change span{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
   .wc-omb-object-change strong{display:block;margin-top:3px;color:var(--text);font-size:14px}
+  .wc-omb-object-change p{max-width:64ch;margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
   .wc-omb-object-change-value{flex:0 0 auto;text-align:right;color:#a33a34;font-size:17px;font-weight:900}
   .wc-omb-object-change-value.is-up{color:var(--green)}
   .wc-omb-object-change-value small{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:600}
@@ -303,6 +311,13 @@
   .wc-omb-contract-list>div{display:flex;justify-content:space-between;gap:20px;padding-top:12px;border-top:1px solid var(--border)}
   .wc-omb-contract-list strong{color:var(--text)}
   .wc-omb-contract-list span{color:var(--green);font-weight:800}
+  .wc-omb-contract-list>article{padding-top:12px;border-top:1px solid var(--border)}
+  .wc-omb-contract-list>article>div{display:flex;justify-content:space-between;gap:20px}
+  .wc-omb-contract-list>article em{color:var(--green);font-style:normal;font-weight:800;white-space:nowrap}
+  .wc-omb-contract-list>article p{display:flex;flex-wrap:wrap;gap:5px 16px;margin:7px 0 0;color:var(--muted);font-size:12px}
+  .wc-omb-contract-list>article p b{color:var(--text)}
+  .wc-omb-contract-list>article>a{display:inline-block;margin-top:8px;color:var(--green);font-size:13px;font-weight:800}
+  .wc-omb-contract-list>article>small{display:block;margin-top:8px;color:var(--muted);font-size:12px}
   .wc-omb-finance-enhanced>.wc-finance-card>.wc-finance-card-head,.wc-omb-finance-enhanced>.wc-finance-card>.wc-finance-card-breakdown{display:none}
   .wc-omb-finance-enhanced>.wc-finance-card>.wc-finance-card-footer{margin-top:0;padding-top:14px;border-top:1px solid var(--border)}
   #department-revenue-table .wc-department-funding-context{display:none}
@@ -360,6 +375,22 @@
   @media(max-width:600px){.wc-omb-object-change{align-items:flex-start;flex-direction:column;gap:10px}.wc-omb-object-change-value{text-align:left}.wc-omb-finance-stat-main,#department-staffing-table .wc-finance-card-head{gap:9px}.wc-omb-finance-stat strong{font-size:23px}.wc-omb-finance-trend{font-size:18px}.wc-omb-finance-trend em{font-size:11px}.wc-omb-finance-trend-percent{font-size:22px}}
   @media(max-width:600px){.wc-omb-contract-summary{grid-template-columns:1fr;gap:14px}.wc-omb-contract-list>div{align-items:flex-start;flex-direction:column;gap:4px}}
   @media(max-width:700px){.wc-omb-accountability{grid-template-columns:1fr}.wc-omb-accountability>div{border-right:0;border-bottom:1px solid var(--border)}.wc-omb-accountability>div:last-child{border-bottom:0}}
+
+  /* Keep narrative answers visually consistent across every citizen question. */
+  .wc-omb-questions .wc-simple-disclosure-body{color:var(--text);font-family:Arial,Helvetica,sans-serif}
+  .wc-omb-work-detail li,
+  .wc-omb-service-change-answer p,
+  .wc-omb-collaboration-answer p,
+  .wc-omb-change-detail>p,
+  .wc-omb-challenge-detail p,
+  .wc-omb-capital-note,
+  .wc-omb-contract-copy p,
+  .wc-omb-contract-copy small,
+  .wc-omb-accountability dd{color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7}
+  .wc-omb-service-change-answer>strong,
+  .wc-omb-collaboration-answer>strong,
+  .wc-omb-contract-copy p,
+  .wc-omb-accountability dt{color:var(--navy);font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:800;line-height:1.45}
 </style>
 </main>
 </div>
@@ -653,13 +684,13 @@ window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",
   function renderContractualServices(expenses){
     var mount=document.getElementById("ombContractualServices");
     if(!mount) return;
-    var contracts=expenses.filter(function(row){return String(row.Contract_Status||"").trim()!=="";});
+    var contracts=expenses.filter(function(row){return String(row.Contract_Status||"").trim()!==""&&(Number(row.FY2027_Proposed)||0)!==0;});
     var total=contracts.reduce(function(sum,row){return sum+(Number(row.FY2027_Proposed)||0);},0);
     if(!contracts.length){
       mount.innerHTML='<div class="wc-omb-contract-summary"><div class="wc-omb-contract-total"><span>Annual contract savings</span><strong>$200,000</strong></div><div class="wc-omb-contract-copy"><p>OMB canceled the County&rsquo;s OpenGov budget software contract, saving Walton County $200,000 annually.</p><small>There are no other contractual services within the department.</small></div></div>';
       return;
     }
-    mount.innerHTML='<div class="wc-omb-contract-summary"><div class="wc-omb-contract-total"><span>Proposed contractual services</span><strong>'+money(total)+'</strong></div><div class="wc-omb-contract-copy"><p>'+contracts.length+' contract'+(contracts.length===1?' is':'s are')+' identified in the department-confirmed contract data.</p><div class="wc-omb-contract-list">'+contracts.map(function(row){return '<div><strong>'+escapeHtml(row.Object_Name||"Contractual service")+'</strong><span>'+money(Number(row.FY2027_Proposed)||0)+'</span></div>';}).join('')+'</div></div></div>';
+    mount.innerHTML='<div class="wc-omb-contract-summary"><div class="wc-omb-contract-total"><span>Proposed contractual services</span><strong>'+money(total)+'</strong></div><div class="wc-omb-contract-copy"><p>'+contracts.length+' contract'+(contracts.length===1?' is':'s are')+' identified in the department-confirmed contract data.</p><div class="wc-omb-contract-list">'+contracts.map(function(row){var description=row.Note||row.Project_Name||row.Object_Name||"Contractual service";var reference=[row.Vendor?'<span><b>Provider:</b> '+escapeHtml(row.Vendor)+'</span>':'',row.Contract_No?'<span><b>Contract:</b> '+escapeHtml(row.Contract_No)+'</span>':'',row.Contract_Status?'<span><b>Status:</b> '+escapeHtml(row.Contract_Status)+'</span>':''].filter(Boolean).join('');var document=row.Contract_Link?'<a href="'+escapeHtml(row.Contract_Link)+'" target="_blank" rel="noopener noreferrer">View contract or agreement &nearr;</a>':'<small>Contract or agreement link not provided in the published source data.</small>';return '<article><div><strong>'+escapeHtml(description)+'</strong><em>'+money(Number(row.FY2027_Proposed)||0)+'</em></div>'+(reference?'<p>'+reference+'</p>':'')+document+'</article>';}).join('')+'</div></div></div>';
   }
   function renderObjectChanges(expenses){
     var mount=document.getElementById("ombObjectChanges");
@@ -668,9 +699,16 @@ window.wcBudgetPages = [  {title:"GFOA Distinguished Budget Presentation Award",
       var current=Number(row.FY2027_Proposed)||0;
       var prior=Number(row.FY2026_Original_Budget)||0;
       return {code:String(row.Object_Code||""),name:row.Object_Name||"Unclassified account",type:row.Object_Type||"Other",current:current,prior:prior,diff:current-prior};
-    }).filter(function(item){return item.diff!==0;}).sort(function(a,b){return Math.abs(b.diff)-Math.abs(a.diff);}).slice(0,3);
+    }).filter(function(item){
+      var normalizedName=String(item.name||"").toLowerCase();
+      return item.diff!==0&&!/salar(?:y|ies)/.test(normalizedName);
+    }).sort(function(a,b){return Math.abs(b.diff)-Math.abs(a.diff);}).slice(0,3);
     mount.innerHTML='<h3>Largest object-code changes</h3><div class="wc-omb-object-change-list">'+changes.map(function(item){
-      return '<div class="wc-omb-object-change"><div><span>Object '+escapeHtml(item.code)+' &middot; '+escapeHtml(item.type)+'</span><strong>'+escapeHtml(item.name)+'</strong></div><div class="wc-omb-object-change-value'+(item.diff>0?' is-up':'')+'">'+(item.diff>0?'+':'&minus;')+money(Math.abs(item.diff))+'<small>'+money(item.prior)+' &rarr; '+money(item.current)+'</small></div></div>';
+      var normalizedName=String(item.name||"").toLowerCase();
+      var explanation="";
+      if(normalizedName.indexOf("building")!==-1) explanation="This reduction reflects completion of a one-time office remodel.";
+      if(normalizedName.indexOf("subscription")!==-1) explanation="This reduction reflects cancellation of the OpenGov budget software contract.";
+      return '<div class="wc-omb-object-change"><div><span>Object '+escapeHtml(item.code)+' &middot; '+escapeHtml(item.type)+'</span><strong>'+escapeHtml(item.name)+'</strong>'+(explanation?'<p>'+escapeHtml(explanation)+'</p>':'')+'</div><div class="wc-omb-object-change-value'+(item.diff>0?' is-up':'')+'">'+(item.diff>0?'+':'&minus;')+money(Math.abs(item.diff))+'<small>'+money(item.prior)+' &rarr; '+money(item.current)+'</small></div></div>';
     }).join('')+'</div><div class="wc-omb-change-sheet-links" aria-label="Related budget sheets"></div>';
     renderChangeSheetLinks();
   }

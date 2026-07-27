@@ -2636,6 +2636,12 @@
 
     var pageEyebrow = document.querySelector('.page-eyebrow');
     var isBoardDepartmentPage = pageEyebrow && pageEyebrow.textContent.trim().toLowerCase() === 'departments';
+    var usesSharedDepartmentProfile = isBoardDepartmentPage && !document.querySelector('.wc-omb-questions');
+    if(usesSharedDepartmentProfile){
+      document.body.classList.add('wc-board-department-loading');
+      var departmentMain=document.querySelector('main#content');
+      if(departmentMain) departmentMain.setAttribute('aria-busy','true');
+    }
     var departmentQuestions = {
       'department-expense-table':['What does this service cost?','Complete FY 2027 cost by category, with history and account-level detail'],
       'department-revenue-table':['How is this service funded?','Funding sources, including whether property taxes support this department'],
@@ -2687,7 +2693,7 @@
         }
         orderedQuestions.forEach(function(question){ questionGroup.appendChild(question); });
       }
-      loadWcScriptOnce('wc-department-services-script',wcBudgetAssetBaseUrl+'department-services.js?v=20260725-department-costs');
+      loadWcScriptOnce('wc-department-services-script',wcBudgetAssetBaseUrl+'department-services.js?v=20260726-department-profiles');
     }
   }
   function repairWcBudgetNavAfterOpenGovNavigation(){
