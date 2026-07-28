@@ -10124,7 +10124,7 @@
     if (!rows.length) return "";
     const groupNames = uniqueSorted(rows.map((r) => r.Dept_Name || ""));
     if (groupNames.length <= 1) {
-      return renderStaffingGroup(rows, "Staffing / FTE", null, STAFFING_GROUP_NOTES[normalizeDeptName(rows[0].Dept_Name || "")]);
+      return renderStaffingGroup(rows, "Position Summary", null, STAFFING_GROUP_NOTES[normalizeDeptName(rows[0].Dept_Name || "")]);
     }
     const screenCardsHtml = groupNames
       .map((name) => renderStaffingGroup(
@@ -10142,7 +10142,7 @@
     // budget-pdf.js for the screen/print visibility swap.
     if (isCodeComplianceStaffingSplit(groupNames)) {
       const mergedRows = mergeStaffingRowsByPosition(rows);
-      const printCardHtml = renderStaffingGroup(mergedRows, "Staffing / FTE", null, STAFFING_GROUP_NOTES[normalizeDeptName("code compliance")]);
+      const printCardHtml = renderStaffingGroup(mergedRows, "Position Summary", null, STAFFING_GROUP_NOTES[normalizeDeptName("code compliance")]);
       return (
         '<div class="wc-code-compliance-staffing-screen">' + screenCardsHtml + "</div>" +
         '<div class="wc-code-compliance-staffing-print">' + printCardHtml + "</div>"
