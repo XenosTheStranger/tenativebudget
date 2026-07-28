@@ -4316,7 +4316,7 @@
         button.removeAttribute("data-wc-prior-years-bound");
       });
       bindPriorYearsToggle(body);
-      applyPriorYearsState(getShowPriorYears("budget"), body);
+      applyPriorYearsState(false, body);
     }
     activeBudgetDetailToggle = toggle;
     toggle.setAttribute("aria-expanded", "true");
@@ -4337,6 +4337,44 @@
     if (!detail) return;
     openBudgetDetailModal(toggle, detail);
   });
+
+  // Generic opener for the same modal shell, for callers (e.g.
+  // department-services.js's budget graph) that build their own body HTML
+  // up front instead of copying it from an existing on-page <details>
+  // element the way openBudgetDetailModal/the forecast-fund modal do.
+  function openBudgetDetailPanel(toggle, options) {
+    options = options || {};
+    const modal = ensureBudgetDetailModal();
+    const title = modal.querySelector("#wc-budget-detail-title");
+    const kicker = modal.querySelector(".wc-budget-detail-kicker");
+    const body = modal.querySelector(".wc-budget-detail-body");
+    if (title) title.textContent = options.title || "Detail";
+    if (kicker) kicker.textContent = options.kicker !== undefined ? options.kicker : "Budget Detail";
+    if (body) {
+      body.className = "wc-budget-detail-body" + (options.bodyClassName ? " " + options.bodyClassName : "");
+      body.innerHTML = options.html || "";
+      if (body.querySelector(".wc-fy-column-toggle-checkbox, .wc-fy-column-toggle-button")) {
+        body.classList.add("wc-budget-lines-card");
+      }
+      body.querySelectorAll(".wc-fy-column-toggle-checkbox").forEach((checkbox) => {
+        checkbox.removeAttribute("data-wc-prior-years-bound");
+      });
+      body.querySelectorAll(".wc-fy-column-toggle-button").forEach((button) => {
+        button.removeAttribute("data-wc-prior-years-bound");
+      });
+      bindPriorYearsToggle(body);
+      applyPriorYearsState(false, body);
+    }
+    activeBudgetDetailToggle = toggle || null;
+    if (toggle) toggle.setAttribute("aria-expanded", "true");
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add("is-open"));
+    document.body.classList.add("wc-budget-detail-open");
+    lockBudgetDetailBackgroundScroll();
+    const closeButton = modal.querySelector(".wc-budget-detail-close");
+    if (closeButton) closeButton.focus({ preventScroll: true });
+    return body;
+  }
 
   let requestedBudgetLinesOpened = false;
 
@@ -10853,27 +10891,6 @@
       return;
     }
 
-    if (normalizeDeptName(deptName) === "libraries") {
-      const introParagraphs = paragraphs.slice(0, 2);
-      const remainingParagraphs = paragraphs.slice(2);
-      container.innerHTML =
-        '<section class="statement-of-function content-section libraries-statement-media">' +
-        "<h2>Statement of Function</h2>" +
-        '<div class="libraries-statement-intro">' +
-        introParagraphs.map((p) => "<p>" + formatNarrativeText(p) + "</p>").join("") +
-        "</div>" +
-        '<div class="libraries-statement-lower">' +
-        '<div class="libraries-statement-rest">' +
-        remainingParagraphs.map((p) => "<p>" + formatNarrativeText(p) + "</p>").join("") +
-        "</div>" +
-        '<div class="libraries-video-frame">' +
-        '<iframe src="https://www.youtube.com/embed/gJ7QNzqj8ks?autoplay=1&amp;mute=1&amp;controls=1&amp;modestbranding=1&amp;rel=0&amp;playsinline=1" title="Libraries budget video" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
-        "</div>" +
-        "</div>" +
-        "</section>";
-      return;
-    }
-
     container.innerHTML =
       '<section class="statement-of-function content-section">' +
       "<h2>Statement of Function</h2>" +
@@ -13247,6 +13264,36 @@
     return { detailId, detailHtml };
   }
 
+  // Single-department slice of the Summary of Personnel Cost popup, for
+  // callers (department-services.js's "View Personnel Cost Sheet") that
+  // want just this one department's cost-by-position breakdown rather
+  // than the whole countywide table. Reuses the exact same computation
+  // (buildPersonnelPositionCostsByDept, buildStaffingPositionListByDept,
+  // personnelCostDeptDetailHtml) the Summary of Personnel Cost page
+  // itself renders from, so the two never disagree. Matches by
+  // normalizeDeptName rather than an exact string, since the display
+  // names these Maps are keyed by (Code Compliance's Street/Beach merge,
+  // Tourism's fund-suffixed labels, etc.) don't always equal the plain
+  // department-page name passed in. Returns null when there's no
+  // Personnel Services cost row at all for this department (rather than
+  // an empty/placeholder sheet).
+  function getDepartmentPersonnelCostDetail(deptName) {
+    const norm = normalizeDeptName(deptName);
+    const costRow = buildPersonnelCostRows().find((r) => normalizeDeptName(r.Dept_Name) === norm);
+    if (!costRow) return null;
+    const targetName = costRow.Dept_Name;
+    const positionsByDept = buildPersonnelPositionCostsByDept();
+    let positions;
+    positionsByDept.forEach((value, key) => {
+      if (normalizeDeptName(key) === norm) positions = value;
+    });
+    const staffingPositions = buildStaffingPositionListByDept().get(personnelCostFteMatchKey(targetName));
+    const { detailHtml } = personnelCostDeptDetailHtml(targetName, positions, staffingPositions);
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = detailHtml;
+    return wrapper.firstElementChild ? wrapper.firstElementChild.innerHTML : "";
+  }
+
   function renderPersonnelCostSummary(container) {
     if (!container) return;
     const rows = buildPersonnelCostRows();
@@ -13842,6 +13889,9 @@
     renderFinancialForecast,
     auditDepartmentExpenseRevenueParity,
     auditPersonnelCostPositionParity,
+    openBudgetDetailPanel,
+    closeBudgetDetailModal,
+    getDepartmentPersonnelCostDetail,
     // Exported so the staffing-by-function view on the Summary of Personnel
     // page classifies departments through exactly the same logic -- including
     // the department-name overrides and fund fallbacks -- that the

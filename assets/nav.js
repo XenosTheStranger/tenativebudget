@@ -2636,6 +2636,7 @@
 
     var pageEyebrow = document.querySelector('.page-eyebrow');
     var isBoardDepartmentPage = pageEyebrow && pageEyebrow.textContent.trim().toLowerCase() === 'departments';
+    var isIndependentOfficePage = pageEyebrow && ['constitutional officers','autonomous entities'].indexOf(pageEyebrow.textContent.trim().toLowerCase()) !== -1;
     var usesSharedDepartmentProfile = isBoardDepartmentPage && !document.querySelector('.wc-omb-questions');
     if(usesSharedDepartmentProfile){
       document.body.classList.add('wc-board-department-loading');
@@ -2694,6 +2695,9 @@
         orderedQuestions.forEach(function(question){ questionGroup.appendChild(question); });
       }
       loadWcScriptOnce('wc-department-services-script',wcBudgetAssetBaseUrl+'department-services.js?v=20260726-department-profiles');
+    }
+    if(isIndependentOfficePage){
+      loadWcScriptOnce('wc-department-services-script',wcBudgetAssetBaseUrl+'department-services.js?v=20260727-independent-snapshots');
     }
   }
   function repairWcBudgetNavAfterOpenGovNavigation(){

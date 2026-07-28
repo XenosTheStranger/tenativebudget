@@ -136,7 +136,6 @@ var PRINT_CSS = `
 
   .extension-statement-media,
   .libraries-statement-media,
-  .libraries-statement-lower,
   .mosquito-statement-media,
   .eagle-springs-statement-media,
   .eagle-springs-grill-statement-media,
@@ -178,8 +177,6 @@ var PRINT_CSS = `
   .statement-of-function-style-heading + p,
   .tourism-admin-overview p,
   .tourism-admin-section p,
-  .libraries-statement-intro p,
-  .libraries-statement-rest p,
   .content-section p{
     text-align:justify !important;
   }
