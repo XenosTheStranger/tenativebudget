@@ -2442,6 +2442,10 @@
     if(!document.body){
       return;
     }
+    if(document.body.classList.contains("story-page")){
+      document.querySelectorAll('footer[role="contentinfo"]').forEach(function(footer){ footer.remove(); });
+      return;
+    }
     function moveFooterToPageEnd(footer){
       if(!footer){
         return;

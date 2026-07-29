@@ -1899,11 +1899,10 @@
 
   /* Simple homepage front door */
   .brief-page{display:none!important}
-  .wc-start-page{position:relative;display:grid;min-height:100svh;overflow:hidden;background:#003f28 url("assets/images/page-images/homepage-hero.jpg") center/cover no-repeat;color:#fff;isolation:isolate}
-  .wc-start-video{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;filter:brightness(1) saturate(1);pointer-events:none;transition:opacity 1.25s ease-in-out,filter 1.8s ease-in-out}
-  .wc-start-video.is-loop-reset{opacity:0}
-  .wc-start-page::before{content:"";position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(9,20,32,.72) 0%,rgba(9,20,32,.34) 48%,rgba(9,20,32,.12) 100%),linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,63,40,.24))}
-  .wc-start-page::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:190px;background:linear-gradient(180deg,transparent,rgba(0,63,40,.82))}
+  .wc-start-page{position:relative;display:grid;min-height:100svh;overflow:hidden;background:#003f28;color:#fff;isolation:isolate}
+  .wc-start-video{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;filter:brightness(1) saturate(1);pointer-events:none}
+  .wc-start-page::before{content:"";position:absolute;z-index:-2;inset:0;background:linear-gradient(90deg,rgba(8,14,22,.62) 0%,rgba(8,14,22,.24) 46%,rgba(8,14,22,.04) 100%)}
+  .wc-start-page::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:150px;background:linear-gradient(180deg,transparent,rgba(7,12,18,.3))}
   .wc-document-texture{position:absolute;z-index:0;inset:0;opacity:0;background:linear-gradient(rgba(4,17,30,.8),rgba(4,17,30,.9)),repeating-linear-gradient(0deg,transparent 0 38px,rgba(209,190,120,.08) 38px 39px),repeating-linear-gradient(90deg,transparent 0 38px,rgba(209,190,120,.07) 38px 39px);pointer-events:none;transition:opacity 1.5s ease}
   .wc-start-header{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;align-items:center;padding:22px clamp(22px,4vw,64px) 14px}
   .wc-start-header .logo-container{min-width:284px}.wc-start-header .wc-split-brand{height:52px!important}.wc-start-header .wc-split-brand-top{color:#fff!important;font-size:24px!important}.wc-start-header .wc-split-brand-bottom{color:rgba(255,255,255,.82)!important}.wc-start-header .wc-split-brand-seal,.wc-start-header .wc-seal-mark{width:46px!important;height:46px!important;flex-basis:46px!important;background-size:42px 42px!important}
@@ -1924,59 +1923,307 @@
   .wc-brief-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.wc-brief-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 17px;border:1px solid rgba(209,190,120,.48);border-radius:999px;color:#fff;font:800 11px/1 Arial,sans-serif;letter-spacing:.04em;text-decoration:none;transition:background .2s,color .2s,border-color .2s}.wc-brief-actions a:first-child{border-color:var(--wc-gold);background:var(--wc-gold);color:#162033}.wc-brief-actions a:hover,.wc-brief-actions a:focus-visible{border-color:var(--wc-gold-2);background:var(--wc-gold-2);color:#162033}
   @media(prefers-reduced-motion:reduce){.wc-start-video{display:none}.wc-start-page *{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   @media(max-width:700px){.wc-start-page{background-position:58% center}.wc-start-video{object-position:58% center}.wc-start-header{padding:18px}.wc-start-header .logo-container{min-width:0}.wc-start-header .wc-split-brand-top{font-size:20px!important}.wc-start-content{align-self:end;width:calc(100% - 36px);margin:0 18px 58px;padding:0}.wc-start-title{font-size:52px;line-height:1}.wc-start-action{margin-top:26px}.wc-brief-frame{width:calc(100% - 30px);min-height:calc(100svh - 118px);padding:38px 22px 24px}.wc-brief-stage-wrap{min-height:410px}.wc-brief-stage h2{font-size:34px}.wc-brief-stage p{margin-top:14px;font-size:13px}.wc-brief-facts{margin-top:18px}.wc-brief-fact{padding:12px 8px 12px 0}.wc-brief-fact+.wc-brief-fact{padding-left:8px}.wc-brief-fact strong{font-size:21px}.wc-brief-fact span{font-size:7px}.wc-brief-facts--five{display:grid;grid-template-columns:1fr;margin-top:16px}.wc-brief-facts--five .wc-brief-fact,.wc-brief-facts--five .wc-brief-fact+.wc-brief-fact{padding:8px 0}.wc-brief-facts--five .wc-brief-fact strong{font-size:18px}.wc-brief-facts--five .wc-brief-fact span{font-size:10px}.wc-value-flow{gap:5px;margin-top:16px}.wc-flow-node{font-size:7px;letter-spacing:.05em}.wc-brief-actions{display:grid;grid-template-columns:1fr;margin-top:18px}.wc-brief-actions a{min-height:40px}}
+
+  /* The Budget Story — homepage chapter framework */
+  .wc-resp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:34px}
+  .wc-resp-card{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:28px;border:1px solid var(--wc-line);border-radius:var(--wc-radius);background:#fff;color:var(--wc-ink);font:inherit;text-align:left;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease}
+  .wc-resp-card:hover{transform:translateY(-5px);box-shadow:var(--wc-shadow)}
+  .wc-resp-card:active{transform:translateY(-2px) scale(.99)}
+  .wc-resp-card.is-active{border-color:var(--wc-green);background:var(--wc-soft);box-shadow:var(--wc-shadow)}
+  .wc-resp-icon{display:grid;place-items:center;width:50px;height:50px;margin-bottom:16px;border-radius:50%;background:var(--wc-soft);color:var(--wc-green);transition:background .25s ease,color .25s ease}
+  .wc-resp-icon svg{width:24px;height:24px}
+  .wc-resp-card.is-active .wc-resp-icon{background:var(--wc-green);color:#fff}
+  .wc-resp-card h3{margin:0 0 8px;color:var(--wc-ink);font:500 19px/1.15 Georgia,"Times New Roman",serif}
+  .wc-resp-card p{margin:0;color:var(--wc-muted);font-size:13.5px;line-height:1.6}
+
+  .wc-chapter-next{display:flex;align-items:center;gap:16px;width:max-content;max-width:100%;margin:56px auto 0;padding:18px 26px;border:1px solid var(--wc-line);border-radius:999px;background:#fff;color:var(--wc-ink);text-decoration:none;box-shadow:var(--wc-shadow);transition:transform .25s ease,box-shadow .25s ease}
+  .wc-chapter-next:hover{transform:translateY(-3px)}
+  .wc-chapter-next svg{flex:0 0 auto;width:20px;height:20px;color:var(--wc-gold);transform:rotate(-90deg)}
+  .wc-chapter-next-label{display:block;color:var(--wc-green);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .wc-chapter-next-title{display:block;margin-top:3px;font:500 17px/1.2 Georgia,"Times New Roman",serif}
+  .wc-chapter-preview--dark .wc-chapter-next{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24);color:#fff;box-shadow:none}
+  .wc-chapter-preview--dark .wc-chapter-next-label{color:var(--wc-gold-2)}
+  .wc-chapter-next--final svg{transform:none}
+
+  .wc-chapter-preview{padding:96px clamp(24px,5vw,64px)}
+  .wc-chapter-preview--dark{background:var(--wc-green-3);color:#fff}
+  .wc-chapter-preview--light{background:var(--wc-soft);color:var(--wc-ink)}
+  .wc-chapter-preview-inner{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;align-items:center}
+  .wc-chapter-preview-visual{position:relative;display:grid;place-items:center;height:220px}
+  .wc-chapter-preview-number{position:absolute;color:currentColor;opacity:.08;font:500 168px/1 Georgia,"Times New Roman",serif}
+  .wc-chapter-preview-visual svg{position:relative;width:64px;height:64px}
+  .wc-chapter-preview--dark .wc-chapter-preview-visual{color:var(--wc-gold-2)}
+  .wc-chapter-preview--light .wc-chapter-preview-visual{color:var(--wc-green)}
+  .wc-chapter-preview-copy h2{margin:14px 0 0;font:500 clamp(30px,3.4vw,44px)/1.12 Georgia,"Times New Roman",serif}
+  .wc-chapter-preview-copy p{max-width:640px;margin:18px 0 0;font-size:16px;line-height:1.7}
+  .wc-chapter-preview--dark .wc-chapter-preview-copy p{color:rgba(255,255,255,.78)}
+  .wc-chapter-preview--light .wc-chapter-preview-copy p{color:var(--wc-muted)}
+  .wc-chapter-preview--dark .wc-chapter-next{margin-left:0}
+  .wc-chapter-preview--light .wc-chapter-next{margin-left:0;background:#fff}
+  .wc-chapter-preview-inner .wc-chapter-next{margin-top:32px}
+  .wc-chapter-preview--final{padding-bottom:112px}
+
+  @media(max-width:900px){.wc-resp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wc-chapter-preview-inner{grid-template-columns:1fr;text-align:center}.wc-chapter-preview-visual{height:150px}.wc-chapter-preview-number{font-size:110px}.wc-chapter-preview-inner .wc-chapter-next{margin-left:auto;margin-right:auto}}
+  @media(max-width:640px){.wc-resp-grid{grid-template-columns:1fr}.wc-chapter-preview{padding:64px 20px}.wc-chapter-next{flex-wrap:wrap;justify-content:center;text-align:center;padding:16px 20px}}
+  @media(prefers-reduced-motion:reduce){.wc-reveal{transition:none}}
+
+  /* The Budget Story — one chapter per screen (desktop) */
+  @media(min-width:900px){
+    html:has(.wc-story-slide){scroll-snap-type:y mandatory}
+    .wc-story-slide,.wc-chapter-preview{scroll-snap-align:start;scroll-snap-stop:always}
+    #chapter-1.wc-story-slide{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:76px;padding-bottom:76px;overflow-y:auto}
+    .wc-chapter-preview{min-height:100svh;display:flex;align-items:center;overflow-y:auto}
+    .wc-chapter-preview .wc-chapter-preview-inner{width:100%}
+  }
+  .wc-story-dots{position:fixed;top:50%;right:22px;z-index:70;display:none;flex-direction:column;align-items:center;gap:14px;transform:translateY(-50%)}
+  @media(min-width:900px){.wc-story-dots{display:flex}}
+  .wc-story-dot{width:10px;height:10px;padding:0;border:1px solid rgba(23,32,51,.3);border-radius:50%;background:transparent;cursor:pointer;transition:background .25s ease,border-color .25s ease,transform .25s ease}
+  .wc-story-dot:hover{border-color:var(--wc-green)}
+  .wc-story-dot.is-active{background:var(--wc-green);border-color:var(--wc-green);transform:scale(1.3)}
+  body.wc-story-on-dark .wc-story-dot{border-color:rgba(255,255,255,.5)}
+  body.wc-story-on-dark .wc-story-dot.is-active{background:var(--wc-gold);border-color:var(--wc-gold)}
+  @media(prefers-reduced-motion:reduce){
+    html:has(.wc-story-slide){scroll-snap-type:none}
+  }
 </style>
+<link rel="stylesheet" href="assets/budget-story.css?v=20260729">
 </head>
-<body>
+<body class="wc-story-landing">
 <a class="wc-skip-link" href="#main-content">Skip to main content</a>
-<main class="wc-start-page" id="main-content">
-  <video class="wc-start-video" autoplay muted playsinline preload="metadata" poster="assets/images/page-images/homepage-hero.jpg" aria-hidden="true">
+<main class="wc-start-page wc-story-slide" id="main-content">
+  <video class="wc-start-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
     <source src="assets/images/page-images/grok-video-a964bba7-2bee-4db9-bce8-a66f5a09a306.mp4" type="video/mp4">
   </video>
   <div class="wc-document-texture" aria-hidden="true"></div>
-  <nav id="nav-menu" class="nav-menu wc-story-nav wc-start-header">
+  <header class="wc-story-nav wc-start-header wc-logo-only" aria-label="Walton County">
     <div class="logo-container"></div>
-    <button class="wc-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="wc-top-links">
-      <a href="pages/our-county.html">Our County</a>
-      <a href="pages/budget-overview.html">Budget Overview</a>
-      <a href="pages/constitutional-officers.html">Officers &amp; Agencies</a>
-      <a href="pages/departments.html">Departments</a>
-      <a href="pages/capital-projects.html">Capital Projects</a>
-      <button class="wc-search-focus" type="button" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 6.15 6.15a7.5 7.5 0 0 0 10.5 10.5Z"></path>
-        </svg>
+  </header>
+  <div class="wc-start-content">
+    <section class="wc-opening-copy" aria-labelledby="budget-story-title">
+      <span class="wc-kicker">Understanding the Budget</span>
+      <h1 class="wc-start-title" id="budget-story-title">Fiscal Year 2027 Tentative Budget</h1>
+      <p class="wc-start-copy">The county budget can feel like a wall of numbers. This experience helps you understand how county government works&mdash;one question at a time.</p>
+      <button class="wc-home-start" type="button" onclick="document.getElementById('homepageQuestionsDialog').showModal()">Start Here</button>
+    </section>
+
+    <dialog class="wc-story-journey wc-home-question-dialog" id="homepageQuestionsDialog" aria-labelledby="story-journey-title">
+      <header><div><span>Understanding the Budget</span><h2 id="story-journey-title">What would you like to understand?</h2></div><form method="dialog"><button type="submit" aria-label="Close question chooser">&times;</button></form></header>
+      <ol class="wc-journey-list">
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-1.html"><span class="wc-journey-node"></span><div><strong>What does the County do for me?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-2.html"><span class="wc-journey-node"></span><div><strong>Why does the County need a budget?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-3.html"><span class="wc-journey-node"></span><div><strong>Where does the money come from?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-4.html"><span class="wc-journey-node"></span><div><strong>How is my money used?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-5.html"><span class="wc-journey-node"></span><div><strong>How are budget decisions made?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-6.html"><span class="wc-journey-node"></span><div><strong>Why does the budget change?</strong></div></a></li>
+        <li><a class="wc-journey-link" href="pages/budget-story-chapter-7.html"><span class="wc-journey-node"></span><div><strong>How can I explore and have a voice?</strong></div></a></li>
+      </ol>
+    </dialog>
+  </div>
+</main>
+
+<section class="wc-section" id="chapter-1" aria-labelledby="chapter-1-heading">
+  <div class="wc-home-shell">
+    <div class="wc-section-heading">
+      <div>
+        <span>Chapter 1</span>
+        <h2 id="chapter-1-heading">What does the county do for me?</h2>
+      </div>
+      <p>Long before anyone talks about budgets or taxes, the county is already part of your day &mdash; in the road you drove in on, the deputy patrolling your street, and the park down the block.</p>
+    </div>
+    <div class="wc-resp-grid">
+      <button type="button" class="wc-resp-card wc-reveal" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24h24M4 24c2-9 5-16 12-16s10 7 12 16M12 24c1-6 2-10 4-10s3 4 4 10"></path></svg></span>
+        <h3>Safe Roads</h3>
+        <p>The roads you drive to work, school, and the beach every day are built, paved, and kept in repair by the county.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.05s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v4M8 8l2.5 2.5M24 8l-2.5 2.5M6 20a10 10 0 0 1 20 0z"></path><path d="M4 20h24M9 25h14"></path></svg></span>
+        <h3>Emergency Response</h3>
+        <p>When you call 911, sheriff&rsquo;s deputies, EMS, and fire rescue are ready to respond &mdash; day or night.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.1s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 8 17h5l-6 11h9m4-24 8 13h-5l6 11h-9"></path><path d="M16 21v7"></path></svg></span>
+        <h3>Parks</h3>
+        <p>The county maintains the parks, trails, and boat ramps where your family spends the weekend outdoors.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.15s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h11a3 3 0 0 1 3 3v18a3 3 0 0 0-3-3H6zM26 6H15a3 3 0 0 0-3 3v18a3 3 0 0 1 3-3h11z"></path></svg></span>
+        <h3>Libraries</h3>
+        <p>From storytime to free WiFi and job resources, the library is there for every stage of life.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.2s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 27V13l11-8 11 8v14"></path><path d="M11 27V17h10v10M5 21h6M21 21h6"></path></svg></span>
+        <h3>Planning &amp; Development</h3>
+        <p>The county reviews permits and development plans so your neighborhood grows safely and sensibly.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.25s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 6 8v8c0 7 4.5 11 10 12 5.5-1 10-5 10-12V8z"></path><path d="m12 16 3 3 6-6"></path></svg></span>
+        <h3>Public Safety</h3>
+        <p>Beyond patrol, the county coordinates courts, corrections, and code enforcement to keep the community safe.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.3s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4c5 6 8 10.5 8 14a8 8 0 0 1-16 0c0-3.5 3-8 8-14z"></path></svg></span>
+        <h3>Environmental Protection</h3>
+        <p>Clean beaches, healthy waterways, and mosquito control all depend on county environmental programs.</p>
+      </button>
+      <button type="button" class="wc-resp-card wc-reveal" style="transition-delay:.35s" aria-pressed="false">
+        <span class="wc-resp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27s-10-6.2-10-14a6 6 0 0 1 10-4.5A6 6 0 0 1 26 13c0 7.8-10 14-10 14Z"></path></svg></span>
+        <h3>Community Services</h3>
+        <p>Programs for veterans, seniors, and families in need are supported through county community services.</p>
       </button>
     </div>
-  </nav>
-  <div class="wc-start-content">
-    <h1 class="wc-start-title"><span>Fiscal Year 2027</span><span>Tentative Budget</span></h1>
-    <p class="wc-start-copy">Prepared for today. Planning for tomorrow.</p>
-    <button class="wc-start-action" type="button" aria-expanded="false" aria-controls="budget-entry-contents">Enter the Budget</button>
+    <a class="wc-chapter-next wc-reveal" href="#chapter-2">
+      <span class="wc-chapter-next-label">Coming Next</span>
+      <span class="wc-chapter-next-title">Why does the county need a budget?</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+    </a>
   </div>
-  <section class="wc-brief-frame" id="budget-entry-contents" aria-hidden="true" aria-label="Budget in Brief" tabindex="-1" inert>
-    <span class="wc-frame-edge wc-frame-edge--top" aria-hidden="true"></span><span class="wc-frame-edge wc-frame-edge--right" aria-hidden="true"></span><span class="wc-frame-edge wc-frame-edge--bottom" aria-hidden="true"></span><span class="wc-frame-edge wc-frame-edge--left" aria-hidden="true"></span>
-    <div class="wc-brief-content">
-      <span class="wc-brief-kicker">Budget in Brief · The public-value story</span>
-      <div class="wc-brief-stage-wrap" aria-live="polite">
-        <article class="wc-brief-stage is-active" data-brief-stage="0"><h2 id="budget-entry-title" tabindex="-1"><span data-brief-plan-total>$—</span> planned for public value.</h2><p>The FY 2027 community budget view excludes the internal Self-Insurance Fund and removes transfers between County funds so the same dollars are not presented twice.</p></article>
-        <article class="wc-brief-stage" data-brief-stage="1"><h2>A public plan scaled to Walton County.</h2><div class="wc-brief-facts"><div class="wc-brief-fact"><strong data-brief-population>75,305</strong><span>Population</span></div><div class="wc-brief-fact"><strong data-brief-fte>—</strong><span>FY 2027 funded FTE</span></div><div class="wc-brief-fact"><strong>36.8%</strong><span>Population growth since 2010</span></div></div></article>
-        <article class="wc-brief-stage" data-brief-stage="2"><h2>The five revenues residents should know.</h2><div class="wc-brief-facts wc-brief-facts--five"><div class="wc-brief-fact"><strong data-brief-revenue="property">$—</strong><span>Property Taxes</span></div><div class="wc-brief-fact"><strong data-brief-revenue="tdt">$—</strong><span>Tourist Development Tax</span></div><div class="wc-brief-fact"><strong data-brief-revenue="surtax">$—</strong><span>Local Discretionary Sales Surtax</span></div><div class="wc-brief-fact"><strong data-brief-revenue="halfcent">$—</strong><span>Local Government Half-Cent Sales Tax</span></div><div class="wc-brief-fact"><strong data-brief-revenue="other">$—</strong><span>All Other Revenues</span></div></div></article>
-        <article class="wc-brief-stage" data-brief-stage="3"><h2>The five investments that carry the plan.</h2><div class="wc-brief-facts wc-brief-facts--five"><div class="wc-brief-fact"><strong data-brief-fund="sheriff">$—</strong><span>Sheriff Fund</span></div><div class="wc-brief-fact"><strong data-brief-fund="tourism">$—</strong><span>Tourist Development Fund</span></div><div class="wc-brief-fact"><strong data-brief-fund="transportation">$—</strong><span>Transportation Fund</span></div><div class="wc-brief-fact"><strong data-brief-fund="capital">$—</strong><span>Capital Projects Fund</span></div><div class="wc-brief-fact"><strong data-brief-fund="general">$—</strong><span>General Fund</span></div></div></article>
-        <article class="wc-brief-stage" data-brief-stage="4"><h2>Investment becomes visible work.</h2><div class="wc-brief-facts"><div class="wc-brief-fact"><strong data-brief-expense-value="0">$—</strong><span data-brief-expense-label="0">Investment category</span></div><div class="wc-brief-fact"><strong data-brief-capital-funding>$—</strong><span>County-funded FY 2027 capital work</span></div><div class="wc-brief-fact"><strong data-brief-capital-count>—</strong><span>County-funded projects in FY 2027</span></div></div></article>
-        <article class="wc-brief-stage wc-brief-stage--final" data-brief-stage="5"><h2>This is how Walton County turns plans into public value.</h2><p>Begin with the essential story, or open the complete public record.</p><nav class="wc-brief-actions" aria-label="Continue exploring the budget"><a href="pages/budget-overview.html">Start with the Overview</a><a href="pages/table-of-contents.html">Open Full Budget</a></nav></article>
-      </div>
-      <div class="wc-value-flow" aria-label="Public value sequence">
-        <button class="wc-flow-node" type="button" data-brief-target="1">Community</button>
-        <button class="wc-flow-node" type="button" data-brief-target="2">Revenue</button>
-        <button class="wc-flow-node" type="button" data-brief-target="3">Investment</button>
-        <button class="wc-flow-node" type="button" data-brief-target="4">Results</button>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--dark" id="chapter-2" aria-labelledby="chapter-2-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">02</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h13l3 3v21H8z"></path><path d="M16 12v9M12 16.5h8"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 2 &middot; Preview</span>
+      <h2 id="chapter-2-heading">Why does the county need a budget?</h2>
+      <p>Every service in Chapter 1 takes people, equipment, buildings, infrastructure, and long-term planning to deliver. The budget is simply the county&rsquo;s financial plan for making all of that possible.</p>
+      <a class="wc-chapter-next" href="#chapter-3">
+        <span class="wc-chapter-next-label">Coming Next</span>
+        <span class="wc-chapter-next-title">Where does the money come from?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--light" id="chapter-3" aria-labelledby="chapter-3-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">03</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="4"></ellipse><path d="M4 9v14c0 2.2 3.6 4 8 4s8-1.8 8-4V9"></path><path d="M4 15.5c0 2.2 3.6 4 8 4s8-1.8 8-4"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 3 &middot; Preview</span>
+      <h2 id="chapter-3-heading">Where does the money come from?</h2>
+      <p>County government is funded through many different sources &mdash; not just property taxes. Some revenue is legally restricted to a single purpose, while other revenue is more flexible and can support a wider range of services.</p>
+      <a class="wc-chapter-next" href="#chapter-4">
+        <span class="wc-chapter-next-label">Coming Next</span>
+        <span class="wc-chapter-next-title">How is my money used?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--dark" id="chapter-4" aria-labelledby="chapter-4-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">04</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a8 8 0 0 1 13-6"></path><path d="M17 3v5h-5"></path><path d="M24 20a8 8 0 0 1-13 6"></path><path d="M15 29v-5h5"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 4 &middot; Preview</span>
+      <h2 id="chapter-4-heading">How is my money used?</h2>
+      <p>Revenue becomes public services: the same funding streams from Chapter 3 pay for the deputies, roads, parks, and libraries you rely on every day &mdash; no accounting degree required.</p>
+      <a class="wc-chapter-next" href="#chapter-5">
+        <span class="wc-chapter-next-label">Coming Next</span>
+        <span class="wc-chapter-next-title">How are budget decisions made?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--light" id="chapter-5" aria-labelledby="chapter-5-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">05</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 6l7 7-3 3-7-7z"></path><path d="M14 11l7 7-9 9-7-7z"></path><path d="M5 27h10"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 5 &middot; Preview</span>
+      <h2 id="chapter-5-heading">How are budget decisions made?</h2>
+      <p>The budget is the result of a structured public process &mdash; department requests, staff recommendations, public workshops, and final decisions made by the Board of County Commissioners in the open.</p>
+      <a class="wc-chapter-next" href="#chapter-6">
+        <span class="wc-chapter-next-label">Coming Next</span>
+        <span class="wc-chapter-next-title">Why does the budget change?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--dark" id="chapter-6" aria-labelledby="chapter-6-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">06</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 24h24"></path><path d="M6 20l6-7 5 4 9-11"></path><path d="M20 6h6v6"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 6 &middot; Preview</span>
+      <h2 id="chapter-6-heading">Why does the budget change?</h2>
+      <p>Population growth, inflation, new development, tourism, state legislation, emergencies, grants, and shifting community priorities all shape the budget over time. Budgets evolve because communities evolve.</p>
+      <a class="wc-chapter-next" href="#chapter-7">
+        <span class="wc-chapter-next-label">Coming Next</span>
+        <span class="wc-chapter-next-title">How can I explore the budget and have a voice?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wc-chapter-preview wc-chapter-preview--light wc-chapter-preview--final" id="chapter-7" aria-labelledby="chapter-7-heading">
+  <div class="wc-home-shell wc-chapter-preview-inner wc-reveal">
+    <div class="wc-chapter-preview-visual" aria-hidden="true">
+      <span class="wc-chapter-preview-number">07</span>
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"></circle><path d="M20 12l-3 7-7 3 3-7z"></path></svg>
+    </div>
+    <div class="wc-chapter-preview-copy">
+      <span class="wc-kicker">Chapter 7 &middot; Final Chapter &middot; Preview</span>
+      <h2 id="chapter-7-heading">How can I explore the budget and have a voice?</h2>
+      <p>Understanding the budget is only the beginning. Interactive exploration tools, public meetings, and open budget documents give residents real opportunities to participate &mdash; and to make informed decisions about the community they live in.</p>
+      <a class="wc-chapter-next wc-chapter-next--final" href="pages/table-of-contents.html">
+        <span class="wc-chapter-next-label">Your Story Continues</span>
+        <span class="wc-chapter-next-title">Explore the Full Budget</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="wc-home-footer" role="contentinfo">
+  <div class="wc-home-footer-inner">
+    <div class="wc-footer-search-copy">
+      <h2>Still looking for something?</h2>
+      <p>Search departments, budgets, personnel, funds, publications, and county information.</p>
+    </div>
+    <button class="wc-footer-search-button" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 6.15 6.15a7.5 7.5 0 0 0 10.5 10.5Z"></path>
+      </svg>
+      Search the Budget
+    </button>
+  </div>
+  <nav class="wc-footer-links" aria-label="Footer utility links">
+    <button class="wc-footer-contact-button" type="button">Contact Budget Office</button>
+    <a href="pages/accessibility.html">Accessibility</a>
+    <a href="pages/privacy.html">Privacy</a>
+  </nav>
+  <dialog class="wc-footer-contact-dialog" aria-labelledby="wcHomeFooterContactTitleExplorer" aria-describedby="wcHomeFooterContactNoticeExplorer">
+    <div class="wc-footer-contact-dialog-inner">
+      <h2 id="wcHomeFooterContactTitleExplorer">Contact Budget Office</h2>
+      <p id="wcHomeFooterContactNoticeExplorer">Under Florida law, email addresses are public records. If you do not want your email address released in response to a public records request, do not send electronic mail to this entity. Instead, contact this office by phone or in writing.</p>
+      <div class="wc-footer-contact-actions">
+        <form method="dialog"><button type="submit">Cancel</button></form>
+        <a href="mailto:budget@mywaltonfl.gov">Continue to Email</a>
       </div>
     </div>
-  </section>
-</main>
+  </dialog>
+</footer>
+
 <div class="brief-page">
   <nav id="nav-menu" class="brief-top nav-menu"><div class="logo-container"></div><button class="brief-search wc-search-focus" type="button" aria-label="Search the budget"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>Search</button></nav>
   <div class="brief-layout">
@@ -3267,6 +3514,15 @@
       }).catch(function(){});
     }
 
+    function initResponsibilityCards(){
+      document.querySelectorAll(".wc-resp-card").forEach(function(card){
+        card.addEventListener("click", function(){
+          var active = card.classList.toggle("is-active");
+          card.setAttribute("aria-pressed", String(active));
+        });
+      });
+    }
+
     function initReveal(){
       var items = document.querySelectorAll(".wc-reveal");
       if(!("IntersectionObserver" in window)){
@@ -3339,29 +3595,12 @@
         video.pause();
         return;
       }
-      var resetting = false;
       function setCalmPlayback(){
         video.defaultPlaybackRate = 0.25;
         video.playbackRate = 0.25;
       }
       setCalmPlayback();
       video.addEventListener("loadedmetadata", setCalmPlayback, { once:true });
-      video.addEventListener("timeupdate", function(){
-        if(resetting || !Number.isFinite(video.duration) || video.duration - video.currentTime > 0.42) return;
-        resetting = true;
-        video.classList.add("is-loop-reset");
-        window.setTimeout(function(){
-          video.pause();
-          video.currentTime = 0;
-          setCalmPlayback();
-          var playPromise = video.play();
-          if(playPromise && typeof playPromise.catch === "function") playPromise.catch(function(){});
-          window.setTimeout(function(){
-            video.classList.remove("is-loop-reset");
-            resetting = false;
-          },80);
-        },1250);
-      });
     }
 
     function initBudgetEntry(){
@@ -3435,6 +3674,7 @@
       initCinematicStory();
       initStartVideo();
       initBudgetEntry();
+      initResponsibilityCards();
     });
   })();
 </script>

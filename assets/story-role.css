@@ -1,0 +1,8 @@
+.story-role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:38px}
+.story-role-grid article{min-height:220px;padding:28px;border:1px solid #d3ddd8;border-radius:20px;background:#fff;box-shadow:0 14px 34px rgba(0,63,40,.07)}
+.story-role-grid article>span{display:block;color:#806b20;font-size:11px;font-weight:900;letter-spacing:.12em}
+.story-role-grid h2{margin:34px 0 10px;color:#173d30;font:500 clamp(24px,2.4vw,34px)/1.08 Georgia,"Times New Roman",serif}
+.story-role-grid p{margin:0;color:#607169;font-size:13px;line-height:1.6}
+.story-role-close{max-width:760px;margin:34px 0 0;padding-top:25px;border-top:1px solid #d1be78;color:#176b4c;font:500 clamp(20px,2.3vw,29px)/1.4 Georgia,"Times New Roman",serif}
+@media(max-width:900px){.story-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.story-role-grid{grid-template-columns:1fr}.story-role-grid article{min-height:0}.story-role-grid h2{margin-top:20px}}
