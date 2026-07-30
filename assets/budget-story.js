@@ -4,8 +4,8 @@
     var shell=main&&main.querySelector(".story-shell");
     if(!main||!shell||main.querySelector(".story-question-nav"))return;
     var questions=[
-      ["budget-story-chapter-1.html","What does the County do for me?"],
-      ["budget-story-chapter-2.html","Why does the County need a budget?"],
+      ["budget-story-chapter-1.html","Why does the County need a budget?"],
+      ["budget-story-chapter-2.html","What does the County do for me?"],
       ["budget-story-chapter-3.html","Where does the money come from?"],
       ["budget-story-chapter-4.html","How is my money used?"],
       ["budget-story-chapter-5.html","How are budget decisions made?"],
@@ -16,12 +16,46 @@
     var nav=document.createElement("nav");
     nav.className="story-question-nav";
     nav.setAttribute("aria-label","Budget questions");
-    nav.innerHTML='<div class="story-question-nav-scroll">'+questions.map(function(item,index){var active=current===item[0];return '<a href="'+item[0]+'"'+(active?' aria-current="page"':'')+'><span>'+(index+1)+'</span>'+item[1]+'</a>';}).join("")+'</div>';
+    nav.innerHTML='<div class="story-question-nav-scroll">'+questions.map(function(item){var active=current===item[0];return '<a href="'+item[0]+'"'+(active?' aria-current="page"':'')+'>'+item[1]+'</a>';}).join("")+'</div><a class="story-question-nav-tool" href="revenue-by-department.html">Revenue by Department <span aria-hidden="true">→</span></a>';
     main.insertBefore(nav,shell);
     var active=nav.querySelector('[aria-current="page"]');
     if(active)window.setTimeout(function(){active.scrollIntoView({block:"nearest",inline:"center"});},0);
   }
+  function initStoryPlanPopups(){
+    var kicker=(document.querySelector("h1.story-heading")||{}).textContent||"";
+    document.querySelectorAll(".story-plan-grid").forEach(function(grid){
+      var cards=grid.querySelectorAll(":scope > details.story-plan-card");
+      if(!cards.length)return;
+      var dialog=document.createElement("dialog");
+      dialog.className="story-data-dialog";
+      dialog.innerHTML='<div class="story-data-dialog-inner"><div class="story-data-dialog-heading"><div><span></span><h2></h2></div><button type="button" data-dialog-close aria-label="Close answer">×</button></div><div class="story-question-answer-body"></div></div>';
+      grid.insertAdjacentElement("afterend",dialog);
+      var kickerEl=dialog.querySelector(".story-data-dialog-heading span");
+      var title=dialog.querySelector(".story-data-dialog-heading h2");
+      var body=dialog.querySelector(".story-question-answer-body");
+      kickerEl.textContent=kicker;
+      cards.forEach(function(card){
+        var summary=card.querySelector(":scope > summary");
+        var answer=card.querySelector(":scope > div");
+        if(!summary||!answer)return;
+        var button=document.createElement("button");
+        button.type="button";
+        button.className="story-plan-card";
+        button.innerHTML="<strong>"+summary.innerHTML+"</strong>";
+        button.addEventListener("click",function(){
+          title.innerHTML=summary.innerHTML;
+          body.innerHTML="";
+          body.appendChild(answer.cloneNode(true));
+          dialog.showModal();
+        });
+        card.replaceWith(button);
+      });
+      dialog.querySelector("[data-dialog-close]").addEventListener("click",function(){dialog.close();});
+      dialog.addEventListener("click",function(event){if(event.target===dialog)dialog.close();});
+    });
+  }
   initStoryQuestionNav();
+  initStoryPlanPopups();
   document.querySelectorAll(".story-actions [data-story-prev]").forEach(function(link){
     if(/^←\s*Chapter\s+\d+/i.test(link.textContent.trim()))link.textContent="← Previous";
   });
@@ -94,7 +128,7 @@
     }
     function renderPropertySupport(){
       var mount=supportDialog.querySelector("[data-property-support]");mount.innerHTML='<p class="story-dialog-loading">Loading property-tax support…</p>';
-      loadPropertyData().then(function(data){var totals=new Map();var transfers=[];(data.revenues||[]).forEach(function(row){if(["311000","311001"].indexOf(String(row.Revenue_Code||"").trim())===-1)return;if(String(row.Dept_Code||"").trim().slice(0,3)==="105")return;var name=String(row.Dept_Name||"").trim();var amount=Number(row.FY2027_Proposed)||0;if(name.toLowerCase()==="interfund group transfer out"){if(amount>0)transfers.push(amount);return;}if(name)totals.set(name,(totals.get(name)||0)+amount);});transfers.sort(function(a,b){return b-a;});["Sheriff’s Office","Capital Projects"].forEach(function(name,index){if(transfers[index])totals.set(name,(totals.get(name)||0)+transfers[index]);});var rows=Array.from(totals.entries()).map(function(item){return{name:item[0],amount:item[1]};}).filter(function(item){return item.amount>0;}).sort(function(a,b){return b.amount-a.amount;});var total=rows.reduce(function(sum,item){return sum+item.amount;},0);mount.innerHTML='<div class="story-support-total"><span>County property-tax revenue assigned</span><strong>'+money(total)+'</strong></div><div class="story-support-list">'+rows.map(function(item){var pct=total?item.amount/total*100:0;return '<div><p><strong>'+item.name+'</strong><span>'+money(item.amount)+' · '+pct.toFixed(1)+'%</span></p><i><b style="width:'+Math.max(pct,.4)+'%"></b></i></div>';}).join("")+'</div>';}).catch(function(){mount.innerHTML='<p class="story-dialog-loading">Property-tax support details could not be loaded.</p>';});
+      loadPropertyData().then(function(data){var totals=new Map();var transfers=[];(data.revenues||[]).forEach(function(row){if(["311000","311001"].indexOf(String(row.Revenue_Code||"").trim())===-1)return;var name=String(row.Dept_Name||"").trim();if(name.toLowerCase()==="mosquito control")name="North Walton Mosquito Control District";var amount=Number(row.FY2027_Proposed)||0;if(name.toLowerCase()==="interfund group transfer out"){if(amount>0)transfers.push(amount);return;}if(name)totals.set(name,(totals.get(name)||0)+amount);});transfers.sort(function(a,b){return b-a;});["Sheriff’s Office","Capital Projects"].forEach(function(name,index){if(transfers[index])totals.set(name,(totals.get(name)||0)+transfers[index]);});var rows=Array.from(totals.entries()).map(function(item){return{name:item[0],amount:item[1]};}).filter(function(item){return item.amount>0;}).sort(function(a,b){return b.amount-a.amount;});var total=rows.reduce(function(sum,item){return sum+item.amount;},0);var palette=["#003f28","#2f7055","#4f886f","#6f9f89","#8eb5a4","#d1be78","#b8a25c","#0b6847"];var top=rows.slice(0,5);var rest=rows.slice(5);var restTotal=rest.reduce(function(sum,item){return sum+item.amount;},0);var barItems=top.concat(rest.length?[{name:"All other services",amount:restTotal,isOther:true}]:[]);function cents(item){return total?item.amount/total*100:0;}function segWidth(item){return Math.max(cents(item),1)+"%";}function barHtml(){return barItems.map(function(item,index){var color=item.isOther?"#c9d3cc":palette[index%palette.length];return '<span style="flex-basis:'+segWidth(item)+';background:'+color+'" title="'+item.name+': '+cents(item).toFixed(1)+'¢ of every dollar"></span>';}).join("");}function legendHtml(){return barItems.map(function(item,index){var color=item.isOther?"#c9d3cc":palette[index%palette.length];return '<div style="flex-basis:'+segWidth(item)+'"><i style="background:'+color+'"></i><strong>'+item.name+'</strong><span>'+cents(item).toFixed(1)+'¢</span></div>';}).join("");}function fullListHtml(){return rows.map(function(item,index){var color=palette[index%palette.length];return '<div><i style="background:'+color+'"></i><p><strong>'+item.name+'</strong><span>'+cents(item).toFixed(1)+'¢ of every dollar · '+money(item.amount)+'</span></p></div>';}).join("");}mount.innerHTML='<div class="story-support-total"><span>County property-tax revenue assigned</span><strong>'+money(total)+'</strong></div><div class="story-tax-dollar"><div class="story-tax-dollar-heading"><span class="story-tax-dollar-label">For every dollar of County property tax</span><button type="button" class="story-support-toggle" data-toggle-all>View all '+rows.length+' services <span aria-hidden="true">↓</span></button></div><div class="story-tax-dollar-bar">'+barHtml()+'</div><div class="story-tax-dollar-legend">'+legendHtml()+'</div></div><div class="story-support-list" data-support-rest hidden>'+fullListHtml()+'</div>';var toggle=mount.querySelector("[data-toggle-all]");if(toggle){toggle.addEventListener("click",function(){var restList=mount.querySelector("[data-support-rest]");var expanded=!restList.hidden;restList.hidden=expanded;toggle.innerHTML=expanded?'View all '+rows.length+' services <span aria-hidden="true">↓</span>':'Show top 5 <span aria-hidden="true">↑</span>';});}}).catch(function(){mount.innerHTML='<p class="story-dialog-loading">Property-tax support details could not be loaded.</p>';});
     }
     drawer.querySelector("[data-open-revenue-trend]").addEventListener("click",function(){trendDialog.showModal();renderRevenueTrend();});drawer.querySelector("[data-open-property-support]").addEventListener("click",function(){supportDialog.showModal();renderPropertySupport();});document.querySelectorAll(".story-data-dialog [data-dialog-close]").forEach(function(button){button.addEventListener("click",function(){button.closest("dialog").close();});});document.querySelectorAll(".story-data-dialog").forEach(function(dialog){dialog.addEventListener("click",function(event){if(event.target===dialog)dialog.close();});});
   }

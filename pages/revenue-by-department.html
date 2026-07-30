@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue by Department — Walton County FY 2027 Budget</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav-menu" class="nav-menu">
+  <div class="logo-container"></div>
+</nav>
+
+<div id="layout">
+<main id="content">
+
+<div class="page-eyebrow">Financial Summaries</div>
+<h1 class="page-title">Revenue by Department</h1>
+
+<section class="page-text">
+  <p>Every revenue line in the FY 2027 tentative budget is credited to the department or office responsible for it &mdash; from property taxes credited to the Tax Collector to a building-permit fee credited to the Building Department. This page starts with the total, then lets you drill down to see exactly which office is credited with which dollars.</p>
+</section>
+
+<div class="wc-rbd-total">
+  <span>FY 2027 total revenue budget</span>
+  <strong id="rbdTotal">Loading…</strong>
+  <small>Sum of every budgeted revenue line for FY 2027, excluding transfers between County funds. Select a department below to see its individual revenue lines.</small>
+</div>
+
+<div class="wc-rbd-list" id="rbdList" aria-live="polite">
+  <p class="wc-rbd-loading">Loading revenue by department…</p>
+</div>
+
+</main>
+</div>
+
+<style>
+.wc-rbd-total{margin:28px 0 30px;padding:clamp(24px,4vw,38px);border:1px solid var(--border);border-radius:24px;background:var(--light)}
+.wc-rbd-total>span{display:block;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.wc-rbd-total>strong{display:block;margin:12px 0 10px;color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6vw,72px);line-height:.95}
+.wc-rbd-total>small{display:block;max-width:640px;color:var(--muted);font-size:13px;line-height:1.6}
+.wc-rbd-list{display:flex;flex-direction:column;gap:10px}
+.wc-rbd-loading{color:var(--muted)}
+.wc-rbd-item{border:1px solid var(--border);border-radius:16px;background:#fff;overflow:hidden}
+:root[data-theme="dark"] .wc-rbd-item{background:rgba(14,28,22,.92)}
+.wc-rbd-item-toggle{display:flex;align-items:center;gap:16px;width:100%;padding:16px 20px;border:0;background:transparent;color:var(--text);text-align:left;font:inherit;cursor:pointer}
+.wc-rbd-item-toggle:hover{background:rgba(0,63,40,.04)}
+.wc-rbd-rank{flex:0 0 auto;width:28px;color:var(--muted);font-size:12px;font-weight:800}
+.wc-rbd-name{flex:1 1 auto;min-width:0}
+.wc-rbd-name strong{display:block;color:var(--text);font-size:15px;font-weight:800}
+.wc-rbd-name span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+.wc-rbd-bar{flex:0 0 140px;height:7px;border-radius:99px;background:var(--border);overflow:hidden}
+.wc-rbd-bar>i{display:block;height:100%;border-radius:99px;background:var(--green)}
+.wc-rbd-amount{flex:0 0 auto;min-width:110px;color:var(--text);font-weight:800;font-size:14px;text-align:right}
+.wc-rbd-chev{flex:0 0 auto;color:var(--green);font-size:20px;transition:transform .15s ease}
+.wc-rbd-item.is-open .wc-rbd-chev{transform:rotate(180deg)}
+.wc-rbd-item-body{display:none;padding:0 20px 18px;border-top:1px solid var(--border)}
+.wc-rbd-item.is-open .wc-rbd-item-body{display:block}
+.wc-rbd-line{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--border)}
+.wc-rbd-line:last-child{border-bottom:0}
+.wc-rbd-line strong{display:block;color:var(--text);font-size:13px}
+.wc-rbd-line span{display:block;margin-top:2px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.wc-rbd-line b{flex:0 0 auto;color:var(--text);font-size:13px;font-weight:800}
+@media(max-width:640px){.wc-rbd-item-toggle{flex-wrap:wrap}.wc-rbd-bar{display:none}.wc-rbd-amount{margin-left:auto}}
+</style>
+
+<script src="../assets/search-data.js"></script>
+<script src="../assets/budget-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+(function(){
+  function money(value){
+    return (window.WCBudgetData && WCBudgetData.formatCurrency) ? WCBudgetData.formatCurrency(value) : "$" + Math.round(value || 0).toLocaleString("en-US");
+  }
+  if(!window.WCBudgetData){return;}
+  WCBudgetData.loadBudgetData().then(function(data){
+    var byDept=new Map();
+    (data.revenues||[]).forEach(function(row){
+      var name=String(row.Dept_Name||"").trim();
+      if(!name)return;
+      if(name.toLowerCase()==="interfund group transfer out")return;
+      var amount=Number(row.FY2027_Proposed)||0;
+      if(!byDept.has(name))byDept.set(name,{name:name,total:0,lines:[]});
+      var entry=byDept.get(name);
+      entry.total+=amount;
+      if(amount!==0){
+        entry.lines.push({
+          name:row.Revenue_Name||"Revenue line",
+          type:row.Revenue_Type||"",
+          amount:amount
+        });
+      }
+    });
+    var departments=Array.from(byDept.values()).filter(function(d){return d.total>0;}).sort(function(a,b){return b.total-a.total;});
+    var total=departments.reduce(function(sum,d){return sum+d.total;},0);
+    document.getElementById("rbdTotal").textContent=money(total);
+    var maxTotal=departments.length?departments[0].total:0;
+    var list=document.getElementById("rbdList");
+    if(!departments.length){
+      list.innerHTML='<p class="wc-rbd-loading">Revenue by department could not be loaded.</p>';
+      return;
+    }
+    list.innerHTML=departments.map(function(dept,index){
+      var pct=maxTotal?dept.total/maxTotal*100:0;
+      var lines=dept.lines.slice().sort(function(a,b){return b.amount-a.amount;});
+      return '<div class="wc-rbd-item">'+
+        '<button type="button" class="wc-rbd-item-toggle" data-rbd-toggle>'+
+          '<span class="wc-rbd-rank">'+(index+1)+'</span>'+
+          '<span class="wc-rbd-name"><strong>'+dept.name+'</strong><span>'+lines.length+' revenue line'+(lines.length===1?"":"s")+'</span></span>'+
+          '<span class="wc-rbd-bar"><i style="width:'+Math.max(pct,2)+'%"></i></span>'+
+          '<span class="wc-rbd-amount">'+money(dept.total)+'</span>'+
+          '<span class="wc-rbd-chev" aria-hidden="true">&#9662;</span>'+
+        '</button>'+
+        '<div class="wc-rbd-item-body">'+lines.map(function(line){
+          return '<div class="wc-rbd-line"><div><strong>'+line.name+'</strong>'+(line.type?'<span>'+line.type+'</span>':"")+'</div><b>'+money(line.amount)+'</b></div>';
+        }).join("")+
+        '</div>'+
+      '</div>';
+    }).join("");
+    list.querySelectorAll("[data-rbd-toggle]").forEach(function(button){
+      button.addEventListener("click",function(){
+        button.closest(".wc-rbd-item").classList.toggle("is-open");
+      });
+    });
+  }).catch(function(){
+    document.getElementById("rbdList").innerHTML='<p class="wc-rbd-loading">Revenue by department could not be loaded.</p>';
+    document.getElementById("rbdTotal").textContent="—";
+  });
+})();
+</script>
+</body>
+</html>

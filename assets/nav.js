@@ -2027,7 +2027,8 @@
     { label:"Budget Overview", href:"budget-overview.html" },
     { label:"Officers & Agencies", href:"constitutional-officers.html" },
     { label:"Departments", href:"departments.html" },
-    { label:"Capital Projects", href:"capital-projects.html" }
+    { label:"Capital Projects", href:"capital-projects.html" },
+    { label:"Revenue by Department", href:"revenue-by-department.html" }
   ];
   function ensureWcNavChrome(){
     var nav = document.querySelector("nav#nav-menu.nav-menu");
